@@ -1,0 +1,368 @@
+{
+  "visaTypes": [
+    {
+      "id": "visa-work-e2",
+      "code": "E-2-1",
+      "title": "Foreign Language Instructor (General)",
+      "category": "Work",
+      "description": "For foreign nationals hired as English or other foreign language conversation instructors at private academies (hagwons), elementary/secondary schools, or similar educational institutions.",
+      "requirements": "Bachelor’s degree from an accredited university, usually in an approved native-language country for English instructors; clean national criminal record check; health check (including drug test) after arrival; signed employment contract; valid passport and recent photos; apostilled or legalized degree and police check.",
+      "duration": "Generally 1 year per contract, renewable in 1–2 year increments if employment continues."
+    },
+    {
+      "id": "visa-work-e1",
+      "code": "E-1",
+      "title": "Professor Visa",
+      "category": "Work",
+      "description": "For foreign professors and lecturers engaged in educational or research activities at higher-education institutions such as universities and colleges.",
+      "requirements": "Advanced degree (often master’s or PhD) in a relevant field; employment contract or appointment letter from a Korean university; proof of academic and research experience; valid passport and photos; clean criminal record and necessary notarized/authorized academic documents.",
+      "duration": "Commonly 1–2 years initially, renewable according to employment and contract terms."
+    },
+    {
+      "id": "visa-work-e7",
+      "code": "E-7",
+      "title": "Specially Designated Skilled Professional",
+      "category": "Work",
+      "description": "For foreign professionals in designated specialized occupations such as IT, engineering, research, design, finance, and other skilled roles where Korean employers need foreign expertise.",
+      "requirements": "Relevant bachelor’s degree or higher or equivalent specialized skills; several years of work experience; confirmed job offer and employment contract from a Korean company in an eligible occupation; company registration and tax documents; professional licenses or certificates if required; clean criminal record; valid passport and photos.",
+      "duration": "Usually 1–3 years per grant depending on job and contract, renewable as long as conditions are met."
+    },
+    {
+      "id": "visa-work-c4",
+      "code": "C-4",
+      "title": "Short-Term Employment",
+      "category": "Work",
+      "description": "For short-term paid work such as brief projects, performances, or training that is expected to last only a few months.",
+      "requirements": "Job offer or contract indicating short-term nature of work; proof of qualifications if relevant; valid passport and photos; basic financial proof and return ticket; clean criminal record if requested by the embassy.",
+      "duration": "Generally up to 90 days of stay, sometimes with slight variations by case."
+    },
+    {
+      "id": "visa-work-h1",
+      "code": "H-1",
+      "title": "Working Holiday Visa",
+      "category": "Work",
+      "description": "For young people from partner countries who wish to travel in Korea while undertaking short-term work to supplement travel funds.",
+      "requirements": "Citizenship of a country with a working holiday agreement with Korea; age usually between 18–30 (sometimes 25) depending on the agreement; proof of initial funds and return ticket; travel insurance; clear criminal record; not accompanied by dependents.",
+      "duration": "Up to 1 year, usually non-renewable under the same program."
+    },
+    {
+      "id": "visa-study-d2",
+      "code": "D-2",
+      "title": "Student Visa (Degree Programs)",
+      "category": "Study",
+      "description": "For international students enrolled in regular degree programs such as bachelor’s, master’s, or doctoral courses at accredited Korean universities.",
+      "requirements": "Certificate of admission from a Korean university; proof of sufficient finances (bank statements, scholarship letters, or financial sponsor); valid passport and application form; photos; previous academic transcripts and diplomas; in some cases language proficiency (TOPIK or English tests) according to program requirements.",
+      "duration": "Up to 1–2 years per grant, renewable until completion of the degree as long as enrollment is maintained."
+    },
+    {
+      "id": "visa-study-d4",
+      "code": "D-4-1",
+      "title": "General Trainee (Korean Language Study)",
+      "category": "Study",
+      "description": "For students attending non-degree Korean language courses, usually at university-affiliated language institutes.",
+      "requirements": "Enrollment certificate from an approved language program; proof of finances for tuition and living costs; valid passport and photos; educational background documents if requested; in some cases basic study plan or proof of prior education.",
+      "duration": "Up to 1 year per grant, typically aligned with course length; renewable if the program continues and attendance is satisfactory."
+    },
+    {
+      "id": "visa-study-d10",
+      "code": "D-10-1",
+      "title": "Job-Seeker Visa",
+      "category": "Study / Career",
+      "description": "For qualified foreigners who have completed certain degrees or have professional experience and wish to stay in Korea temporarily to look for a job.",
+      "requirements": "Relevant academic degree or professional background that meets eligibility rules; proof of sufficient savings to live in Korea during job search; resume/CV and sometimes a basic job search plan; valid passport; previous visa history that fits the category (for example, recent graduates from Korean universities).",
+      "duration": "Usually up to 6 months per grant, extendable up to a maximum stay limit when conditions are met."
+    },
+    {
+      "id": "visa-tourist-c3",
+      "code": "C-3-9",
+      "title": "Ordinary Tourist Visa",
+      "category": "Tourism",
+      "description": "For travelers visiting Korea for sightseeing, leisure, or visiting friends and relatives, when a visa is required instead of visa-free entry.",
+      "requirements": "Valid passport; completed visa application; round-trip or onward ticket; accommodation details or invitation letter; proof of sufficient funds; travel itinerary; travel insurance is strongly recommended.",
+      "duration": "Typically up to 90 days per visit; exact stay period is determined by immigration or visa-free agreements."
+    },
+    {
+      "id": "visa-tourist-c3-business",
+      "code": "C-3-4",
+      "title": "Short-Term Business Visitor",
+      "category": "Business Visit",
+      "description": "For short-term business trips such as meetings, negotiations, market research, or training without engaging in long-term employment in Korea.",
+      "requirements": "Invitation letter from Korean company or organization; documents showing business purpose such as meeting schedules or contracts; valid passport; application form and photos; proof of employment and financial status in home country.",
+      "duration": "Usually up to 90 days; multiple-entry options may exist depending on applicant profile and prior visits."
+    },
+    {
+      "id": "visa-family-f1",
+      "code": "F-1",
+      "title": "Visiting or Joining Family",
+      "category": "Family",
+      "description": "For family members who join or visit long-term foreign residents in Korea, typically used by dependents who are not covered by other family visas.",
+      "requirements": "Proof of family relationship with the main visa holder; copy of main holder’s residence card and visa; evidence of housing and financial support; valid passports and photos; sometimes criminal record checks depending on the stay length.",
+      "duration": "Varies by case; often 1–3 years and renewable as long as the main visa holder maintains status."
+    },
+    {
+      "id": "visa-family-f6",
+      "code": "F-6",
+      "title": "Spouse of Korean National",
+      "category": "Family",
+      "description": "For foreign spouses (and in some cases minor children) of Korean citizens who intend to reside in Korea for family life and settlement.",
+      "requirements": "Legal marriage certificate; documents proving a genuine relationship (photos, communication history, cohabitation plans); Korean spouse’s ID, family register, income and housing documents; foreign spouse’s criminal record check; valid passport and photos.",
+      "duration": "Often 1–3 years per grant, renewable; can lead to long-term residence or permanent residency after stable residence and integration."
+    },
+    {
+      "id": "visa-resident-f2",
+      "code": "F-2",
+      "title": "Long-Term Resident (Points-Based or Other Subtypes)",
+      "category": "Residence",
+      "description": "For foreigners who meet specific criteria (such as points-based system, family ties, or continuous stay) and are allowed to live in Korea with more flexibility in work and residence than typical work visas.",
+      "requirements": "Usually requires certain length of previous stay in Korea on eligible visas, stable income and tax records, clean criminal record, Korean language and integration achievements, and sufficient points under the official scoring system for the relevant subtype.",
+      "duration": "Commonly 3 years per grant, renewable; often considered a step toward F-5 permanent residence.",
+      "notes": "Exact subtypes (such as F-2-7) have their own detailed rules and point scales.[web:31][web:34]"
+    },
+    {
+      "id": "visa-resident-f4",
+      "code": "F-4",
+      "title": "Overseas Korean",
+      "category": "Residence",
+      "description": "For ethnic Koreans with foreign citizenship who have certain family or historical ties to Korea, allowing them to live and work with fewer restrictions.",
+      "requirements": "Proof of Korean ancestry or previous Korean nationality (such as family registers or old Korean passports); valid foreign passport; documents showing current residence and status; sometimes additional proof depending on subcategory.",
+      "duration": "Often 2–3 years per grant, renewable as long as eligibility continues."
+    },
+    {
+      "id": "visa-resident-f5",
+      "code": "F-5",
+      "title": "Permanent Resident",
+      "category": "Residence",
+      "description": "For foreigners who meet strict requirements based on long-term stay, investment, professional skills, or family relations, granting permanent residence similar to a long-term green card.",
+      "requirements": "Varies by subtype; usually includes several years of lawful stay on eligible visas, stable income and tax payment history, clean criminal record, proof of integration (such as Korean language), and sometimes significant investment or high-level professional qualifications.",
+      "duration": "Indefinite; no fixed expiry of residence status, though card renewal and residency requirements apply.[web:31]"
+    },
+    {
+      "id": "visa-digital-nomad",
+      "code": "F-1-D",
+      "title": "Digital Nomad / Remote Worker",
+      "category": "Work / Residence",
+      "description": "For foreign remote workers who are employed by or run businesses outside Korea but wish to live in Korea while working online, under a digital nomad framework.",
+      "requirements": "Proof of stable remote income from overseas sources above a minimum threshold; employment contract or company registration outside Korea; valid passport; proof of health insurance; clean criminal record; accommodation details and sometimes minimum previous work experience.",
+      "duration": "Commonly issued for up to 1 year initially, with possible extension to a total of around 2 years when eligibility continues.[web:34]"
+    },
+    {
+      "id": "visa-investor-d8",
+      "code": "D-8",
+      "title": "Corporate / Business Investor",
+      "category": "Business",
+      "description": "For foreign investors, executives, and managers who establish or participate in foreign-invested companies in Korea with a qualifying level of capital investment.",
+      "requirements": "Evidence of investment above the required minimum in a Korean company; business registration certificate; detailed business plan and corporate documents; proof of role as investor or senior manager; valid passport and photos; sometimes background documents on business experience.",
+      "duration": "Typically 2–3 years per grant, renewable while investment and business operations continue."
+    },
+    {
+      "id": "visa-medical",
+      "code": "C-3-3",
+      "title": "Medical Tourist Visa",
+      "category": "Medical",
+      "description": "For foreign patients who visit Korea for medical treatment or cosmetic procedures at approved medical institutions and their accompanying guardians.",
+      "requirements": "Appointment or treatment plan from a registered Korean medical institution; medical documents from home country if required; proof of funds for treatment and stay; valid passport; travel arrangements; sometimes a letter from a medical coordinator or agency.",
+      "duration": "Generally up to 90 days per visit; extensions may be possible in some medical cases.[web:22]"
+    }
+  ],
+  "documents": [
+    {
+      "id": "doc-passport",
+      "name": "Valid Passport",
+      "category": "Identity",
+      "priority": "critical",
+      "description": "Passport valid for at least 6 months beyond the intended stay in Korea, with enough blank pages for visa stickers and entry stamps."
+    },
+    {
+      "id": "doc-birth-cert",
+      "name": "Birth Certificate",
+      "category": "Identity",
+      "priority": "high",
+      "description": "Original or certified copy of birth certificate, often apostilled or legalized when used to prove family relationships for F or some long-term visas."
+    },
+    {
+      "id": "doc-arc",
+      "name": "Alien Registration Card (ARC)",
+      "category": "Identity",
+      "priority": "critical",
+      "description": "Residence card issued in Korea to long-term visa holders; required for re-entry, opening bank accounts, health insurance, and most in-country visa extensions."
+    },
+    {
+      "id": "doc-health",
+      "name": "Health Insurance",
+      "category": "Health",
+      "priority": "high",
+      "description": "Proof of international medical insurance or eligibility to enroll in the Korean National Health Insurance Service after arrival, depending on the visa category and stay length.[web:34]"
+    },
+    {
+      "id": "doc-medical-check",
+      "name": "Medical Examination Certificate",
+      "category": "Health",
+      "priority": "medium",
+      "description": "Medical check certificate (including tests such as tuberculosis and drugs) that some work and long-term visas require after arrival or for renewal."
+    },
+    {
+      "id": "doc-employment",
+      "name": "Employment Contract",
+      "category": "Work",
+      "priority": "critical",
+      "description": "Signed employment contract from a Korean employer stating job role, salary, working hours, and contract duration; used for issuing and renewing most work visas."
+    },
+    {
+      "id": "doc-company-reg",
+      "name": "Company Registration & Tax Documents",
+      "category": "Work",
+      "priority": "high",
+      "description": "Business registration certificate, tax payment documents, and corporate profile from the Korean employer or invested company, often required for E-7 and D-8 applications.[web:24]"
+    },
+    {
+      "id": "doc-education",
+      "name": "Education Certificate",
+      "category": "Education",
+      "priority": "high",
+      "description": "Degree certificates, diplomas, or enrollment letters, frequently notarized and apostilled, used to prove eligibility for study and work visas like D-2, D-4, E-1, E-2, and E-7."
+    },
+    {
+      "id": "doc-transcripts",
+      "name": "Academic Transcripts",
+      "category": "Education",
+      "priority": "medium",
+      "description": "Official transcripts from previous schools or universities, often sealed or directly issued, to support student visa and some skilled work visa applications."
+    },
+    {
+      "id": "doc-police",
+      "name": "Police Clearance",
+      "category": "Legal",
+      "priority": "high",
+      "description": "Recent national-level criminal record check (and sometimes local checks) from the applicant’s country of citizenship and any country of long-term residence, often apostilled or legalized."
+    },
+    {
+      "id": "doc-bank",
+      "name": "Proof of Funds / Bank Statements",
+      "category": "Financial",
+      "priority": "high",
+      "description": "Recent bank statements or financial certificates proving the applicant has sufficient funds for tuition, living expenses, or travel, especially for D-2, D-4, D-10, and C-3 visas."
+    },
+    {
+      "id": "doc-invitation",
+      "name": "Letter of Invitation",
+      "category": "Support",
+      "priority": "medium",
+      "description": "Formal invitation letter from a Korean host (person, company, or institution) explaining the visit purpose, used for many C-3 business, family, or medical visits."
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq-visa-time",
+      "question": "How long does visa processing take?",
+      "answer": "Processing at Korean embassies or consulates typically takes about 5–15 business days after submitting a complete application, but busy seasons or additional document checks can extend this, so applying several weeks in advance is advised.[web:22]"
+    },
+    {
+      "id": "faq-work-hours",
+      "question": "What are the working hour limits on a work visa?",
+      "answer": "Most full-time contracts in Korea are based on around 40 working hours per week, and doing additional part-time work or changing employers usually requires prior permission or a change of workplace approval from immigration.[web:34]"
+    },
+    {
+      "id": "faq-part-time-students",
+      "question": "Can students work part-time on a D-2 or D-4 visa?",
+      "answer": "Eligible D-2 and D-4 students can usually work up to a limited number of hours per week once they obtain permission from immigration, with more hours allowed during official vacation periods and stricter limits during semesters.[web:33]"
+    },
+    {
+      "id": "faq-family-reunification",
+      "question": "Can I bring my family with me?",
+      "answer": "Many long-term visa holders, such as E-1, E-2, E-7, D-8, and D-2, can sponsor eligible family members under F-1 or other dependent visas if they meet income, housing, and documentation requirements set by Korean immigration.[web:34]"
+    },
+    {
+      "id": "faq-extension",
+      "question": "Can I extend my visa?",
+      "answer": "Most long-term visas can be extended at a local immigration office in Korea if the original conditions continue, such as ongoing study, employment, or investment, and you apply for extension before your current period of stay expires.[web:22]"
+    },
+    {
+      "id": "faq-healthcare",
+      "question": "What healthcare coverage do I need?",
+      "answer": "Long-term residents on eligible visas are generally required to enroll in the National Health Insurance scheme after a certain period, while short-term visitors must rely on private travel or international medical insurance during their stay.[web:34]"
+    },
+    {
+      "id": "faq-language",
+      "question": "Do I need to speak Korean?",
+      "answer": "Basic Korean is not mandatory for many visa types, but some residence and permanent residence categories use Korean language and integration scores, and everyday life plus job options improve significantly with better Korean skills.[web:34]"
+    },
+    {
+      "id": "faq-change-status",
+      "question": "Can I change my visa type after arriving in Korea?",
+      "answer": "In many cases you can apply to change status, such as from D-4 to D-2 or from E-2 to E-7, if you meet the new category’s requirements and obtain approval from immigration, but not all combinations are allowed and timing rules apply.[web:33][web:34]"
+    },
+    {
+      "id": "faq-overstay",
+      "question": "What happens if I overstay my visa?",
+      "answer": "Overstaying can lead to fines, possible entry bans, and difficulties with future visa applications, so you must either extend your stay, change status, or depart Korea before your permitted stay ends.[web:34]"
+    }
+  ],
+  "updates": [
+    {
+      "id": "update-1",
+      "title": "COVID-19 Entry Measures Simplified",
+      "content": "Most pandemic-related entry controls, such as mandatory quarantine and broad vaccination proof requirements, have been removed for general travelers, but health questionnaires or testing may still apply in limited situations or for specific countries.",
+      "date": "2026-05-01",
+      "priority": "high"
+    },
+    {
+      "id": "update-2",
+      "title": "Skilled Work Visa Screening Adjusted",
+      "content": "Screening procedures for some skilled work visas like E-7 have been streamlined, with quicker processing for applicants who submit complete documentation and meet higher salary and qualification thresholds, though exact timelines still vary by embassy.",
+      "date": "2026-04-28",
+      "priority": "medium"
+    },
+    {
+      "id": "update-3",
+      "title": "Digital Nomad and Remote Worker Schemes Expanding",
+      "content": "Korea continues to refine digital nomad and remote worker residence options under categories such as F-1-D, focusing on income thresholds, health insurance coverage, and proof of overseas employment to prevent domestic labor market conflicts.[web:34][web:37]",
+      "date": "2026-04-20",
+      "priority": "medium"
+    },
+    {
+      "id": "update-4",
+      "title": "New Academic Year and Language Programs",
+      "content": "Universities and language institutes are opening intakes for upcoming degree and Korean language programs, and accepted students should coordinate D-2 or D-4 visa timelines with school start dates and local immigration rules.[web:36]",
+      "date": "2026-04-15",
+      "priority": "low"
+    }
+  ],
+  "guides": [
+    {
+      "id": "guide-getting-started",
+      "title": "Getting Started with Korea Travel",
+      "slug": "getting-started",
+      "summary": "Core steps to check visa needs, gather documents, and prepare for your first trip to Korea.",
+      "content": "<h2>Before You Leave</h2><p>Confirm whether your nationality allows visa-free entry or requires a C-3 short-term visa, and verify whether pre-registration like K-ETA is needed. Make sure your passport has at least 6 months of validity, keep copies of reservations and insurance, and learn basic Korean phrases and etiquette.</p><h2>Visa Planning</h2><p>Identify the correct visa type for your purpose, such as C-3 for tourism, C-3-4 for business visits, D-2 or D-4 for study, and E-series for work. Check the Korea Visa Portal and your local Korean embassy website for the latest document checklists and apply 4–6 weeks before travel whenever possible.[web:22]</p>",
+      "category": "travel",
+      "publishedAt": "2025-01-01"
+    },
+    {
+      "id": "guide-working-in-korea",
+      "title": "Working in Korea: Visa & Jobs",
+      "slug": "working-in-korea",
+      "summary": "Key work visa options, how hiring usually works, and what to expect from Korean workplaces.",
+      "content": "<h2>Work Visa Types</h2><p>Common work visas include E-2 for foreign language instructors, E-1 for professors, E-7 for skilled professionals, C-4 for short-term employment, H-1 for working holidays, and D-8 for business investors. Each category has specific qualification, salary, and document requirements, so check your employer’s guidance and the official visa portal before applying.[web:22][web:34]</p><h2>Job Market</h2><p>Seoul, Incheon, and Busan are major hubs for teaching, IT, engineering, and finance, while regional cities recruit for schools, factories, and research institutes. Jobs are found via Korean job boards, recruiting agencies, university postings, and global platforms, and most employers expect clear resumes, relevant certificates, and openness to Korean work culture and hierarchy.[web:24]</p>",
+      "category": "work",
+      "publishedAt": "2025-01-02"
+    },
+    {
+      "id": "guide-student-life",
+      "title": "Student Life in Korea",
+      "slug": "student-life",
+      "summary": "What D-2 and D-4 students should know about academics, part-time work, and living costs.",
+      "content": "<h2>University Life</h2><p>Korean universities offer strong programs in science, engineering, business, and arts, with many graduate programs taught partly or fully in English. International offices help students with course registration, alien registration, health insurance, and clubs, and language institutes support D-4 students focusing on Korean proficiency.[web:33][web:36]</p><h2>Costs</h2><p>Tuition depends on program and institution, with public universities often cheaper than private ones, and scholarships or government programs sometimes available for foreign students. Living costs are moderate compared to some major global cities, and students can save by using dormitories, public transport, student cafeterias, and shared housing around campuses.[web:34]</p>",
+      "category": "study",
+      "publishedAt": "2025-01-03"
+    },
+    {
+      "id": "guide-health-wellness",
+      "title": "Healthcare and Wellness in Korea",
+      "slug": "health-wellness",
+      "summary": "How foreign residents access healthcare and maintain well-being in Korea.",
+      "content": "<h2>Healthcare System</h2><p>Korea has a modern healthcare system with both public and private providers, and long-term residents are usually enrolled in the National Health Insurance Service after registering their address and visa. Foreigners can visit local clinics and hospitals or international centers, and out-of-pocket costs are often lower than in many Western countries when insured.[web:34]</p><h2>Wellness</h2><p>Many residents stay active by hiking mountain trails, walking along riverside parks, and using public sports facilities and gyms. Traditional jjimjilbang bathhouses, yoga and meditation studios, and community classes also offer affordable ways to relax and connect with local culture.[web:34]</p>",
+      "category": "wellness",
+      "publishedAt": "2025-01-04"
+    }
+  ]
+}
