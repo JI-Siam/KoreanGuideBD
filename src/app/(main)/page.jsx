@@ -4,11 +4,15 @@ import DocumentsChecklist from "@/components/landing/DocumentsChecklist";
 import Updates from "@/components/landing/Updates";
 import GuidesPreview from "@/components/landing/GuidesPreview";
 import FAQ from "@/components/landing/FAQ";
+import VisaMarquee from "@/components/landing/VisaMarquee";
+import ImageCarousel from "@/components/landing/ImageCarousel";
 
 export default function Home() {
   return (
     <>
       <Hero />
+      <VisaMarquee></VisaMarquee>
+       <ImageCarousel></ImageCarousel>
       <VisaTypes />
       <GuidesPreview />
       <DocumentsChecklist />

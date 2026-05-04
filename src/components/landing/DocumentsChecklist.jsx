@@ -12,82 +12,89 @@ export default async function DocumentsChecklist() {
     ? data.documents || data.items
     : fallbackDocs;
 
-  const priorityColor = {
-    critical: 'border-red-500/40 bg-red-500/10 text-red-300',
-    high: 'border-orange-500/40 bg-orange-500/10 text-orange-300',
-    medium: 'border-blue-500/40 bg-blue-500/10 text-blue-300',
-    low: 'border-green-500/40 bg-green-500/10 text-green-300',
+  // Light theme badge styles for priority
+  const priorityBadge = {
+    critical: 'bg-red-50 text-red-700 border-red-200',
+    high: 'bg-orange-50 text-orange-700 border-orange-200',
+    medium: 'bg-blue-50 text-blue-700 border-blue-200',
+    low: 'bg-green-50 text-green-700 border-green-200',
+  };
+
+  // Accent bar colors mapping
+  const priorityAccent = {
+    critical: 'bg-red-500',
+    high: 'bg-orange-500',
+    medium: 'bg-[#1E6FD9]', // Brand Blue
+    low: 'bg-[#1FAF7A]',    // Brand Green
   };
 
   if (!documents || documents.length === 0) {
     return (
-      <section className="py-20 bg-[#0B1A2B] text-center text-slate-300">
+      <section className="py-20 bg-[#F7FAFF] text-center text-[#64748B]">
         No documents found.
       </section>
     );
   }
 
   return (
-    <section className="py-24 bg-gradient-to-b from-[#0B1A2B] to-[#11263C] text-white">
+    <section className="py-24 bg-[#F7FAFF]">
       <div className="container mx-auto px-6">
         
         {/* HEADER */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0F172A] tracking-tight">
             Required Documents
           </h2>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto mt-4">
+          <p className="text-base text-[#475569] max-w-2xl mx-auto mt-3">
             Track and manage your visa application checklist efficiently.
           </p>
         </div>
 
-        {/* LIST */}
-        <div className="max-w-3xl mx-auto space-y-6">
+        {/* 2-COLUMN GRID */}
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
           {documents.map((doc) => (
             <div
               key={doc.id}
-              className={`
-                group relative p-6 rounded-2xl border backdrop-blur-xl
-                bg-white/5 border-white/10
-                hover:border-blue-400/40
-                hover:shadow-[0_0_25px_rgba(30,111,217,0.15)]
-                transition-all duration-300
-                ${priorityColor[doc.priority]}
-              `}
+              className="group relative p-5 rounded-xl border border-[#E2E8F0] bg-[#FFFFFF] hover:border-[#BFDBFE] shadow-[0_10px_30px_rgba(15,23,42,0.08)] hover:shadow-[0_15px_35px_rgba(15,23,42,0.12)] transition-all duration-300"
             >
-              <div className="flex items-start gap-5">
+              {/* LEFT ACCENT BAR */}
+              <div 
+                className={`absolute left-0 top-0 bottom-0 w-1 rounded-l-xl ${priorityAccent[doc.priority] || priorityAccent.medium}`}
+              ></div>
+
+              <div className="flex items-start gap-4 pl-2">
                 
                 {/* CHECKBOX */}
                 <input
                   type="checkbox"
-                  className="w-5 h-5 mt-1 accent-[#26D096] cursor-pointer"
+                  className="w-4 h-4 mt-1 border-[#E2E8F0] rounded accent-[#1FAF7A] cursor-pointer transition-colors"
                 />
 
                 {/* CONTENT */}
                 <div className="flex-1">
-                  <h3 className="font-semibold text-lg text-white group-hover:text-blue-300 transition">
+                  <h3 className="font-bold text-sm text-[#0F172A] group-hover:text-[#1E6FD9] transition-colors leading-tight">
                     {doc.name}
                   </h3>
 
-                  <p className="text-slate-400 mt-2 text-sm leading-relaxed">
+                  <p className="text-[#64748B] mt-1.5 text-xs leading-relaxed">
                     {doc.description}
                   </p>
 
                   {/* TAGS */}
-                  <div className="flex gap-2 mt-4 flex-wrap">
-                    <span className="text-xs px-3 py-1 rounded-full bg-white/10 text-slate-300 border border-white/10">
+                  <div className="flex gap-2 mt-3 flex-wrap">
+                    {/* Category Tag */}
+                    <span className="text-[10px] font-medium px-2.5 py-1 rounded-full bg-[#EEF4FB] text-[#475569] border border-[#E2E8F0]">
                       {doc.category}
                     </span>
 
-                    <span className="text-xs font-semibold px-3 py-1 rounded-full bg-gradient-to-r from-blue-500/20 to-green-500/20 border border-white/10">
+                    {/* Priority Tag */}
+                    <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full border ${priorityBadge[doc.priority] || priorityBadge.medium}`}>
                       {doc.priority.toUpperCase()}
                     </span>
                   </div>
                 </div>
               </div>
 
-              {/* LEFT ACCENT BAR */}
-              <div className="absolute left-0 top-0 h-full w-1 rounded-l-2xl bg-gradient-to-b from-blue-500 to-green-400 opacity-70"></div>
             </div>
           ))}
         </div>

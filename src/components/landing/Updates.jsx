@@ -24,11 +24,11 @@ export default async function Updates() {
   }
 
   return (
-    <section className="py-24 bg-gradient-to-b from-sky-50 to-white">
+    <section className="py-24 bg-gradient-to-br from-sky-50 to-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-navy-900 mb-4 tracking-tight">Latest Updates</h2>
-          <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto">Stay informed about recent changes and announcements.</p>
+          <h2 className="text-2xl md:text-4xl font-extrabold text-navy-900 mb-4 tracking-tight">Latest Updates</h2>
+          <p className="text-md md:text-lg text-slate-600 max-w-2xl mx-auto">Stay informed about recent changes and announcements.</p>
         </div>
         <div className="max-w-4xl mx-auto space-y-6">
           {updates.map((update) => (
@@ -44,7 +44,7 @@ export default async function Updates() {
                       {new Date(update.date).toLocaleDateString()}
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-800 mb-3">{update.title}</h3>
+                  <h3 className="text-xl font-bold text-slate-800 mb-3">{update.title}</h3>
                   <p className="text-slate-600 leading-relaxed">{update.content}</p>
                 </div>
               </div>

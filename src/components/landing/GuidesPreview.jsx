@@ -21,21 +21,21 @@ export default async function GuidesPreview() {
   }
 
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-sky-50">
+    <section className="py-24 ">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-navy-900 mb-4 tracking-tight">Explore Our Guides</h2>
-          <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto">Comprehensive guides covering travel, work, study, and living in Korea.</p>
+          <h2 className="text-2xl md:text-4xl font-extrabold text-navy-900 mb-4 tracking-tight">Explore Our Guides</h2>
+          <p className="text-md md:text-lg text-slate-600 max-w-2xl mx-auto">Comprehensive guides covering travel, work, study, and living in Korea.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {list.map((guide) => (
             <Link
               key={guide.id}
               href={`/guides/${guide.slug}`}
-              className="block p-8 bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group"
+              className="block p-8 bg-white rounded-2xl shadow-sm hover:shadow-xl shadow-green-100 transition-all duration-300 border border-slate-100 group"
             >
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-2xl font-bold text-slate-800 flex-1 group-hover:text-blue-600 transition-colors">{guide.title}</h3>
+                <h3 className="text-xl font-bold text-slate-800 flex-1 group-hover:text-blue-600 transition-colors">{guide.title}</h3>
                 <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full whitespace-nowrap ml-4 ${categoryColor[guide.category] || 'bg-slate-100 text-slate-800'}`}>
                   {guide.category}
                 </span>
@@ -49,7 +49,7 @@ export default async function GuidesPreview() {
           ))}
         </div>
         <div className="text-center mt-12">
-          <Link href="/guides" className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 hover:shadow-lg transition-all focus:outline-none focus:ring-4 focus:ring-blue-500/30">
+          <Link href="/guides" className="inline-flex items-center justify-center px-5 py-3 text-base font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 hover:shadow-lg transition-all focus:outline-none focus:ring-4 focus:ring-blue-500/30">
             View All Guides
           </Link>
         </div>
