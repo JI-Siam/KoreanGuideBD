@@ -1,5 +1,3 @@
-import { documentsData as fallbackDocs } from '@/lib/fakeData';
-
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3004';
 
 export default async function DocumentsChecklist() {
@@ -10,7 +8,7 @@ export default async function DocumentsChecklist() {
     ? data
     : data && (data.documents || data.items)
     ? data.documents || data.items
-    : fallbackDocs;
+    : [];
 
   // Light theme badge styles for priority
   const priorityBadge = {

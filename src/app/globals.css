@@ -1,2 +1,237 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+/* Light Theme Color System */
+:root {
+  --color-primary-bg: #F7FAFF;
+  --color-secondary-bg: #EEF4FB;
+  --color-card-bg: #FFFFFF;
+  --color-elevated: #F1F6FF;
+  --color-primary-blue: #1E6FD9;
+  --color-darker-blue: #0E4C97;
+  --color-accent-green: #1FAF7A;
+  --color-primary-text: #0F172A;
+  --color-secondary-text: #475569;
+  --color-muted-text: #64748B;
+  --color-border: #E2E8F0;
+}
+
+/* Global Styles */
+html, body {
+  background-color: #F7FAFF;
+  color: #0F172A;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: #0F172A;
+}
+
+p {
+  color: #475569;
+}
+
+a {
+  color: #1E6FD9;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0E4C97;
+}
+
+/* Card Styles */
+.card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  border-radius: 1rem;
+}
+
+.card:hover {
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+}
+
+/* Button Styles */
+.btn {
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #1E6FD9;
+  border-color: #1E6FD9;
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background-color: #0E4C97;
+  border-color: #0E4C97;
+}
+
+/* Guide Content Styles */
+.guide-content h1,
+.guide-content h2,
+.guide-content h3 {
+  color: #0F172A;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.guide-content h1 {
+  font-size: 2rem;
+}
+
+.guide-content h2 {
+  font-size: 1.5rem;
+}
+
+.guide-content h3 {
+  font-size: 1.25rem;
+}
+
+.guide-content p {
+  color: #475569;
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.guide-content ul,
+.guide-content ol {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+  color: #475569;
+}
+
+.guide-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.8;
+}
+
+.guide-content a {
+  color: #1E6FD9;
+  text-decoration: underline;
+}
+
+.guide-content a:hover {
+  color: #0E4C97;
+}
+
+.guide-content blockquote {
+  border-left: 4px solid #1E6FD9;
+  padding-left: 1.5rem;
+  margin: 1.5rem 0;
+  color: #475569;
+  font-style: italic;
+}
+
+.guide-content code {
+  background-color: #EEF4FB;
+  color: #0E4C97;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-family: 'Courier New', monospace;
+}
+
+.guide-content pre {
+  background-color: #EEF4FB;
+  border: 1px solid #E2E8F0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.guide-content pre code {
+  background-color: transparent;
+  color: #0F172A;
+  padding: 0;
+}
+
+.guide-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7FAFF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E2E8F0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1E6FD9;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.5s ease-in-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.5s ease-in-out;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}

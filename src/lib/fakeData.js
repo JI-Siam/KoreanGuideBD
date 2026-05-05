@@ -5,9 +5,18 @@ export const visaData = [
 ];
 
 export const documentsData = [
-  { id: 'doc-passport', name: 'Valid Passport', description: 'Passport valid for at least 6 months.', category: 'Identity', priority: 'critical' },
-  { id: 'doc-photos', name: 'Passport Photos', description: 'Recent passport-size photos.', category: 'Photos', priority: 'high' },
-  { id: 'doc-invitation', name: 'Invitation / Acceptance Letter', description: 'Official letter from employer or school.', category: 'Official', priority: 'medium' },
+  { id: 'doc-passport', name: 'Valid Passport', description: 'Passport valid for at least 6 months beyond your intended stay.', category: 'Identity', priority: 'high' },
+  { id: 'doc-photos', name: 'Passport Photos', description: 'Recent passport-size photos (4x6 cm, color, white background).', category: 'Photos', priority: 'high' },
+  { id: 'doc-invitation', name: 'Invitation/Acceptance Letter', description: 'Official letter from employer, school, or sponsor in Korea.', category: 'Official', priority: 'high' },
+  { id: 'doc-proof-funds', name: 'Proof of Financial Means', description: 'Bank statements or financial documents showing sufficient funds.', category: 'Financial', priority: 'high' },
+  { id: 'doc-travel-insurance', name: 'Travel Health Insurance', description: 'Valid health insurance covering your stay in Korea.', category: 'Insurance', priority: 'medium' },
+  { id: 'doc-accommodation', name: 'Accommodation Confirmation', description: 'Hotel reservations or rental agreement for your stay.', category: 'Travel', priority: 'medium' },
+  { id: 'doc-itinerary', name: 'Travel Itinerary', description: 'Detailed schedule of your activities during your visit.', category: 'Travel', priority: 'medium' },
+  { id: 'doc-criminal', name: 'Criminal Record Certificate', description: 'Police clearance or certificate of no criminal record.', category: 'Background', priority: 'medium' },
+  { id: 'doc-employment', name: 'Employment Contract (if applicable)', description: 'Signed employment contract with your Korean employer.', category: 'Employment', priority: 'high' },
+  { id: 'doc-education', name: 'Educational Certificates', description: 'Diplomas, transcripts, or certificates from previous education.', category: 'Education', priority: 'medium' },
+  { id: 'doc-marriage', name: 'Marriage Certificate (if applicable)', description: 'Official marriage certificate if sponsoring a family member.', category: 'Family', priority: 'low' },
+  { id: 'doc-birth', name: 'Birth Certificate (if applicable)', description: 'Birth certificate for dependent family members.', category: 'Family', priority: 'low' },
 ];
 
 export const guidesData = [

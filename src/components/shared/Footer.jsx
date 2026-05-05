@@ -19,7 +19,7 @@ const Footer = () => {
           {/* BRAND */}
           <div>
             <h4 className="text-2xl font-bold text-white mb-3">
-              KoreanGuide<span className="text-green-400">BD</span>
+             <span className='text-blue-500'>Alvix</span><span className="text-green-400">Education</span>
             </h4>
             <p className="text-sm text-slate-400 leading-relaxed">
               Practical guides, updated visa rules, and real insights to help you 

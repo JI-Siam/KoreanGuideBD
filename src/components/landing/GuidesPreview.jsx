@@ -50,7 +50,7 @@ export default async function GuidesPreview() {
         </div>
         <div className="text-center mt-12">
           <Link href="/guides" className="inline-flex items-center justify-center px-5 py-3 text-base font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 hover:shadow-lg transition-all focus:outline-none focus:ring-4 focus:ring-blue-500/30">
-            View All Guides
+             <span className='text-white'> View All Guides</span>
           </Link>
         </div>
       </div>

@@ -12,7 +12,6 @@ export default function Home() {
     <>
       <Hero />
       <VisaMarquee></VisaMarquee>
-       <ImageCarousel></ImageCarousel>
       <VisaTypes />
       <GuidesPreview />
       <DocumentsChecklist />

@@ -5,8 +5,7 @@ import { MongoClient } from "mongodb";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 
 const client = new MongoClient(process.env.MONGO_URI);
-const dbName = process.env.MONGO_DB || "korean-guide-bd";
-const db = client.db(dbName);
+const db = client.db("alvixedudb");
 
 export const auth = betterAuth({
   database: mongodbAdapter(db, {

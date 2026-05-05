@@ -42,10 +42,10 @@ export default function RootLayout({ children }) {
       data-theme="light"
       className={`${ubuntu.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-gradient-to-br from-blue-100 via-green-50 to-blue-100 ">
+      <body style={{ backgroundColor: '#F7FAFF' }} className="min-h-full flex flex-col">
         {children}
         <ToastContainer />
-        </body>
+      </body>
     </html>
   );
 }

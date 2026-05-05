@@ -45,14 +45,17 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         
         {/* LOGO */}
+        <div className='flex gap-3 justify-center items-center'>
+           <Image src="/logo.png" width={40} height={40} alt='logo' className='rounded-full'/> 
         <Link
           href="/"
           className={`text-xl font-extrabold tracking-tight ${
             scrolled ? "text-black" : "text-white"
           }`}
         >
-          Alvix<span className="text-green-400">Education</span>
+        Alvix<span className="text-green-400">Education</span>
         </Link>
+        </div>
 
         {/* NAV LINKS */}
         <nav className="hidden md:flex items-center gap-8 text-sm">
@@ -64,6 +67,8 @@ const Navbar = () => {
           >
             Home
           </Link>
+
+          
 
           <Link
             href="/guides"
@@ -82,31 +87,28 @@ const Navbar = () => {
           >
             About
           </Link>
+
+           <Link
+            href="/profile"
+            className={`transition ${
+              scrolled ? "text-gray-700 hover:text-black" : "text-slate-300 hover:text-blue-400"
+            }`}
+          >
+            Profile
+          </Link>
         </nav>
 
         {/* RIGHT SIDE */}
         <div className="flex items-center gap-4">
           
           {user ? (
-            <div className="flex items-center gap-3">
-              
-              <span className={`text-sm hidden sm:block ${
-                scrolled ? "text-gray-600" : "text-slate-300"
-              }`}>
-                Hi, <span className="font-semibold text-inherit">{user.name}</span>
-              </span>
-
-              <div className="w-9 h-9 rounded-full overflow-hidden border border-white/20">
-                {user?.image && (
-                  <Image
-                    src={user.image}
-                    alt="avatar"
-                    width={36}
-                    height={36}
-                    className="object-cover"
-                  />
-                )}
-              </div>
+            <div className='flex gap-3 items-center'>
+            <p>Hello, <span className='font-bold'>{user.name}</span></p>
+              <div className="avatar">
+            <div className="ring-primary ring-offset-base-100 w-5 rounded-full ring-2 ring-offset-2">
+              <img src={user.image} alt="avatar" />
+            </div>
+          </div>
 
               <button
                 onClick={handleLogout}
@@ -146,7 +148,7 @@ const Navbar = () => {
                   text-white transition
                 "
               >
-                Sign Up
+               <span className='text-white' > Sign Up</span>
               </Link>
             </div>
           )}

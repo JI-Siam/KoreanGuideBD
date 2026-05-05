@@ -31,31 +31,31 @@ const UpdateCard = () => {
                 console.log(error) ; 
             }
 
-    return (
-            <div>
-               
-               <div className="flex justify-center items-center  h-[80vh]">
-                             <form action="" method="post" onSubmit={handleSubmit(handleUpdate)}>
-                   <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-                    <legend className="fieldset-legend">Update Info</legend>
+        return (
+                <div className="min-h-[70vh] flex items-center justify-center px-4">
+                    <div className="w-full max-w-md bg-white rounded-2xl shadow-md border border-gray-100 p-8">
+                        <h2 className="text-2xl font-semibold text-slate-900 mb-4">Update Profile</h2>
 
-                    <label className="label">Name</label>
-                    <input defaultValue={user?.name} type="text" {...register("name" , { required: "*Name Required" })} className="input" placeholder={user?.name} />
-                      {errors.name && <p className='text-red-700'>{errors.name.message}</p>}
+                        <form onSubmit={handleSubmit(handleUpdate)} className="space-y-4">
+                            <div>
+                                <label className="block text-sm font-medium text-slate-700">Name</label>
+                                <input defaultValue={user?.name} type="text" {...register("name" , { required: "*Name Required" })} className="input input-bordered w-full mt-2" placeholder={user?.name} />
+                                {errors.name && <p className='text-red-700 text-sm mt-1'>{errors.name.message}</p>}
+                            </div>
 
+                            <div>
+                                <label className="block text-sm font-medium text-slate-700">Photo URL</label>
+                                <input defaultValue={user?.image} type="text"  {...register("image" , { required: "*URL Required" })} className="input input-bordered w-full mt-2" placeholder={user?.image} />
+                                {errors.image && <p className='text-red-700 text-sm mt-1'>{errors.image.message}</p>}
+                            </div>
 
-                     <label className="label">Photo URL</label>
-                    <input defaultValue={user?.image} type="text"  {...register("image" , { required: "*URL Required" })} className="input" placeholder={user?.image} />
-                          {errors.image && <p className='text-red-700'>{errors.image.message}</p>}
-
-                    <input type="submit" className="btn btn-primary mt-4" value="Update"/>
-            
-                </fieldset>
-            </form>
-               </div>
-           
-        </div>
-    );
+                            <div>
+                                <button type="submit" className="btn btn-primary w-full">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        );
 };
 
 export default UpdateCard;

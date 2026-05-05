@@ -1,9 +1,70 @@
+"use client";
+
 import Link from 'next/link';
+import { useMemo, useSyncExternalStore } from 'react';
+
+function getNextSeptemberIntake() {
+  const now = new Date();
+  const intakeYear = now.getMonth() > 8 || (now.getMonth() === 8 && now.getDate() > 1)
+    ? now.getFullYear() + 1
+    : now.getFullYear();
+
+  return new Date(intakeYear, 8, 1, 9, 0, 0);
+}
+
+function pad(value) {
+  return String(value).padStart(2, '0');
+}
+
+function HeroCountdown() {
+  const targetDate = useMemo(() => getNextSeptemberIntake(), []);
+
+  const now = useSyncExternalStore(
+    (callback) => {
+      const intervalId = setInterval(callback, 1000);
+      return () => clearInterval(intervalId);
+    },
+    () => Date.now(),
+    () => Date.now()
+  );
+
+  const remainingMs = Math.max(targetDate.getTime() - now, 0);
+  const days = Math.floor(remainingMs / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((remainingMs / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((remainingMs / (1000 * 60)) % 60);
+  const seconds = Math.floor((remainingMs / 1000) % 60);
+
+  return (
+    <div className="absolute mt-8 right-4 top-4 z-20 w-[260px] rounded-2xl border border-white/20 bg-[#071527]/80 p-3 shadow-lg backdrop-blur md:right-8 md:top-8">
+      <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-slate-300">Next Intake</p>
+      <p className="mt-1 text-sm font-bold text-white">September</p>
+      <div className="mt-2 grid grid-cols-4 gap-1.5">
+        <div className="rounded-lg bg-white/10 px-1.5 py-2 text-center">
+          <div className="text-base font-extrabold text-white">{pad(days)}</div>
+          <div className="text-[9px] uppercase tracking-[0.16em] text-slate-300">Days</div>
+        </div>
+        <div className="rounded-lg bg-white/10 px-1.5 py-2 text-center">
+          <div className="text-base font-extrabold text-white">{pad(hours)}</div>
+          <div className="text-[9px] uppercase tracking-[0.16em] text-slate-300">Hours</div>
+        </div>
+        <div className="rounded-lg bg-white/10 px-1.5 py-2 text-center">
+          <div className="text-base font-extrabold text-white">{pad(minutes)}</div>
+          <div className="text-[9px] uppercase tracking-[0.16em] text-slate-300">Min</div>
+        </div>
+        <div className="rounded-lg bg-white/10 px-1.5 py-2 text-center">
+          <div className="text-base font-extrabold text-white">{pad(seconds)}</div>
+          <div className="text-[9px] uppercase tracking-[0.16em] text-slate-300">Sec</div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0B1A2B] text-white">
-      
+     
+       <HeroCountdown />
       {/* BACKGROUND GLOW */}
       <div className="absolute inset-0">
         <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-blue-600/20 rounded-full blur-[120px]" />
@@ -22,8 +83,8 @@ export default function Hero() {
         </div>
 
         {/* TITLE */}
-        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight max-w-4xl mx-auto">
-          Your Gateway to{" "}
+        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight max-w-4xl mx-auto ">
+         <span className='text-white'> Your Gateway to{" "}</span>
           <span className="bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
             Korea
           </span>
@@ -49,8 +110,8 @@ export default function Hero() {
               transition-all duration-300
             "
           >
-            Explore Guides →
-          </Link>
+            <span className='text-white'>Explore Guides →</span>
+             </Link>
 
           <Link
             href="#visa-types"
@@ -65,8 +126,10 @@ export default function Hero() {
           >
             Check Visa Types
           </Link>
+        
         </div>
       </div>
+        
     </section>
   );
 }

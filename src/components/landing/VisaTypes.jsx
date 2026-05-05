@@ -1,4 +1,3 @@
-import { visaData as fallbackVisas } from '@/lib/fakeData';
 import Link from 'next/link';
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3004';
@@ -6,10 +5,10 @@ const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3004';
 export default async function VisaTypes() {
   const res = await fetch(`${API_BASE}/visaTypes`);
   const data = await res.json();
- const visas = (data?.visaTypes ?? (Array.isArray(data) ? data : fallbackVisas)).slice(0, 3);
+  const visas = (data?.visaTypes ?? (Array.isArray(data) ? data : [])).slice(0, 3);
 
   if (!visas || visas.length === 0) {
-    return <section id="visa-types" className="py-24  to-white"><div className="container mx-auto px-6 text-center text-slate-500">No visa types available.</div></section>;
+    return <section id="visa-types" className="py-24 to-white"><div className="container mx-auto px-6 text-center text-slate-500">No visa types available.</div></section>;
   }
 
   return (
@@ -40,8 +39,8 @@ export default async function VisaTypes() {
         </div>
       </div>
         <div className="text-center mt-12">
-          <Link href="/guides" className="inline-flex items-center justify-center px-5 py-3 text-base font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 hover:shadow-lg transition-all focus:outline-none focus:ring-4 focus:ring-blue-500/30">
-            View All Types
+          <Link href="/guides/visa-types" className="inline-flex items-center justify-center px-5 py-3 text-base font-bold  bg-blue-600 rounded-full hover:bg-blue-700 hover:shadow-lg transition-all focus:outline-none focus:ring-4 focus:ring-blue-500/30">
+           <span className='text-white'> View All Types</span>
           </Link>
         </div>
     </section>
