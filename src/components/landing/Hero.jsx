@@ -3,6 +3,34 @@
 import Link from 'next/link';
 import { useMemo, useSyncExternalStore } from 'react';
 
+let clockSnapshot = Date.now();
+let clockIntervalId = null;
+const clockListeners = new Set();
+
+function subscribeToClock(callback) {
+  clockListeners.add(callback);
+
+  if (clockIntervalId === null) {
+    clockIntervalId = window.setInterval(() => {
+      clockSnapshot = Date.now();
+      clockListeners.forEach((listener) => listener());
+    }, 1000);
+  }
+
+  return () => {
+    clockListeners.delete(callback);
+
+    if (clockListeners.size === 0 && clockIntervalId !== null) {
+      window.clearInterval(clockIntervalId);
+      clockIntervalId = null;
+    }
+  };
+}
+
+function getClockSnapshot() {
+  return clockSnapshot;
+}
+
 function getNextSeptemberIntake() {
   const now = new Date();
   const intakeYear = now.getMonth() > 8 || (now.getMonth() === 8 && now.getDate() > 1)
@@ -20,12 +48,9 @@ function HeroCountdown() {
   const targetDate = useMemo(() => getNextSeptemberIntake(), []);
 
   const now = useSyncExternalStore(
-    (callback) => {
-      const intervalId = setInterval(callback, 1000);
-      return () => clearInterval(intervalId);
-    },
-    () => Date.now(),
-    () => Date.now()
+    subscribeToClock,
+    getClockSnapshot,
+    getClockSnapshot
   );
 
   const remainingMs = Math.max(targetDate.getTime() - now, 0);
@@ -35,7 +60,7 @@ function HeroCountdown() {
   const seconds = Math.floor((remainingMs / 1000) % 60);
 
   return (
-    <div className="absolute mt-8 right-4 top-4 z-20 w-[260px] rounded-2xl border border-white/20 bg-[#071527]/80 p-3 shadow-lg backdrop-blur md:right-8 md:top-8">
+    <div className="absolute mt-8 right-4 top-4 z-20 w-65 rounded-2xl border border-white/20 bg-[#071527]/80 p-3 shadow-lg backdrop-blur md:right-8 md:top-8">
       <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-slate-300">Next Intake</p>
       <p className="mt-1 text-sm font-bold text-white">September</p>
       <div className="mt-2 grid grid-cols-4 gap-1.5">
@@ -67,12 +92,12 @@ export default function Hero() {
        <HeroCountdown />
       {/* BACKGROUND GLOW */}
       <div className="absolute inset-0">
-        <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-blue-600/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-100px] right-[-100px] w-[500px] h-[500px] bg-green-500/20 rounded-full blur-[120px]" />
+        <div className="absolute -top-25 left-1/2 h-175 w-175 -translate-x-1/2 rounded-full bg-blue-600/20 blur-[120px]" />
+        <div className="absolute -bottom-25 -right-25 h-125 w-125 rounded-full bg-green-500/20 blur-[120px]" />
       </div>
 
       {/* GRID PATTERN (optional subtle texture) */}
-      <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(circle,_white_1px,_transparent_1px)] [background-size:20px_20px]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle,white_1px,transparent_1px)] bg-size-[20px_20px] opacity-[0.05]" />
 
       {/* CONTENT */}
       <div className="relative z-10 container mx-auto px-6 text-center">
@@ -85,7 +110,7 @@ export default function Hero() {
         {/* TITLE */}
         <h1 className="text-4xl md:text-6xl font-extrabold leading-tight max-w-4xl mx-auto ">
          <span className='text-white'> Your Gateway to{" "}</span>
-          <span className="bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
             Korea
           </span>
           🇰🇷
@@ -104,7 +129,7 @@ export default function Hero() {
             href="/guides"
             className="
               px-8 py-4 rounded-full font-semibold
-              bg-gradient-to-r from-blue-600 to-green-500
+              bg-linear-to-r from-blue-600 to-green-500
               hover:from-blue-500 hover:to-green-400
               shadow-lg shadow-blue-900/30
               transition-all duration-300

@@ -3,17 +3,17 @@
 
 /* Light Theme Color System */
 :root {
-  --color-primary-bg: #F7FAFF;
-  --color-secondary-bg: #EEF4FB;
-  --color-card-bg: #FFFFFF;
-  --color-elevated: #F1F6FF;
+--color-primary-bg: #f1f5fb;
+ --color-secondary-bg: #EEF4FB; 
+ --color-card-bg: #FFFFFF; 
+ --color-elevated: #F1F6FF;
   --color-primary-blue: #1E6FD9;
-  --color-darker-blue: #0E4C97;
-  --color-accent-green: #1FAF7A;
-  --color-primary-text: #0F172A;
-  --color-secondary-text: #475569;
-  --color-muted-text: #64748B;
-  --color-border: #E2E8F0;
+   --color-darker-blue: #0E4C97;
+    --color-accent-green: #1FAF7A;
+     --color-primary-text: #0F172A;
+      --color-secondary-text: #475569;
+       --color-muted-text: #64748B;
+        --color-border: #E2E8F0;
 }
 
 /* Global Styles */

@@ -364,5 +364,776 @@
       "category": "wellness",
       "publishedAt": "2025-01-04"
     }
-  ]
+  ], 
+ "universities": [
+  {
+    "id": "univ_snu",
+    "universityName": "Seoul National University",
+    "location": "Seoul",
+    "qsRanking": "37",
+    "stateProvince": "Seoul Special City",
+    "officialWebsiteLink": "https://en.snu.ac.kr"
+  },
+  {
+    "id": "univ_kaist",
+    "universityName": "Korea Advanced Institute of Science and Technology (KAIST)",
+    "location": "Daejeon",
+    "qsRanking": "56",
+    "stateProvince": "Daejeon Metropolitan City",
+    "officialWebsiteLink": "https://www.kaist.ac.kr"
+  },
+  {
+    "id": "univ_postech",
+    "universityName": "Pohang University of Science and Technology (POSTECH)",
+    "location": "Pohang",
+    "qsRanking": "79",
+    "stateProvince": "North Gyeongsang Province",
+    "officialWebsiteLink": "https://www.postech.ac.kr"
+  },
+  {
+    "id": "univ_yonsei",
+    "universityName": "Yonsei University",
+    "location": "Seoul",
+    "qsRanking": "56",
+    "stateProvince": "Seoul Special City",
+    "officialWebsiteLink": "https://www.yonsei.ac.kr"
+  },
+  {
+    "id": "univ_ku",
+    "universityName": "Korea University",
+    "location": "Seoul",
+    "qsRanking": "67",
+    "stateProvince": "Seoul Special City",
+    "officialWebsiteLink": "https://www.korea.ac.kr"
+  },
+  {
+    "id": "univ_skku",
+    "universityName": "Sungkyunkwan University",
+    "location": "Seoul",
+    "qsRanking": "74",
+    "stateProvince": "Seoul Special City",
+    "officialWebsiteLink": "https://www.skku.edu"
+  },
+  {
+    "id": "univ_hanyang",
+    "universityName": "Hanyang University",
+    "location": "Seoul",
+    "qsRanking": "167",
+    "stateProvince": "Seoul Special City",
+    "officialWebsiteLink": "https://www.hanyang.ac.kr"
+  },
+  {
+    "id": "univ_unist",
+    "universityName": "Ulsan National Institute of Science and Technology (UNIST)",
+    "location": "Eonyang (Ulsan)",
+    "qsRanking": "≈250",
+    "stateProvince": "Ulsan Metropolitan City",
+    "officialWebsiteLink": "https://www.unist.ac.kr"
+  },
+  {
+    "id": "univ_ajou",
+    "universityName": "Ajou University",
+    "location": "Suwon",
+    "qsRanking": "≈550",
+    "stateProvince": "Gyeonggi Province",
+    "officialWebsiteLink": "https://www.ajou.ac.kr"
+  },
+  {
+    "id": "univ_inha",
+    "universityName": "Inha University",
+    "location": "Incheon",
+    "qsRanking": "≈550",
+    "stateProvince": "Incheon Metropolitan City",
+    "officialWebsiteLink": "https://www.inha.ac.kr"
+  },
+  {
+    "id": "univ_pusan",
+    "universityName": "Pusan National University",
+    "location": "Busan",
+    "qsRanking": "≈450",
+    "stateProvince": "Busan Metropolitan City",
+    "officialWebsiteLink": "https://www.pusan.ac.kr"
+  },
+  {
+    "id": "univ_dongguk",
+    "universityName": "Dongguk University",
+    "location": "Seoul",
+    "qsRanking": "≈600",
+    "stateProvince": "Seoul Special City",
+    "officialWebsiteLink": "https://www.dongguk.edu"
+  },
+  {
+    "id": "univ_konkuk",
+    "universityName": "Konkuk University",
+    "location": "Seoul",
+    "qsRanking": "≈550",
+    "stateProvince": "Seoul Special City",
+    "officialWebsiteLink": "https://www.konkuk.ac.kr"
+  },
+  {
+    "id": "univ_kyunghee",
+    "universityName": "Kyung Hee University",
+    "location": "Seoul",
+    "qsRanking": "≈300",
+    "stateProvince": "Seoul Special City",
+    "officialWebsiteLink": "https://www.khu.ac.kr"
+  },
+  {
+    "id": "univ_sogang",
+    "universityName": "Sogang University",
+    "location": "Seoul",
+    "qsRanking": "≈400",
+    "stateProvince": "Seoul Special City",
+    "officialWebsiteLink": "https://www.sogang.ac.kr"
+  },
+  {
+    "id": "univ_ewha",
+    "universityName": "Ewha Womans University",
+    "location": "Seoul",
+    "qsRanking": "≈400",
+    "stateProvince": "Seoul Special City",
+    "officialWebsiteLink": "https://www.ewha.ac.kr"
+  },
+  {
+    "id": "univ_chungang",
+    "universityName": "Chung‑Ang University",
+    "location": "Seoul",
+    "qsRanking": "≈240",
+    "stateProvince": "Seoul Special City",
+    "officialWebsiteLink": "https://www.cau.ac.kr"
+  },
+  {
+    "id": "univ_kyungpook",
+    "universityName": "Kyungpook National University",
+    "location": "Daegu",
+    "qsRanking": "≈500",
+    "stateProvince": "Daegu Metropolitan City",
+    "officialWebsiteLink": "https://www.knu.ac.kr"
+  },
+  {
+    "id": "univ_gyeongsang",
+    "universityName": "Gyeongsang National University",
+    "location": "Jinju",
+    "qsRanking": "≈600",
+    "stateProvince": "South Gyeongsang Province",
+    "officialWebsiteLink": "https://www.gnu.ac.kr"
+  },
+  {
+    "id": "univ_chonnam",
+    "universityName": "Chonnam National University",
+    "location": "Gwangju",
+    "qsRanking": "≈550",
+    "stateProvince": "South Jeolla Province",
+    "officialWebsiteLink": "https://www.chonnam.ac.kr"
+  },
+  {
+    "id": "univ_jeonbuk",
+    "universityName": "Jeonbuk National University",
+    "location": "Jeonju",
+    "qsRanking": "≈550",
+    "stateProvince": "North Jeolla Province",
+    "officialWebsiteLink": "https://www.chonbuk.ac.kr"
+  },
+  {
+    "id": "univ_jeju",
+    "universityName": "Jeju National University",
+    "location": "Jeju",
+    "qsRanking": "≈600",
+    "stateProvince": "Jeju Special Self‑Governing Province",
+    "officialWebsiteLink": "https://www.jejunu.ac.kr"
+  },
+  {
+    "id": "univ_kangwon",
+    "universityName": "Kangwon National University",
+    "location": "Chuncheon",
+    "qsRanking": "≈600",
+    "stateProvince": "Gangwon Province",
+    "officialWebsiteLink": "https://www.kangwon.ac.kr"
+  },
+  {
+    "id": "univ_kongju",
+    "universityName": "Kongju National University",
+    "location": "Gongju",
+    "qsRanking": "≈600",
+    "stateProvince": "South Chungcheong Province",
+    "officialWebsiteLink": "https://www.kongju.ac.kr"
+  },
+  {
+    "id": "univ_kunsan",
+    "universityName": "Kunsan National University",
+    "location": "Gunsan",
+    "qsRanking": "≈600",
+    "stateProvince": "North Jeolla Province",
+    "officialWebsiteLink": "https://www.kunsan.ac.kr"
+  },
+  {
+    "id": "univ_chungcheong",
+    "universityName": "Chungnam National University",
+    "location": "Daejeon",
+    "qsRanking": "≈400",
+    "stateProvince": "Daejeon Metropolitan City",
+    "officialWebsiteLink": "https://www.cnu.ac.kr"
+  },
+  {
+    "id": "univ_chungbuk",
+    "universityName": "Chungbuk National University",
+    "location": "Cheongju",
+    "qsRanking": "≈450",
+    "stateProvince": "North Chungcheong Province",
+    "officialWebsiteLink": "https://www.cbnu.ac.kr"
+  },
+  {
+    "id": "univ_kyunghee_intl",
+    "universityName": "Kyung Hee Cyber University",
+    "location": "Seoul",
+    "qsRanking": "unranked",
+    "stateProvince": "Seoul Special City",
+    "officialWebsiteLink": "https://www.khu.ac.kr"
+  },
+  {
+    "id": "univ_sejong",
+    "universityName": "Sejong University",
+    "location": "Seoul",
+    "qsRanking": "≈550",
+    "stateProvince": "Seoul Special City",
+    "officialWebsiteLink": "https://www.sejong.ac.kr"
+  },
+  {
+    "id": "univ_soongsil",
+    "universityName": "Soongsil University",
+    "location": "Seoul",
+    "qsRanking": "≈600",
+    "stateProvince": "Seoul Special City",
+    "officialWebsiteLink": "https://www.ssucampus.kr"
+  },
+  {
+    "id": "univ_sahmyook",
+    "universityName": "Sahmyook University",
+    "location": "Seoul",
+    "qsRanking": "unranked",
+    "stateProvince": "Seoul Special City",
+    "officialWebsiteLink": "https://www.syku.ac.kr"
+  },
+  {
+    "id": "univ_dankook",
+    "universityName": "Dankook University",
+    "location": "Yongin",
+    "qsRanking": "≈700",
+    "stateProvince": "Gyeonggi Province",
+    "officialWebsiteLink": "https://www.dankook.ac.kr"
+  },
+  {
+    "id": "univ_myongji",
+    "universityName": "Myongji University",
+    "location": "Yongin",
+    "qsRanking": "≈600",
+    "stateProvince": "Gyeonggi Province",
+    "officialWebsiteLink": "https://www.mju.ac.kr"
+  },
+  {
+    "id": "univ_yongin",
+    "universityName": "Yong‑In University",
+    "location": "Yongin",
+    "qsRanking": "unranked",
+    "stateProvince": "Gyeonggi Province",
+    "officialWebsiteLink": "https://www.yongin.ac.kr"
+  },
+  {
+    "id": "univ_hongik",
+    "universityName": "Hongik University",
+    "location": "Seoul",
+    "qsRanking": "≈600",
+    "stateProvince": "Seoul Special City",
+    "officialWebsiteLink": "https://www.hongik.ac.kr"
+  },
+  {
+    "id": "univ_chedu",
+    "universityName": "Chungwoon University",
+    "location": "Hongseong",
+    "qsRanking": "unranked",
+    "stateProvince": "South Chungcheong Province",
+    "officialWebsiteLink": "https://www.cwu.ac.kr"
+  },
+  {
+    "id": "univ_hannam",
+    "universityName": "Hannam University",
+    "location": "Daejeon",
+    "qsRanking": "≈600",
+    "stateProvince": "Daejeon Metropolitan City",
+    "officialWebsiteLink": "https://www.hnue.ac.kr"
+  },
+  {
+    "id": "univ_hoseo",
+    "universityName": "Hoseo University",
+    "location": "Asan",
+    "qsRanking": "≈600",
+    "stateProvince": "South Chungcheong Province",
+    "officialWebsiteLink": "https://www.hoseo.ac.kr"
+  },
+  {
+    "id": "univ_soonchunhyang",
+    "universityName": "Soonchunhyang University",
+    "location": "Asan",
+    "qsRanking": "≈700",
+    "stateProvince": "South Chungcheong Province",
+    "officialWebsiteLink": "https://www.sch.ac.kr"
+  },
+  {
+    "id": "univ_sunmoon",
+    "universityName": "Sun Moon University",
+    "location": "Asan",
+    "qsRanking": "≈700",
+    "stateProvince": "South Chungcheong Province",
+    "officialWebsiteLink": "https://www.sunmoon.ac.kr"
+  },
+  {
+    "id": "univ_kwangshin",
+    "universityName": "Kwangshin University",
+    "location": "Gwangju",
+    "qsRanking": "unranked",
+    "stateProvince": "Gwangju Metropolitan City",
+    "officialWebsiteLink": "https://www.kwangshin.ac.kr"
+  },
+  {
+    "id": "univ_chosun",
+    "universityName": "Chosun University",
+    "location": "Gwangju",
+    "qsRanking": "≈600",
+    "stateProvince": "Gwangju Metropolitan City",
+    "officialWebsiteLink": "https://www.chosun.ac.kr"
+  },
+  {
+    "id": "univ_honam",
+    "universityName": "Honam University",
+    "location": "Gwangju",
+    "qsRanking": "≈600",
+    "stateProvince": "Gwangju Metropolitan City",
+    "officialWebsiteLink": "https://www.honam.ac.kr"
+  },
+  {
+    "id": "univ_gwangju_univ",
+    "universityName": "Gwangju University",
+    "location": "Gwangju",
+    "qsRanking": "unranked",
+    "stateProvince": "Gwangju Metropolitan City",
+    "officialWebsiteLink": "https://www.gwangju.ac.kr"
+  },
+  {
+    "id": "univ_pukyong",
+    "universityName": "Pukyong National University",
+    "location": "Busan",
+    "qsRanking": "≈550",
+    "stateProvince": "Busan Metropolitan City",
+    "officialWebsiteLink": "https://www.pknu.ac.kr"
+  },
+  {
+    "id": "univ_kyungsung",
+    "universityName": "Kyungsung University",
+    "location": "Busan",
+    "qsRanking": "≈600",
+    "stateProvince": "Busan Metropolitan City",
+    "officialWebsiteLink": "https://www.ks.ac.kr"
+  },
+  {
+    "id": "univ_dongseo",
+    "universityName": "Dongseo University",
+    "location": "Busan",
+    "qsRanking": "unranked",
+    "stateProvince": "Busan Metropolitan City",
+    "officialWebsiteLink": "https://www.dongseo.ac.kr"
+  },
+  {
+    "id": "univ_dong_a",
+    "universityName": "Dong‑A University",
+    "location": "Busan",
+    "qsRanking": "≈600",
+    "stateProvince": "Busan Metropolitan City",
+    "officialWebsiteLink": "https://www.dau.ac.kr"
+  },
+  {
+    "id": "univ_korea_maritime",
+    "universityName": "Korea Maritime and Ocean University",
+    "location": "Busan",
+    "qsRanking": "≈600",
+    "stateProvince": "Busan Metropolitan City",
+    "officialWebsiteLink": "https://www.kmou.ac.kr"
+  },
+  {
+    "id": "univ_changwon",
+    "universityName": "Changwon National University",
+    "location": "Changwon",
+    "qsRanking": "≈600",
+    "stateProvince": "South Gyeongsang Province",
+    "officialWebsiteLink": "https://www.cwnu.ac.kr"
+  },
+  {
+    "id": "univ_gangneung",
+    "universityName": "Gangneung‑Wonju National University",
+    "location": "Gangneung",
+    "qsRanking": "≈600",
+    "stateProvince": "Gangwon Province",
+    "officialWebsiteLink": "https://www.gwnu.ac.kr"
+  },
+  {
+    "id": "univ_wonkwang",
+    "universityName": "Wonkwang University",
+    "location": "Iksan",
+    "qsRanking": "≈600",
+    "stateProvince": "North Jeolla Province",
+    "officialWebsiteLink": "https://www.wku.ac.kr"}
+  ],
+
+    "programs": [
+  {
+    "id": "program_snu_engineering",
+    "name": "Master in Mechanical Engineering, Seoul National University",
+    "ranking": "37 (QS 2025)",
+    "type": "MSc",
+    "cgpa": 3.5,
+    "gpa": null,
+    "englishProf": true,
+    "minimumIELTSBand": 6.0,
+    "websiteAddress": "https://en.snu.ac.kr/admission",
+    "programDetails": "Research‑oriented master’s in mechanical engineering; requires prior bachelor’s degree and strong English proficiency.",
+    "nationalititesAccepted": "All (except SNU’s specific Korean‑expat tracks)",
+    "universityLocation": "Seoul"
+  },
+  {
+    "id": "program_kaist_computer_science",
+    "name": "MS in Computer Science, KAIST",
+    "ranking": "56 (QS 2025)",
+    "type": "MSc",
+    "cgpa": 3.0,
+    "gpa": null,
+    "englishProf": true,
+    "minimumIELTSBand": 6.5,
+    "websiteAddress": "https://ee.kaist.ac.kr/en/admission-02/",
+    "programDetails": "English‑taught MS in CS; requires adequate GPA and TOEFL‑iBT ≥83 or IELTS ≥6.5.",
+    "nationalititesAccepted": "All",
+    "universityLocation": "Daejeon"
+  },
+  {
+    "id": "program_postech_ee",
+    "name": "PhD in Electrical Engineering, POSTECH",
+    "ranking": "79 (QS 2025)",
+    "type": "PhD",
+    "cgpa": 3.2,
+    "gpa": null,
+    "englishProf": true,
+    "minimumIELTSBand": 6.0,
+    "websiteAddress": "https://adm-g.postech.ac.kr",
+    "programDetails": "Research‑focused PhD; requires prior master’s degree and English‑test minimum.",
+    "nationalititesAccepted": "All",
+    "universityLocation": "Pohang"
+  },
+  {
+    "id": "program_yonsei_international_relations",
+    "name": "MA in International Relations, Yonsei University",
+    "ranking": "56 (QS 2025)",
+    "type": "MA",
+    "cgpa": 3.0,
+    "gpa": null,
+    "englishProf": true,
+    "minimumIELTSBand": 6.5,
+    "websiteAddress": "https://gsis.yonsei.ac.kr",
+    "programDetails": "English‑taught MA in IR; requires bachelor’s degree and TOEFL‑iBT ≈90 or IELTS ≈6.5.",
+    "nationalititesAccepted": "All",
+    "universityLocation": "Seoul"
+  },
+  {
+    "id": "program_ku_international_business",
+    "name": "MSc in International Business, Korea University",
+    "ranking": "67 (QS 2025)",
+    "type": "MSc",
+    "cgpa": 3.0,
+    "gpa": null,
+    "englishProf": true,
+    "minimumIELTSBand": 6.0,
+    "websiteAddress": "https://int.korea.edu/kuis/grad/",
+    "programDetails": "Global business‑oriented master’s taught in English; requires prior bachelor’s and English‑test score.",
+    "nationalititesAccepted": "All",
+    "universityLocation": "Seoul"
+  },
+  {
+    "id": "program_hanyang_beng_intl",
+    "name": "BEng (International Track), Hanyang University",
+    "ranking": "167 (QS 2025)",
+    "type": "BSc",
+    "cgpa": null,
+    "gpa": 2.4,
+    "englishProf": true,
+    "minimumIELTSBand": 6.0,
+    "websiteAddress": "https://www.hanyang.ac.kr/web/eng/global_s",
+    "programDetails": "Undergraduate international‑track BEng; minimum GPA ≈2.4 and English proficiency required.",
+    "nationalititesAccepted": "All",
+    "universityLocation": "Seoul"
+  },
+  {
+    "id": "program_skku_management",
+    "name": "MBA (Global), Sungkyunkwan University",
+    "ranking": "74 (QS 2025)",
+    "type": "MBA",
+    "cgpa": 3.0,
+    "gpa": null,
+    "englishProf": true,
+    "minimumIELTSBand": 5.5,
+    "websiteAddress": "https://sli.skku.edu",
+    "programDetails": "English‑taught MBA track; requires prior degree and TOEFL‑iBT ≥80 or IELTS ≥5.5.",
+    "nationalititesAccepted": "All",
+    "universityLocation": "Suwon"
+  },
+  {
+    "id": "program_chungang_bsocial_science",
+    "name": "BA in Social Science, Chung‑ang University",
+    "ranking": "≈240s (QS 2025)",
+    "type": "BSc",
+    "cgpa": null,
+    "gpa": 2.0,
+    "englishProf": true,
+    "minimumIELTSBand": 5.5,
+    "websiteAddress": "https://www.cau.ac.kr",
+    "programDetails": "Undergraduate social‑science program with English‑taught options; minimum GPA ~2.0 and basic English test.",
+    "nationalititesAccepted": "All",
+    "universityLocation": "Seoul"
+  },
+  {
+    "id": "program_kyunghee_international_relations",
+    "name": "MA in International Relations, Kyung Hee University",
+    "ranking": "≈300s (QS 2025)",
+    "type": "MA",
+    "cgpa": 2.7,
+    "gpa": null,
+    "englishProf": true,
+    "minimumIELTSBand": 6.5,
+    "websiteAddress": "https://www.khu.ac.kr/eng",
+    "programDetails": "English‑taught MA; requires TOEFL‑iBT ≥82 or IELTS ≥6.5.",
+    "nationalititesAccepted": "All",
+    "universityLocation": "Seoul"
+  },
+  {
+    "id": "program_sogang_finance",
+    "name": "MS in International Finance, Sogang University",
+    "ranking": "≈400s (QS 2025)",
+    "type": "MSc",
+    "cgpa": 3.0,
+    "gpa": null,
+    "englishProf": true,
+    "minimumIELTSBand": 6.0,
+    "websiteAddress": "https://gsis.sogang.ac.kr",
+    "programDetails": "English‑taught finance master’s under GSIS; requires prior bachelor’s and English proficiency.",
+    "nationalititesAccepted": "All",
+    "universityLocation": "Seoul"
+  },
+  {
+    "id": "program_ewha_international_business",
+    "name": "MBA in International Business, Ewha Womans University",
+    "ranking": "≈400s (QS 2025)",
+    "type": "MBA",
+    "cgpa": 2.5,
+    "gpa": null,
+    "englishProf": true,
+    "minimumIELTSBand": 6.0,
+    "websiteAddress": "https://oia.ewha.ac.kr",
+    "programDetails": "Women‑focused MBA with English‑taught track; minimum GPA ~2.5 and TOEFL‑iBT ≥75 or IELTS ≥6.0.",
+    "nationalititesAccepted": "All (except gender‑specific restrictions)",
+    "universityLocation": "Seoul"
+  },
+  {
+    "id": "program_pusan_global_studies",
+    "name": "MA in Global Studies, Pusan National University",
+    "ranking": "≈450s (QS 2025)",
+    "type": "MA",
+    "cgpa": 2.5,
+    "gpa": null,
+    "englishProf": true,
+    "minimumIELTSBand": 6.0,
+    "websiteAddress": "https://www.pusan.ac.kr",
+    "programDetails": "International relations‑style MA in Busan; minimum GPA ~2.5 and TOEFL‑iBT ≥80 or IELTS ≥6.0.",
+    "nationalititesAccepted": "All",
+    "universityLocation": "Busan"
+  },
+  {
+    "id": "program_kangwon_bbiology",
+    "name": "Bachelor in Biology, Kangwon National University",
+    "ranking": "≈600s (QS 2025)",
+    "type": "BSc",
+    "cgpa": null,
+    "gpa": 2.5,
+    "englishProf": true,
+    "minimumIELTSBand": 5.5,
+    "websiteAddress": "https://kangwon.ac.kr",
+    "programDetails": "Undergraduate biology program; requires HSC‑level and English proficiency (TOEFL‑iBT ≥71 or IELTS ≥5.5).",
+    "nationalititesAccepted": "All",
+    "universityLocation": "Chuncheon"
+  },
+  {
+    "id": "program_kyungpook_bengineering",
+    "name": "Bachelor of Engineering, Kyungpook National University",
+    "ranking": "≈500s (QS 2025)",
+    "type": "BSc",
+    "cgpa": null,
+    "gpa": 2.7,
+    "englishProf": true,
+    "minimumIELTSBand": 5.5,
+    "websiteAddress": "https://www.knu.ac.kr",
+    "programDetails": "Engineering bachelor’s with English‑taught options; minimum GPA ~2.7 and TOEFL‑iBT ≥71 or IELTS ≥5.5.",
+    "nationalititesAccepted": "All",
+    "universityLocation": "Daegu"
+  },
+  {
+    "id": "program_unist_materials_science",
+    "name": "PhD in Materials Science, UNIST",
+    "ranking": "≈250s (QS 2025)",
+    "type": "PhD",
+    "cgpa": 3.2,
+    "gpa": null,
+    "englishProf": true,
+    "minimumIELTSBand": 6.0,
+    "websiteAddress": "https://www.unist.ac.kr",
+    "programDetails": "Research‑intensive PhD in materials science; requires prior master’s and English proficiency.",
+    "nationalititesAccepted": "All",
+    "universityLocation": "Ulsan"
+  },
+  {
+    "id": "program_inha_bcomputer_science",
+    "name": "BSc in Computer Science, Inha University",
+    "ranking": "≈550s (QS 2025)",
+    "type": "BSc",
+    "cgpa": null,
+    "gpa": 2.6,
+    "englishProf": true,
+    "minimumIELTSBand": 6.0,
+    "websiteAddress": "https://internationalcenter.inha.ac.kr",
+    "programDetails": "Undergraduate CS program; English track students must meet departmental English requirements.",
+    "nationalititesAccepted": "All",
+    "universityLocation": "Incheon"
+  },
+  {
+    "id": "program_dongguk_mcomm",
+    "name": "MA in Communication Studies, Dongguk University",
+    "ranking": "≈600s (QS 2025)",
+    "type": "MA",
+    "cgpa": 2.8,
+    "gpa": null,
+    "englishProf": true,
+    "minimumIELTSBand": 6.0,
+    "websiteAddress": "https://www.dongguk.edu",
+    "programDetails": "English‑taught MA in communication; requires prior bachelor’s and English‑test score.",
+    "nationalititesAccepted": "All",
+    "universityLocation": "Seoul"
+  },
+  {
+    "id": "program_konkuk_bbusiness_admin",
+    "name": "BBA (International Track), Konkuk University",
+    "ranking": "≈550s (QS 2025)",
+    "type": "BSc",
+    "cgpa": null,
+    "gpa": 2.5,
+    "englishProf": true,
+    "minimumIELTSBand": 5.5,
+    "websiteAddress": "https://www.konkuk.ac.kr",
+    "programDetails": "Business administration bachelor’s with English‑taught options.",
+    "nationalititesAccepted": "All",
+    "universityLocation": "Seoul"
+  },
+  {
+    "id": "program_yeungnam_bengineering",
+    "name": "Bachelor of Engineering, Yeungnam University",
+    "ranking": "≈600s (QS 2025)",
+    "type": "BSc",
+    "cgpa": null,
+    "gpa": 2.5,
+    "englishProf": true,
+    "minimumIELTSBand": 5.5,
+    "websiteAddress": "https://www.yu.ac.kr",
+    "programDetails": "Engineering bachelor’s with English‑taught modules; minimum GPA ~2.5 and basic English test.",
+    "nationalititesAccepted": "All",
+    "universityLocation": "Gyeongsan"
+  },
+  {
+    "id": "program_soonchunhyang_medicine",
+    "name": "Bachelor of Medicine (International Medical Program), Soonchunhyang University",
+    "ranking": "≈700s (QS 2025)",
+    "type": "BSc",
+    "cgpa": null,
+    "gpa": 3.0,
+    "englishProf": true,
+    "minimumIELTSBand": 6.0,
+    "websiteAddress": "https://www.sch.ac.kr",
+    "programDetails": "International‑track medical program; high GPA and strong English proficiency required.",
+    "nationalititesAccepted": "Selected (high‑bar program)",
+    "universityLocation": "Asan"
+  },
+  {
+    "id": "program_chonnam_engineering",
+    "name": "MS in Civil Engineering, Chonnam National University",
+    "ranking": "≈550s (QS 2025)",
+    "type": "MSc",
+    "cgpa": 2.8,
+    "gpa": null,
+    "englishProf": true,
+    "minimumIELTSBand": 5.5,
+    "websiteAddress": "https://www.chonnam.ac.kr",
+    "programDetails": "Master’s in civil engineering; requires prior bachelor’s and English‑test score.",
+    "nationalititesAccepted": "All",
+    "universityLocation": "Gwangju"
+  },
+  {
+    "id": "program_gyeongsang_bbusiness",
+    "name": "Bachelor of Business Administration, Gyeongsang National University",
+    "ranking": "≈600s (QS 2025)",
+    "type": "BSc",
+    "cgpa": null,
+    "gpa": 2.5,
+    "englishProf": true,
+    "minimumIELTSBand": 5.5,
+    "websiteAddress": "https://www.gnu.ac.kr",
+    "programDetails": "Business‑focused bachelor’s; English‑taught options available.",
+    "nationalititesAccepted": "All",
+    "universityLocation": "Jinju"
+  },
+  {
+    "id": "program_dankook_bcomputer_science",
+    "name": "BSc in Computer Science, Dankook University",
+    "ranking": "≈700s (QS 2025)",
+    "type": "BSc",
+    "cgpa": null,
+    "gpa": 2.5,
+    "englishProf": true,
+    "minimumIELTSBand": 5.5,
+    "websiteAddress": "https://www.dkuk.ac.kr",
+    "programDetails": "Undergraduate CS program open to international students.",
+    "nationalititesAccepted": "All",
+    "universityLocation": "Cheonan"
+  },
+  {
+    "id": "program_ajou_bengineering",
+    "name": "Bachelor of Engineering, Ajou University",
+    "ranking": "≈550s (QS 2025)",
+    "type": "BSc",
+    "cgpa": null,
+    "gpa": 2.6,
+    "englishProf": true,
+    "minimumIELTSBand": 5.5,
+    "websiteAddress": "https://www.ajou.ac.kr",
+    "programDetails": "Engineering bachelor’s with English‑taught options.",
+    "nationalititesAccepted": "All",
+    "universityLocation": "Suwon"
+  },
+  {
+    "id": "program_sookmyung_bliterature",
+    "name": "BA in English Literature, Sookmyung Women's University",
+    "ranking": "≈600s (QS 2025)",
+    "type": "BSc",
+    "cgpa": null,
+    "gpa": 2.5,
+    "englishProf": true,
+    "minimumIELTSBand": 6.0,
+    "websiteAddress": "https://www.sookmyung.ac.kr",
+    "programDetails": "Women‑focused English‑literature bachelor’s taught in English.",
+    "nationalititesAccepted": "All (except gender‑specific)",
+    "universityLocation": "Seoul"
+  }
+]
+
 }

@@ -2,6 +2,34 @@
 
 import React, { useMemo, useSyncExternalStore } from 'react';
 
+let clockSnapshot = Date.now();
+let clockIntervalId = null;
+const clockListeners = new Set();
+
+function subscribeToClock(callback) {
+  clockListeners.add(callback);
+
+  if (clockIntervalId === null) {
+    clockIntervalId = window.setInterval(() => {
+      clockSnapshot = Date.now();
+      clockListeners.forEach((listener) => listener());
+    }, 1000);
+  }
+
+  return () => {
+    clockListeners.delete(callback);
+
+    if (clockListeners.size === 0 && clockIntervalId !== null) {
+      window.clearInterval(clockIntervalId);
+      clockIntervalId = null;
+    }
+  };
+}
+
+function getClockSnapshot() {
+  return clockSnapshot;
+}
+
 function getNextSeptemberIntake() {
   const now = new Date();
   const intakeYear = now.getMonth() > 8 || (now.getMonth() === 8 && now.getDate() > 1)
@@ -19,13 +47,9 @@ export default function IntakeCountdown() {
   const targetDate = useMemo(() => getNextSeptemberIntake(), []);
 
   const now = useSyncExternalStore(
-    (callback) => {
-      const intervalId = setInterval(callback, 1000);
-
-      return () => clearInterval(intervalId);
-    },
-    () => Date.now(),
-    () => Date.now()
+    subscribeToClock,
+    getClockSnapshot,
+    getClockSnapshot
   );
 
   const remainingMs = Math.max(targetDate.getTime() - now, 0);
@@ -58,7 +82,7 @@ export default function IntakeCountdown() {
           {blocks.map((block) => (
             <div
               key={block.label}
-              className="min-w-[84px] rounded-2xl border border-[#E2E8F0] bg-[#F7FAFF] px-4 py-4 text-center"
+              className="min-w-21 rounded-2xl border border-[#E2E8F0] bg-[#F7FAFF] px-4 py-4 text-center"
             >
               <div className="text-2xl font-extrabold text-[#0F172A] md:text-3xl">
                 {formatValue(block.value)}
