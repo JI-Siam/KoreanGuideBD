@@ -60,25 +60,25 @@ function HeroCountdown() {
   const seconds = Math.floor((remainingMs / 1000) % 60);
 
   return (
-    <div className="absolute mt-8 right-4 top-4 z-20 w-65 rounded-2xl border border-white/20 bg-[#071527]/80 p-3 shadow-lg backdrop-blur md:right-8 md:top-8">
-      <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-slate-300">Next Intake</p>
-      <p className="mt-1 text-sm font-bold text-white">September</p>
-      <div className="mt-2 grid grid-cols-4 gap-1.5">
-        <div className="rounded-lg bg-white/10 px-1.5 py-2 text-center">
-          <div className="text-base font-extrabold text-white">{pad(days)}</div>
-          <div className="text-[9px] uppercase tracking-[0.16em] text-slate-300">Days</div>
+    <div className="absolute mt-8 right-4 top-4 z-20 w-65 rounded-2xl border border-blue-200/40 bg-white/90 p-4 shadow-lg shadow-blue-100/20 backdrop-blur">
+      <p className="text-xs font-semibold uppercase tracking-wider text-blue-600">Next Intake</p>
+      <p className="mt-2 text-lg font-bold text-[#0F172A]">September</p>
+      <div className="mt-3 grid grid-cols-4 gap-2">
+        <div className="rounded-lg bg-gradient-to-br from-blue-50 to-blue-100/50 px-1.5 py-2.5 text-center border border-blue-100/50">
+          <div className="text-base font-extrabold text-blue-700">{pad(days)}</div>
+          <div className="text-[9px] uppercase tracking-wide text-blue-600 mt-0.5">Days</div>
         </div>
-        <div className="rounded-lg bg-white/10 px-1.5 py-2 text-center">
-          <div className="text-base font-extrabold text-white">{pad(hours)}</div>
-          <div className="text-[9px] uppercase tracking-[0.16em] text-slate-300">Hours</div>
+        <div className="rounded-lg bg-gradient-to-br from-green-50 to-green-100/50 px-1.5 py-2.5 text-center border border-green-100/50">
+          <div className="text-base font-extrabold text-green-700">{pad(hours)}</div>
+          <div className="text-[9px] uppercase tracking-wide text-green-600 mt-0.5">Hours</div>
         </div>
-        <div className="rounded-lg bg-white/10 px-1.5 py-2 text-center">
-          <div className="text-base font-extrabold text-white">{pad(minutes)}</div>
-          <div className="text-[9px] uppercase tracking-[0.16em] text-slate-300">Min</div>
+        <div className="rounded-lg bg-gradient-to-br from-blue-50 to-blue-100/50 px-1.5 py-2.5 text-center border border-blue-100/50">
+          <div className="text-base font-extrabold text-blue-700">{pad(minutes)}</div>
+          <div className="text-[9px] uppercase tracking-wide text-blue-600 mt-0.5">Min</div>
         </div>
-        <div className="rounded-lg bg-white/10 px-1.5 py-2 text-center">
-          <div className="text-base font-extrabold text-white">{pad(seconds)}</div>
-          <div className="text-[9px] uppercase tracking-[0.16em] text-slate-300">Sec</div>
+        <div className="rounded-lg bg-gradient-to-br from-green-50 to-green-100/50 px-1.5 py-2.5 text-center border border-green-100/50">
+          <div className="text-base font-extrabold text-green-700">{pad(seconds)}</div>
+          <div className="text-[9px] uppercase tracking-wide text-green-600 mt-0.5">Sec</div>
         </div>
       </div>
     </div>
@@ -87,71 +87,93 @@ function HeroCountdown() {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0B1A2B] text-white">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#F7F8FC] via-white to-[#F1F4F9]">
      
        <HeroCountdown />
-      {/* BACKGROUND GLOW */}
+      {/* BACKGROUND GRADIENTS - Subtle, refined depth */}
       <div className="absolute inset-0">
-        <div className="absolute -top-25 left-1/2 h-175 w-175 -translate-x-1/2 rounded-full bg-blue-600/20 blur-[120px]" />
-        <div className="absolute -bottom-25 -right-25 h-125 w-125 rounded-full bg-green-500/20 blur-[120px]" />
+        <div className="absolute -top-40 left-1/4 h-96 w-96 rounded-full bg-blue-200/30 blur-[140px]" />
+        <div className="absolute -bottom-40 -right-20 h-80 w-80 rounded-full bg-green-200/25 blur-[140px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-gradient-to-br from-blue-100/10 to-green-100/10 blur-[160px]" />
       </div>
 
-      {/* GRID PATTERN (optional subtle texture) */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle,white_1px,transparent_1px)] bg-size-[20px_20px] opacity-[0.05]" />
-
       {/* CONTENT */}
-      <div className="relative z-10 container mx-auto px-6 text-center">
+      <div className="relative z-10 container mx-auto px-6 text-center max-w-4xl">
         
-        {/* BADGE */}
-        <div className="inline-block mb-6 px-4 py-2 rounded-full bg-white/10 border border-white/10 text-sm text-slate-300 backdrop-blur">
+        {/* BADGE - Premium, subtle */}
+        <div className="inline-block mb-8 px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-100/80 to-green-100/80 border border-blue-200/50 text-sm font-medium text-blue-700">
           🇰🇷 Study • Work • Travel
         </div>
 
-        {/* TITLE */}
-        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight max-w-4xl mx-auto ">
-         <span className='text-white'> Your Gateway to{" "}</span>
-          <span className="bg-linear-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
+        {/* TITLE - Hierarchy first, breathing room */}
+        <h1 className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight mb-8">
+          <span className='text-[#0F172A]'> Your Gateway to{" "}</span>
+          <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
             Korea
           </span>
-          🇰🇷
+          <span className="ml-3">🇰🇷</span>
         </h1>
 
-        {/* SUBTEXT */}
-        <p className="mt-6 text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+        {/* SUBTEXT - Readable, spacious */}
+        <p className="text-xl md:text-2xl text-[#64748B] max-w-3xl mx-auto leading-relaxed font-light">
           Complete visa guides, travel insights, and career pathways to help you
-          start your journey in Korea with confidence.
+          start your journey with confidence
         </p>
 
-        {/* CTA */}
-        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+        {/* CTA - Confident, refined */}
+        <div className="mt-12 flex flex-col sm:flex-row gap-5 justify-center items-center">
           
           <Link
             href="/guides"
             className="
-              px-8 py-4 rounded-full font-semibold
-              bg-linear-to-r from-blue-600 to-green-500
-              hover:from-blue-500 hover:to-green-400
-              shadow-lg shadow-blue-900/30
+              px-10 py-4 rounded-2xl font-semibold text-lg
+              bg-gradient-to-r from-blue-600 to-green-600
+              text-white
+              hover:shadow-lg hover:shadow-blue-200/40
+              hover:scale-105
               transition-all duration-300
+              border border-blue-500/20
             "
           >
-            <span className='text-white'>Explore Guides →</span>
-             </Link>
+            Explore Guides →
+          </Link>
 
           <Link
             href="#visa-types"
             className="
-              px-8 py-4 rounded-full font-semibold
-              border border-white/20
-              text-slate-300
-              hover:bg-white/10
-              backdrop-blur
+              px-10 py-4 rounded-2xl font-semibold text-lg
+              border-2 border-blue-200
+              text-[#0F172A]
+              bg-white hover:bg-blue-50/50
+              hover:border-blue-300
               transition-all duration-300
+              hover:shadow-md hover:shadow-blue-100/30
             "
           >
             Check Visa Types
           </Link>
         
+        </div>
+
+        {/* Trust Indicators - Subtle, spacious */}
+        <div className="mt-16 pt-12 border-t border-blue-100/40">
+          <p className="text-sm font-medium text-[#64748B] mb-6">Trusted by thousands of applicants</p>
+          <div className="flex justify-center items-center gap-8 flex-wrap">
+            <div className="text-center">
+              <p className="text-3xl font-bold text-[#0F172A]">10K+</p>
+              <p className="text-sm text-[#64748B]">Applications Processed</p>
+            </div>
+            <div className="h-12 w-px bg-blue-100/50"></div>
+            <div className="text-center">
+              <p className="text-3xl font-bold text-[#0F172A]">98%</p>
+              <p className="text-sm text-[#64748B]">Success Rate</p>
+            </div>
+            <div className="h-12 w-px bg-blue-100/50"></div>
+            <div className="text-center">
+              <p className="text-3xl font-bold text-[#0F172A]">50+</p>
+              <p className="text-sm text-[#64748B]">Expert Guides</p>
+            </div>
+          </div>
         </div>
       </div>
         

@@ -60,7 +60,7 @@ function HeroCountdown() {
   const seconds = Math.floor((remainingMs / 1000) % 60);
  
   return (
-    <div className="absolute mt-8 right-4 top-4 z-20 w-64 rounded-2xl border border-[var(--color-border)] bg-white/80 p-3 shadow-lg backdrop-blur md:right-8 md:top-8 md:w-80">
+    <div className="absolute mt-8 right-4 top-4 z-20 w-64 rounded-2xl border border-[var(--color-border)] bg-white/50 p-3 shadow-lg backdrop-blur md:right-8 md:top-8 md:w-80">
       <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[var(--color-secondary-text)]">Next Intake</p>
       <p className="mt-1 text-sm font-bold text-[var(--color-primary-text)]">September</p>
       <div className="mt-2 grid grid-cols-4 gap-1.5">
@@ -87,26 +87,19 @@ function HeroCountdown() {
  
 export default function Hero1() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[var(--color-primary-bg)] pt-20 md:pt-24">
+    <section
+      className="relative min-h-screen overflow-hidden pt-20 md:pt-24"
+      style={{
+        backgroundImage: "url('/var4.jpg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <HeroCountdown />
 
-      {/* Right side hero image for md+ */}
-      <div className="absolute inset-0 pointer-events-none hidden md:block">
-        <div className="absolute md:right-14 md:top-1/2 md:-translate-y-1/2 h-[500px] w-[520px] rounded-2xl overflow-hidden shadow-xl">
-          <img
-            src="/var4.jpg"
-            alt="Hero Image"
-            className="h-full w-full object-cover object-center"
-          />
-        </div>
-      </div>
-
-      {/* Small-screen inline hero image (falls below content) */}
-      <div className="block md:hidden mt-6 pointer-events-auto px-4">
-        <div className="mx-auto h-64 w-11/12 max-w-md rounded-xl overflow-hidden shadow-md">
-          <img src="/var4.jpg" alt="Hero" className="h-full w-full object-cover object-center" />
-        </div>
-      </div>
+      {/* Dim overlay to soften background image */}
+      <div aria-hidden className="absolute inset-0 bg-black/40" />
 
       {/* Main content container */}
       <div className="relative z-10 container mx-auto px-6 py-18">
@@ -120,13 +113,13 @@ export default function Hero1() {
             <span className="absolute -left-12 -top-20 text-[96px] md:text-[140px] font-serif italic text-blue-500 opacity-90 select-none pointer-events-none">A</span>
  
             <h1 className="relative text-left text-5xl md:text-8xl lg:text-9xl font-serif leading-none tracking-tight text-[var(--color-primary-text)]">
-              <span className="block font-extralight text-6xl md:text-[140px] leading-none">LVIX</span>
-              <span className="block mt-2 font-bold text-5xl md:text-[88px]">EDUCATION</span>
+              <span className="block font-extralight text-6xl md:text-[140px]  text-white/80 leading-none">LVIX</span>
+              <span className="block mt-2 font-bold text-5xl text-white/80 md:text-[88px]">EDUCATION</span>
             </h1>
           </div>
  
-          <p className="mt-6 max-w-xl text-[var(--color-secondary-text)]">Complete visa guides, travel insights, and career pathways to help you
-          start your journey in Korea with confidence.</p>
+          <p className="mt-6 max-w-xl text-white"><span className='text-white'>Complete visa guides, travel insights, and career pathways to help you
+          start your journey in Korea with confidence.</span></p>
  
           <div className="mt-10 flex items-center gap-6">
  
@@ -139,33 +132,11 @@ export default function Hero1() {
  
 
       {/* Product card bottom-left (absolute on md+, stacked on sm) */}
-      <div className="md:absolute md:left-6 md:bottom-12 z-20 w-11/12 max-w-xs md:w-56 rounded-lg bg-[var(--color-card-bg)] p-4 shadow-lg mx-auto md:mx-0">
-        <div className="flex items-center gap-3">
-          <img src="/var3.jpg" alt="poles" className="h-16 w-16 rounded object-cover" />
-          <div>
-            <div className="text-xs text-[var(--color-secondary-text)]">On Spot Admission</div>
-            <div className="mt-1 text-sm font-semibold text-[var(--color-primary-text)]">Dongshing University</div>
-          </div>
-        </div>
-      </div>
+     
 
  
       {/* Map / routes card centered bottom - meaningful content */}
-      <div className="md:absolute md:left-1/2 md:bottom-6 z-20 w-11/12 max-w-md md:-translate-x-1/2 rounded-lg bg-[var(--color-accent-green)] p-4 text-white shadow-xl mx-auto md:mx-0">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <div>
-            <div className="text-sm opacity-90">Explore</div>
-            <div className="mt-1 text-lg font-semibold">Top Programs & Visa Paths</div>
-            <div className="mt-2 text-sm opacity-90">Universities • Scholarships • Work Visas • Travel Tips</div>
-          </div>
-          <div className="flex gap-2">
-            <a href="/visa" className="inline-flex items-center px-3 py-2 rounded bg-white text-[var(--color-accent-green)] hover:opacity-90 transition text-sm font-semibold">
-              Find Visa Types
-            </a>
-          </div>
-        </div>
-      </div>
- 
+    
       {/* Stats bottom-right */}
       <div className="md:absolute md:right-8 md:bottom-12 z-20 flex items-center gap-4 rounded-full bg-[var(--color-card-bg)] p-3 shadow mx-auto md:mx-0 w-11/12 max-w-xs mt-4 md:mt-0">
         <div className="flex -space-x-2">

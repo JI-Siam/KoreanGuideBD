@@ -163,6 +163,20 @@ const Navbar = () => {
             <Link href="/guides" onClick={() => setMenuOpen(false)} className="text-[var(--color-primary-text)]">Guides</Link>
             <Link href="/about" onClick={() => setMenuOpen(false)} className="text-[var(--color-primary-text)]">About</Link>
             <Link href="/profile" onClick={() => setMenuOpen(false)} className="text-[var(--color-primary-text)]">Profile</Link>
+
+            <Link
+            href="/universities"
+            className="transition text-[var(--color-secondary-text)] hover:text-[var(--color-primary-blue)]"
+          >
+            Universities
+          </Link>
+
+           <Link
+            href="/programs"
+            className="transition text-[var(--color-secondary-text)] hover:text-[var(--color-primary-blue)]"
+          >
+            Programs
+          </Link>
             <div className="pt-2 border-t border-[var(--color-border)] mt-2 flex gap-2">
               <Link href="/login" onClick={() => setMenuOpen(false)} className="px-3 py-2 rounded border border-[var(--color-border)] text-[var(--color-secondary-text)]">Login</Link>
               <Link href="/signup" onClick={() => setMenuOpen(false)} className="px-3 py-2 rounded bg-gradient-to-r from-blue-600 to-green-500 text-white">Sign Up</Link>

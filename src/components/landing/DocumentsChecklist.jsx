@@ -35,7 +35,7 @@ export default async function DocumentsChecklist() {
   }
 
   return (
-    <section className="py-24 bg-[#F7FAFF]">
+    <section className="py-24 bg-gradient-to-b from-white via-amber-50 to-[#F7F8FC]">
       <div className="container mx-auto px-6">
         
         {/* HEADER */}
