@@ -1,11 +1,9 @@
 import React from 'react';
 import VisaTypesSection from '@/components/guides/VisaTypesSection';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3004';
-
 async function fetchVisaTypes() {
   try {
-    const res = await fetch(`${API_BASE}/visaTypes`, { cache: 'no-store' });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3005'}/visaTypes`, { cache: 'no-store' });
 
     if (!res.ok) {
       return [];

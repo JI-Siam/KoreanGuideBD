@@ -2,7 +2,7 @@ import UniversityList from "@/components/universities/UniversityList";
 
 
 const page = async () => {
-    const res = await fetch("http://localhost:3004/universities");
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3005'}/universities`);
     const universities = await res.json();
 
     return (

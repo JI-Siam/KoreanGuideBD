@@ -1,9 +1,18 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
   return (
-    <footer className="relative bg-[var(--color-primary-bg)] text-[var(--color-secondary-text)] pt-16 pb-10 overflow-hidden">
+    <motion.footer
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className="relative bg-[var(--color-primary-bg)] text-[var(--color-secondary-text)] pt-16 pb-10 overflow-hidden"
+    >
       
       {/* TOP GLOW */}
       <div className="absolute inset-0">
@@ -14,10 +23,19 @@ const Footer = () => {
       <div className="relative z-10 container mx-auto px-6">
         
         {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.12 } },
+          }}
+        >
           
           {/* BRAND */}
-          <div>
+          <motion.div variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0 } }}>
             <h4 className="text-2xl font-bold text-[var(--color-primary-text)] mb-3">
              <span className='text-[var(--color-primary-blue)]'>Alvix</span><span className="text-[var(--color-accent-green)]">Education</span>
             </h4>
@@ -25,10 +43,10 @@ const Footer = () => {
               Practical guides, updated visa rules, and real insights to help you 
               study, work, and live in Korea with confidence.
             </p>
-          </div>
+          </motion.div>
 
           {/* LINKS */}
-          <div>
+          <motion.div variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0 } }}>
             <h5 className="font-semibold text-[var(--color-primary-text)] mb-3">Explore</h5>
             <ul className="space-y-2 text-sm">
               <li>
@@ -52,17 +70,18 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* SOCIAL */}
-          <div>
+          <motion.div variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0 } }}>
             <h5 className="font-semibold text-[var(--color-primary-text)] mb-3">Connect</h5>
             
             <div className="flex gap-4 mb-4">
               {['Twitter', 'YouTube', 'Facebook'].map((item) => (
-                <a
+                <motion.a
                   key={item}
                   href="#"
+                  whileHover={{ y: -2, scale: 1.03 }}
                   className="
                     px-3 py-2 text-sm rounded-lg
                     bg-white/5 border border-[var(--color-border)]
@@ -71,22 +90,22 @@ const Footer = () => {
                   "
                 >
                   {item}
-                </a>
+                </motion.a>
               ))}
             </div>
 
             <p className="text-xs text-slate-500">
               © {new Date().getFullYear()} KoreanGuideBD
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* DIVIDER */}
         <div className="border-t border-white/10 pt-6 text-center text-xs text-slate-500">
           Built with care for students, travelers, and professionals exploring Korea 🇰🇷
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

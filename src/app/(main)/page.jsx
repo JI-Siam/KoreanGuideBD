@@ -1,14 +1,12 @@
-import Hero from "@/components/landing/Hero";
 import VisaTypes from "@/components/landing/VisaTypes";
 import DocumentsChecklist from "@/components/landing/DocumentsChecklist";
 import Updates from "@/components/landing/Updates";
 import GuidesPreview from "@/components/landing/GuidesPreview";
 import FAQ from "@/components/landing/FAQ";
 import VisaMarquee from "@/components/landing/VisaMarquee";
-import ImageCarousel from "@/components/landing/ImageCarousel";
 import AboutStats from "@/components/about/AboutStats";
 import Hero1 from "@/components/landing/Hero1";
-import UniversityList from "@/components/universities/UniversityList";
+import AnimateIn from '@/components/shared/AnimateIn';
 
 export default function Home() {
   const stats = [
@@ -21,13 +19,27 @@ export default function Home() {
   return (
     <>
       <Hero1 />
-      <VisaMarquee></VisaMarquee>
-      <VisaTypes />
-      <AboutStats stats={stats}></AboutStats>
-      <GuidesPreview />
-      <DocumentsChecklist />
-      <Updates />
-      <FAQ />
+      <AnimateIn>
+        <VisaMarquee></VisaMarquee>
+      </AnimateIn>
+      <AnimateIn delay={0.05}>
+        <VisaTypes />
+      </AnimateIn>
+      <AnimateIn delay={0.08}>
+        <AboutStats stats={stats}></AboutStats>
+      </AnimateIn>
+      <AnimateIn delay={0.12}>
+        <GuidesPreview />
+      </AnimateIn>
+      <AnimateIn delay={0.16}>
+        <DocumentsChecklist />
+      </AnimateIn>
+      <AnimateIn delay={0.2}>
+        <Updates />
+      </AnimateIn>
+      <AnimateIn delay={0.24}>
+        <FAQ />
+      </AnimateIn>
     </>
   );
 }

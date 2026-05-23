@@ -2,7 +2,7 @@ import React from 'react';
 import Program from './Program';
 
 const ProgramList = async () => {
-    const res = await fetch("http://localhost:3004/programs") ;
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3005'}/programs`);
  const programs = await res.json() ;
     return (
         <div className="container mx-auto px-4 md:px-6 py-24">

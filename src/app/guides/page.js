@@ -4,8 +4,6 @@ import Image from 'next/image';
 import { guidesData as fallbackGuides } from '@/lib/fakeData';
 import { FaClock, FaArrowRight, FaFileAlt, FaPassport, FaCheckSquare } from 'react-icons/fa';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3004';
-
 export const metadata = {
   title: 'Guides - Korean Guide BD',
   description: 'Practical travel and immigration guides for Korea.'
@@ -13,7 +11,7 @@ export const metadata = {
 
 async function fetchGuides() {
   try {
-    const res = await fetch(`${API_BASE}/guides`, { cache: 'no-store' });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3005'}/guides`, { cache: 'no-store' });
     if (!res.ok) return fallbackGuides;
     const data = await res.json();
     return Array.isArray(data) ? data : (data && data.guides ? data.guides : fallbackGuides);

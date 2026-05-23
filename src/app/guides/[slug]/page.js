@@ -3,11 +3,9 @@ import Link from 'next/link';
 import { guidesData as fallbackGuides } from '@/lib/fakeData';
 import { FaArrowLeft, FaClock, FaShare } from 'react-icons/fa';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3004';
-
 export async function generateStaticParams() {
   try {
-    const res = await fetch(`${API_BASE}/guides`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3005'}/guides`);
     const data = await res.json();
     const guides = Array.isArray(data) ? data : (data && data.guides ? data.guides : fallbackGuides);
     return guides.map((g) => ({ slug: g.slug }));
@@ -18,7 +16,7 @@ export async function generateStaticParams() {
 
 async function fetchGuide(slug) {
   try {
-    const res = await fetch(`${API_BASE}/guides`, { cache: 'no-store' });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3005'}/guides`, { cache: 'no-store' });
     const data = await res.json();
     const guides = Array.isArray(data) ? data : (data && data.guides ? data.guides : fallbackGuides);
     return guides.find((g) => g.slug === slug) || null;

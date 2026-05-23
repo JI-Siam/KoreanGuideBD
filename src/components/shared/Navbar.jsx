@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from 'framer-motion';
 
 const Navbar = () => {
   const router = useRouter();
@@ -34,7 +35,10 @@ const Navbar = () => {
   };
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -24, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       className={`
         fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b
         ${scrolled 
@@ -156,35 +160,45 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu panel */}
-      <div className={`md:hidden ${menuOpen ? 'block' : 'hidden'} w-full absolute top-full left-0 z-40`}>
-        <div className={`w-full border-t border-[var(--color-border)] bg-[var(--color-primary-bg)]/95 backdrop-blur`}>
-          <div className="px-6 py-4 flex flex-col gap-3">
-            <Link href="/" onClick={() => setMenuOpen(false)} className="text-[var(--color-primary-text)]">Home</Link>
-            <Link href="/guides" onClick={() => setMenuOpen(false)} className="text-[var(--color-primary-text)]">Guides</Link>
-            <Link href="/about" onClick={() => setMenuOpen(false)} className="text-[var(--color-primary-text)]">About</Link>
-            <Link href="/profile" onClick={() => setMenuOpen(false)} className="text-[var(--color-primary-text)]">Profile</Link>
-
-            <Link
-            href="/universities"
-            className="transition text-[var(--color-secondary-text)] hover:text-[var(--color-primary-blue)]"
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden w-full absolute top-full left-0 z-40"
           >
-            Universities
-          </Link>
+            <div className={`w-full border-t border-[var(--color-border)] bg-[var(--color-primary-bg)]/95 backdrop-blur`}>
+              <div className="px-6 py-4 flex flex-col gap-3">
+                <Link href="/" onClick={() => setMenuOpen(false)} className="text-[var(--color-primary-text)]">Home</Link>
+                <Link href="/guides" onClick={() => setMenuOpen(false)} className="text-[var(--color-primary-text)]">Guides</Link>
+                <Link href="/about" onClick={() => setMenuOpen(false)} className="text-[var(--color-primary-text)]">About</Link>
+                <Link href="/profile" onClick={() => setMenuOpen(false)} className="text-[var(--color-primary-text)]">Profile</Link>
 
-           <Link
-            href="/programs"
-            className="transition text-[var(--color-secondary-text)] hover:text-[var(--color-primary-blue)]"
-          >
-            Programs
-          </Link>
-            <div className="pt-2 border-t border-[var(--color-border)] mt-2 flex gap-2">
-              <Link href="/login" onClick={() => setMenuOpen(false)} className="px-3 py-2 rounded border border-[var(--color-border)] text-[var(--color-secondary-text)]">Login</Link>
-              <Link href="/signup" onClick={() => setMenuOpen(false)} className="px-3 py-2 rounded bg-gradient-to-r from-blue-600 to-green-500 text-white">Sign Up</Link>
+                <Link
+                  href="/universities"
+                  className="transition text-[var(--color-secondary-text)] hover:text-[var(--color-primary-blue)]"
+                >
+                  Universities
+                </Link>
+
+                <Link
+                  href="/programs"
+                  className="transition text-[var(--color-secondary-text)] hover:text-[var(--color-primary-blue)]"
+                >
+                  Programs
+                </Link>
+                <div className="pt-2 border-t border-[var(--color-border)] mt-2 flex gap-2">
+                  <Link href="/login" onClick={() => setMenuOpen(false)} className="px-3 py-2 rounded border border-[var(--color-border)] text-[var(--color-secondary-text)]">Login</Link>
+                  <Link href="/signup" onClick={() => setMenuOpen(false)} className="px-3 py-2 rounded bg-gradient-to-r from-blue-600 to-green-500 text-white">Sign Up</Link>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </header>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 };
 

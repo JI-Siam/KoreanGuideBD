@@ -7,6 +7,7 @@ import AboutMission from '@/components/about/AboutMission';
 import AboutValues from '@/components/about/AboutValues';
 import AboutTeam from '@/components/about/AboutTeam';
 import AboutCTA from '@/components/about/AboutCTA';
+import AnimateIn from '@/components/shared/AnimateIn';
 import { FaGlobe, FaUsers, FaLightbulb, FaHeartbeat } from 'react-icons/fa';
 
 const values = [
@@ -52,7 +53,9 @@ const team = [
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen" style={{ backgroundColor: '#F7FAFF' }}>
+    <main className="relative min-h-screen overflow-hidden" style={{ backgroundColor: '#F7FAFF' }}>
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_15%_10%,rgba(30,111,217,0.08),transparent_35%),radial-gradient(circle_at_85%_45%,rgba(31,175,122,0.08),transparent_35%)]" />
+
       <AboutHero
         title="About Korean Guide BD"
         subtitle={`Your trusted companion for exploring Korea, from visa processes to cultural experiences. We're dedicated to making your Korean journey seamless and unforgettable.`}
@@ -60,30 +63,40 @@ export default function AboutPage() {
         ctaLabel="Explore Our Guides"
       />
 
-      <AboutStats stats={stats} />
+      <AnimateIn>
+        <AboutStats stats={stats} />
+      </AnimateIn>
 
-      <AboutMission>
-        <p>
-          Korean Guide BD was founded with a simple yet powerful mission: to empower travelers, students, and professionals with accurate, up-to-date information about Korea.
-        </p>
-        <p>
-          Whether you're planning a short vacation, pursuing higher education, or relocating for work, we provide comprehensive guides that cover everything from visa requirements to cultural etiquette.
-        </p>
-        <p>
-          Our commitment is to make your transition to Korea as smooth as possible, ensuring you're well-informed and confident every step of the way.
-        </p>
-      </AboutMission>
+      <AnimateIn delay={0.06}>
+        <AboutMission>
+          <p>
+            Korean Guide BD was founded with a simple yet powerful mission: to empower travelers, students, and professionals with accurate, up-to-date information about Korea.
+          </p>
+          <p>
+            Whether you're planning a short vacation, pursuing higher education, or relocating for work, we provide comprehensive guides that cover everything from visa requirements to cultural etiquette.
+          </p>
+          <p>
+            Our commitment is to make your transition to Korea as smooth as possible, ensuring you're well-informed and confident every step of the way.
+          </p>
+        </AboutMission>
+      </AnimateIn>
 
-      <AboutValues values={values} />
+      <AnimateIn delay={0.1}>
+        <AboutValues values={values} />
+      </AnimateIn>
 
-      <AboutTeam team={team} />
+      <AnimateIn delay={0.14}>
+        <AboutTeam team={team} />
+      </AnimateIn>
 
-      <AboutCTA
-        title="Ready to Explore Korea?"
-        body="Start your journey with our comprehensive guides and resources."
-        href="/guides"
-        label="Browse All Guides"
-      />
+      <AnimateIn delay={0.18}>
+        <AboutCTA
+          title="Ready to Explore Korea?"
+          body="Start your journey with our comprehensive guides and resources."
+          href="/guides"
+          label="Browse All Guides"
+        />
+      </AnimateIn>
     </main>
   );
 }

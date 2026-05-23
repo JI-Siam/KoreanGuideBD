@@ -1,16 +1,14 @@
 import { updatesData as fallbackUpdates } from '@/lib/fakeData';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3004';
-
 export default async function Updates() {
-  const res = await fetch(`${API_BASE}/updates`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3005'}/updates`);
   const data = await res.json();
   const updates = Array.isArray(data) ? data : (data && data.updates ? data.updates : fallbackUpdates);
 
   const priorityBg = {
-    high: 'bg-gradient-to-br from-red-50 to-red-100/50 border-l-4 border-red-500',
-    medium: 'bg-gradient-to-br from-amber-50 to-amber-100/50 border-l-4 border-amber-500',
-    low: 'bg-gradient-to-br from-blue-50 to-blue-100/50 border-l-4 border-blue-500',
+    high: 'bg-gradient-to-br from-red-50 to-red-100/50 border border-red-200',
+    medium: 'bg-gradient-to-br from-amber-50 to-amber-100/50 border border-amber-200',
+    low: 'bg-gradient-to-br from-blue-50 to-blue-100/50 border border-blue-200',
   };
 
   const priorityBadge = {
@@ -32,21 +30,25 @@ export default async function Updates() {
             Stay informed about recent changes and announcements
           </p>
         </div>
-        <div className="max-w-4xl mx-auto space-y-6">
-          {updates.map((update) => (
-            <div key={update.id} className={`p-8 rounded-2xl shadow-md hover:shadow-lg shadow-blue-100/20 transition-all duration-300 border border-blue-100/50 ${priorityBg[update.priority] || 'bg-white'}`}>
-              <div className="flex items-start justify-between gap-6 flex-col md:flex-row">
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-4 flex-wrap">
+        <div className="max-w-5xl mx-auto grid gap-5">
+          {updates.map((update, index) => (
+            <div key={update.id} className={`rounded-2xl p-6 md:p-7 shadow-[0_10px_30px_rgba(15,23,42,0.08)] transition-all duration-300 ${priorityBg[update.priority] || 'bg-white border border-[#E2E8F0]'}`}>
+              <div className="grid gap-4 md:grid-cols-12 md:items-start">
+                <div className="md:col-span-2">
+                  <div className="flex items-center gap-3 md:block">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/80 text-sm font-extrabold text-[#0F172A]">{String(index + 1).padStart(2, '0')}</div>
+                    <span className="text-xs font-medium text-[#64748B] md:mt-2 block">{new Date(update.date).toLocaleDateString()}</span>
+                  </div>
+                </div>
+
+                <div className="md:col-span-10">
+                  <div className="flex items-center gap-3 mb-3 flex-wrap">
                     <span className={`text-xs font-bold px-4 py-2 rounded-full ${priorityBadge[update.priority] || 'bg-slate-100/70 text-slate-700 border border-slate-200/50'}`}>
                       {update.priority?.toUpperCase()} PRIORITY
                     </span>
-                    <span className="text-sm font-medium text-[#64748B] flex items-center">
-                      <svg className="w-5 h-5 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                      {new Date(update.date).toLocaleDateString()}
-                    </span>
+                    <span className="text-xs font-semibold uppercase tracking-wider text-[#64748B]">Policy Bulletin</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-[#0F172A] mb-3">{update.title}</h3>
+                  <h3 className="text-xl md:text-2xl font-bold text-[#0F172A] mb-3">{update.title}</h3>
                   <p className="text-[#64748B] leading-relaxed text-base">{update.content}</p>
                 </div>
               </div>
