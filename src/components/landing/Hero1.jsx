@@ -61,25 +61,25 @@ function HeroCountdown() {
   const seconds = Math.floor((remainingMs / 1000) % 60);
  
   return (
-    <div className="relative mt-6 mx-auto w-full max-w-xs rounded-2xl border border-[var(--color-border)] bg-white/90 p-3 shadow-lg backdrop-blur md:absolute md:right-8 md:top-8 md:mt-10 md:w-80 z-20">
-      <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[var(--color-secondary-text)]">Next Intake</p>
-      <p className="mt-1 text-sm font-bold text-[var(--color-primary-text)]">September</p>
+    <div className="relative z-20 mx-auto mt-6 md:mt-8 w-full max-w-xs rounded-2xl border border-(--color-border) bg-white/90 p-3 shadow-lg backdrop-blur md:absolute md:right-8 md:top-8 md:mt-0 md:w-80">
+      <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-(--color-secondary-text)">Next Intake</p>
+      <p className="mt-1 text-sm font-bold text-(--color-primary-text)">September</p>
       <div className="mt-2 grid grid-cols-2 md:grid-cols-4 gap-2">
         <div className="rounded-lg bg-blue-100 px-2 py-2 text-center">
-          <div className="text-lg md:text-xl font-extrabold text-[var(--color-primary-blue)]">{pad(days)}</div>
-          <div className="text-[9px] uppercase tracking-[0.16em] text-[var(--color-secondary-text)]">Days</div>
+          <div className="text-lg font-extrabold md:text-xl text-(--color-primary-blue)">{pad(days)}</div>
+          <div className="text-[9px] uppercase tracking-[0.16em] text-(--color-secondary-text)">Days</div>
         </div>
         <div className="rounded-lg bg-blue-100 px-2 py-2 text-center">
-          <div className="text-lg md:text-xl font-extrabold text-[var(--color-primary-blue)]">{pad(hours)}</div>
-          <div className="text-[9px] uppercase tracking-[0.16em] text-[var(--color-secondary-text)]">Hours</div>
+          <div className="text-lg font-extrabold md:text-xl text-(--color-primary-blue)">{pad(hours)}</div>
+          <div className="text-[9px] uppercase tracking-[0.16em] text-(--color-secondary-text)">Hours</div>
         </div>
         <div className="rounded-lg bg-blue-100 px-2 py-2 text-center">
-          <div className="text-lg md:text-xl font-extrabold text-[var(--color-primary-blue)]">{pad(minutes)}</div>
-          <div className="text-[9px] uppercase tracking-[0.16em] text-[var(--color-secondary-text)]">Min</div>
+          <div className="text-lg font-extrabold md:text-xl text-(--color-primary-blue)">{pad(minutes)}</div>
+          <div className="text-[9px] uppercase tracking-[0.16em] text-(--color-secondary-text)">Min</div>
         </div>
         <div className="rounded-lg bg-blue-100 px-2 py-2 text-center">
-          <div className="text-lg md:text-xl font-extrabold text-[var(--color-primary-blue)]">{pad(seconds)}</div>
-          <div className="text-[9px] uppercase tracking-[0.16em] text-[var(--color-secondary-text)]">Sec</div>
+          <div className="text-lg font-extrabold md:text-xl text-(--color-primary-blue)">{pad(seconds)}</div>
+          <div className="text-[9px] uppercase tracking-[0.16em] text-(--color-secondary-text)">Sec</div>
         </div>
       </div>
     </div>
@@ -89,7 +89,7 @@ function HeroCountdown() {
 export default function Hero1() {
   return (
     <section
-      className="relative overflow-hidden pt-24 md:pt-28"
+      className="relative overflow-hidden pt-24 md:pt-28 "
       style={{
         backgroundImage: "url('/var4.jpg')",
         backgroundSize: 'cover',
@@ -108,8 +108,8 @@ export default function Hero1() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-7">
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-7 xl:col-span-6">
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -126,14 +126,24 @@ export default function Hero1() {
               transition={{ duration: 0.6, delay: 0.15 }}
               className="text-left text-5xl font-black leading-[1.02] tracking-tight text-white md:text-7xl"
             >
-<span className='text-slate-100'>
-  Your Elegant
+
+<span className="text-slate-100">
+      Your Gateway 
+      <br />To
 </span>
 
-<span className="block bg-gradient-to-r from-cyan-300 via-sky-400 to-emerald-300 bg-clip-text text-transparent">
-  Korea Journey Desk
+<span className="
+block
+bg-gradient-to-r
+from-green-300
+via-sky-200
+to-blue-300
+bg-clip-text
+text-transparent
+drop-shadow-[0_0_20px_rgba(45,212,191,0.25)]
+">
+  South Korea
 </span>
-           
             </motion.h1>
 
             <motion.p
