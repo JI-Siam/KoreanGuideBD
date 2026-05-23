@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# KoreanGuideBD
 
-## Getting Started
+KoreanGuideBD is a modern guide platform that helps students, professionals, and travelers plan study, work, and short-term stays in South Korea. It centralizes visa guidance, document checklists, curated guides, and live updates into a clean, mobile-first UI.
 
-First, run the development server:
+## Top features
+- Visa planner with categorized visa types and comparisons
+- Verified document checklists with priority sorting and progress tracking
+- Curated guides (study, work, travel) with featured content and categories
+- Live updates, announcements, and FAQ sections
+- Responsive, accessible UI with smooth animations and synchronized stat counters
+- Simple snapshot panels and search-friendly guide previews
+
+## Technologies used
+- Next.js (App Router)
+- React
+- Tailwind CSS (+ daisyUI)
+- framer-motion (animations)
+- react-countup (animated counters)
+- react-fast-marquee, react-icons
+- Node.js backend (API served via `NEXT_PUBLIC_API_BASE`)
+
+## Quick start
+1. Copy environment variables and point your API: set `NEXT_PUBLIC_API_BASE` to your API base URL.
+2. Install and run:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open the site at the URL shown in the terminal.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
