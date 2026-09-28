@@ -3,33 +3,47 @@
 
 /* Premium Editorial Color System */
 :root {
-  --color-primary-bg: #FFFFFF;       /* Pure White */
-  --color-secondary-bg: #FAFAFA;     /* Off-white */
-  --color-tertiary-bg: #F4F4F5;      /* Light gray */
+  --color-primary-bg: #FFFFFF;
+  /* Pure White */
+  --color-secondary-bg: #FAFAFA;
+  /* Off-white */
+  --color-tertiary-bg: #F4F4F5;
+  /* Light gray */
   --color-card-bg: #FFFFFF;
   --color-elevated: #FFFFFF;
-  
-  --color-primary-black: #000000;    /* Pure Black */
-  --color-secondary-black: #09090B;  /* Zinc 950 */
-  
-  --color-accent-green: #10B981;     /* Emerald 500 */
-  --color-accent-green-dark: #059669;/* Emerald 600 */
-  
-  --color-info-blue: #3B82F6;        /* Blue 500 - Use sparingly */
-  
-  --color-primary-text: #09090B;     /* Zinc 950 */
-  --color-secondary-text: #52525B;   /* Zinc 500 */
-  --color-muted-text: #A1A1AA;       /* Zinc 400 */
-  
-  --color-border: #E4E4E7;           /* Zinc 200 */
-  --color-border-subtle: #F4F4F5;    /* Zinc 100 */
-  
+
+  --color-primary-black: #000000;
+  /* Pure Black */
+  --color-secondary-black: #09090B;
+  /* Zinc 950 */
+
+  --color-accent-green: #1ec98f;
+  /* Emerald 500  #10B981*/
+  --color-accent-green-dark: #059669;
+  /* Emerald 600 */
+
+  --color-info-blue: #3B82F6;
+  /* Blue 500 - Use sparingly */
+
+  --color-primary-text: #09090B;
+  /* Zinc 950 */
+  --color-secondary-text: #52525B;
+  /* Zinc 500 */
+  --color-muted-text: #A1A1AA;
+  /* Zinc 400 */
+
+  --color-border: #E4E4E7;
+  /* Zinc 200 */
+  --color-border-subtle: #F4F4F5;
+  /* Zinc 100 */
+
   --color-shadow: rgba(0, 0, 0, 0.04);
   --color-shadow-strong: rgba(0, 0, 0, 0.08);
 }
 
 /* Global Styles */
-html, body {
+html,
+body {
   background-color: var(--color-primary-bg);
   color: var(--color-primary-text);
   font-family: var(--font-inter), sans-serif;
@@ -40,7 +54,12 @@ html, body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--color-primary-text);
   font-family: var(--font-outfit), sans-serif;
   letter-spacing: -0.03em;
@@ -140,9 +159,17 @@ a:hover {
   letter-spacing: -0.02em;
 }
 
-.guide-content h1 { font-size: 2.5rem; }
-.guide-content h2 { font-size: 1.875rem; }
-.guide-content h3 { font-size: 1.25rem; }
+.guide-content h1 {
+  font-size: 2.5rem;
+}
+
+.guide-content h2 {
+  font-size: 1.875rem;
+}
+
+.guide-content h3 {
+  font-size: 1.25rem;
+}
 
 .guide-content p {
   color: var(--color-secondary-text);
@@ -237,8 +264,15 @@ a:hover {
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-fadeIn {
@@ -246,8 +280,15 @@ a:hover {
 }
 
 @keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-16px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .animate-slideInLeft {
@@ -255,8 +296,15 @@ a:hover {
 }
 
 @keyframes slideInRight {
-  from { opacity: 0; transform: translateX(16px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .animate-slideInRight {
@@ -264,8 +312,15 @@ a:hover {
 }
 
 @keyframes pulse-subtle {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
 }
 
 .animate-pulse-subtle {

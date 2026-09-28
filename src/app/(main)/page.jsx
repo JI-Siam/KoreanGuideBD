@@ -26,9 +26,7 @@ export default function Home() {
       <AnimateIn delay={0.05}>
         <VisaTypes />
       </AnimateIn>
-      <AnimateIn delay={0.05}>
-        <PhotoGrid />
-      </AnimateIn>
+      <PhotoGrid />
       <AnimateIn delay={0.12}>
         <GuidesPreview />
       </AnimateIn>

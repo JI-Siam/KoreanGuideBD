@@ -48,7 +48,7 @@ export default async function VisaTypes() {
               className="font-outfit text-4xl font-black leading-[1.05] tracking-tight md:text-6xl"
               style={INK}
             >
-              Choose the right Korean visa
+              Choose the right <span className='text-emerald-600'>Korean</span> visa
             </h2>
             <p className="mt-5 text-lg leading-relaxed" style={BODY}>
               Compare visa options by purpose and length of stay, then see what each one requires.

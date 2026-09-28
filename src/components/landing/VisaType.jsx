@@ -5,7 +5,7 @@ const VisaType = ({ visa }) => {
     <div className="h-full">
       <div className="h-full bg-white p-8 border border-zinc-200 transition-colors duration-200 hover:border-black flex flex-col group">
         <div className="mb-8 flex items-start justify-between gap-3">
-          <span className="inline-flex items-center bg-black text-white text-xs font-bold px-3 py-1.5">{visa.code}</span>
+          <span className="inline-flex items-center bg-emerald-600 text-white text-xs font-bold px-3 py-1.5">{visa.code}</span>
           <span className="inline-flex items-center text-zinc-500 text-[10px] font-bold uppercase tracking-[0.15em]">{visa.category}</span>
         </div>
 
