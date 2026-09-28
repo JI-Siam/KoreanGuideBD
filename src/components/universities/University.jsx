@@ -62,10 +62,11 @@ const University = ({ university }) => {
           <Link
             href={university?.officialWebsiteLink || '#'}
             target="_blank"
-            className="group/btn  inline-flex items-center gap-2 rounded-xl bg-[var(--color-primary-blue)] px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-[var(--color-darker-blue)]"
+            rel="noopener noreferrer"
+            className="group/btn inline-flex items-center gap-2 rounded-xl bg-[var(--color-primary-blue)] px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-[var(--color-darker-blue)]"
           >
-            <span className='text-white'>Visit</span>
-            <ArrowUpRight className="h-4 w-4 transition-transform text-white duration-300 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
+            <span>Visit</span>
+            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
           </Link>
 
         </div>

@@ -121,7 +121,7 @@ const LoginForm = () => {
           </form>
 
           <div className="mt-6 text-center text-sm text-slate-600">
-            <span>Don't have an account?</span>{' '}
+            <span>Don&apos;t have an account?</span>{' '}
             <Link href="/signup" className="font-medium text-[#1E6FD9]">
               Register
             </Link>

@@ -13,14 +13,14 @@ const ProfileCard = () => {
                     <div className="max-w-3xl mx-auto mt-8 bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
                         <div className="flex flex-col md:flex-row items-center gap-6 p-6">
                             <div className="w-36 h-36 rounded-full overflow-hidden bg-slate-100 flex-shrink-0">
-                                    <img src={user?.image} alt="profile image" width={144} height={144} className="object-cover" />
+                                    <Image src={user?.image || "/logo.png"} alt="profile image" width={144} height={144} className="object-cover" />
                               
                             </div>
 
                             <div className="flex-1">
                                 <h2 className="text-2xl font-semibold text-slate-900">{user?.name}</h2>
                                 <p className="text-sm text-slate-600">{user?.email}</p>
-                                <p className="mt-3 text-sm text-slate-600">Member since: <span className="font-medium text-slate-800">{new Date(user?.created_at || Date.now()).toLocaleDateString()}</span></p>
+                                <p className="mt-3 text-sm text-slate-600">Member since: <span className="font-medium text-slate-800">{user?.createdAt ? new Date(user.createdAt).toLocaleDateString() : 'Recently'}</span></p>
                             </div>
 
                             <div className="mt-4 md:mt-0 md:ml-4">

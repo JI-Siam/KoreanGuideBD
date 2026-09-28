@@ -73,10 +73,10 @@ export default function AboutPage() {
             Korean Guide BD was founded with a simple yet powerful mission: to empower travelers, students, and professionals with accurate, up-to-date information about Korea.
           </p>
           <p>
-            Whether you're planning a short vacation, pursuing higher education, or relocating for work, we provide comprehensive guides that cover everything from visa requirements to cultural etiquette.
+            Whether you&apos;re planning a short vacation, pursuing higher education, or relocating for work, we provide comprehensive guides that cover everything from visa requirements to cultural etiquette.
           </p>
           <p>
-            Our commitment is to make your transition to Korea as smooth as possible, ensuring you're well-informed and confident every step of the way.
+            Our commitment is to make your transition to Korea as smooth as possible, ensuring you&apos;re well-informed and confident every step of the way.
           </p>
         </AboutMission>
       </AnimateIn>

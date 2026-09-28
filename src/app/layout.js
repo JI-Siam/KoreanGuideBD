@@ -1,10 +1,7 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import { Roboto } from 'next/font/google'
-import { Ubuntu } from "next/font/google";
-import { Roboto_Slab } from "next/font/google";
+import { Inter, Outfit, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
- import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,19 +13,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: 'swap',
+});
 
- 
-const roboto = Roboto_Slab({
-  variable : "--font-roboto-slab" , 
-  weight: '400',
-  subsets: ['latin'],
-}) ; 
-
-const ubuntu = Ubuntu({
-  variable : "--font-ubuntu" , 
-  weight: '400',
-  subsets: ['latin'],
-})
+const outfit = Outfit({
+  variable: "--font-outfit",
+  subsets: ["latin"],
+  display: 'swap',
+});
 
 export const metadata = {
   title: "Korean Guide BD",
@@ -40,9 +35,9 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       data-theme="light"
-      className={`${ubuntu.variable} h-full antialiased`}
+      className={`${inter.variable} ${outfit.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body style={{ backgroundColor: '#F7FAFF' }} className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col bg-[var(--color-primary-bg)] text-[var(--color-primary-text)] font-sans">
         {children}
         <ToastContainer />
       </body>

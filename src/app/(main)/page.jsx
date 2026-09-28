@@ -7,14 +7,15 @@ import VisaMarquee from "@/components/landing/VisaMarquee";
 import AboutStats from "@/components/about/AboutStats";
 import Hero1 from "@/components/landing/Hero1";
 import AnimateIn from '@/components/shared/AnimateIn';
+import PhotoGrid from "@/components/landing/PhotoGrid";
 
 export default function Home() {
   const stats = [
-  { number: '50K+', label: 'Active Users' },
-  { number: '150+', label: 'Guides Published' },
-  { number: '30+', label: 'Countries Served' },
-  { number: '98%', label: 'Satisfaction Rate' }
-];
+    { number: '50K+', label: 'Active Users' },
+    { number: '150+', label: 'Guides Published' },
+    { number: '30+', label: 'Countries Served' },
+    { number: '98%', label: 'Satisfaction Rate' }
+  ];
 
   return (
     <>
@@ -25,17 +26,17 @@ export default function Home() {
       <AnimateIn delay={0.05}>
         <VisaTypes />
       </AnimateIn>
-      <AnimateIn delay={0.08}>
-        <AboutStats stats={stats}></AboutStats>
+      <AnimateIn delay={0.05}>
+        <PhotoGrid />
       </AnimateIn>
       <AnimateIn delay={0.12}>
         <GuidesPreview />
       </AnimateIn>
+      <AnimateIn delay={0.08}>
+        <AboutStats stats={stats}></AboutStats>
+      </AnimateIn>
       <AnimateIn delay={0.16}>
         <DocumentsChecklist />
-      </AnimateIn>
-      <AnimateIn delay={0.2}>
-        <Updates />
       </AnimateIn>
       <AnimateIn delay={0.24}>
         <FAQ />

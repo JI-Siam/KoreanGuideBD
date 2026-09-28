@@ -1,50 +1,83 @@
 import Link from 'next/link';
 import VisaType from './VisaType';
 
-export default async function VisaTypes() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3005'}/visaTypes`);
-  const data = await res.json();
-  const visas = (data?.visaTypes ?? (Array.isArray(data) ? data : [])).slice(0, 3);
+// Colors are set inline so global CSS (h2, p, a rules) can't override them.
+const BRAND = '#10B981';
+const INK = { color: '#18181b' };
+const BODY = { color: '#52525b' };
+const SOFT = { color: '#71717a' };
 
-  if (!visas || visas.length === 0) {
-    return <section id="visa-types" className="py-24 bg-white"><div className="container mx-auto px-6 text-center text-[#64748B]">No visa types available.</div></section>;
+async function getVisas() {
+  try {
+    const base = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3005';
+    const res = await fetch(`${base}/visaTypes`, { next: { revalidate: 60 } });
+    if (!res.ok) throw new Error(`Visa types request failed: ${res.status}`);
+    const data = await res.json();
+    const list = data?.visaTypes ?? (Array.isArray(data) ? data : []);
+    return Array.isArray(list) ? list : [];
+  } catch {
+    // API down or unreachable: show the empty state
+    return [];
+  }
+}
+
+export default async function VisaTypes() {
+  const visas = (await getVisas()).slice(0, 3);
+
+  if (visas.length === 0) {
+    return (
+      <section id="visa-types" className="bg-white py-24">
+        <div className="mx-auto max-w-7xl px-6 text-center font-medium" style={SOFT}>
+          No visa types available.
+        </div>
+      </section>
+    );
   }
 
   return (
-    <section id="visa-types" className="py-24 bg-gradient-to-b from-white via-[#F4F8FF] to-white">
-      <div className="container mx-auto px-6">
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-end mb-14">
-          <div className="lg:col-span-7">
-            <span className="inline-flex rounded-full border border-blue-200 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#1E6FD9]">Visa Planner</span>
-            <h2 className="mt-5 text-4xl md:text-5xl font-extrabold text-[#0F172A] tracking-tight">Choose The Right Korean Visa</h2>
-            <p className="mt-4 text-lg text-[#64748B] max-w-3xl leading-relaxed">
-              Compare visa options with clear categories, validity details, and practical direction based on your purpose.
+    <section
+      id="visa-types"
+      className="bg-white py-24 md:py-32"
+      style={{ borderBottom: '1px solid #f4f4f5' }}
+    >
+      <div className="mx-auto max-w-7xl px-6 md:px-8">
+        {/* Header */}
+        <div className="mb-12 flex flex-col gap-6 md:mb-16 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-2xl">
+            <h2
+              className="font-outfit text-4xl font-black leading-[1.05] tracking-tight md:text-6xl"
+              style={INK}
+            >
+              Choose the right Korean visa
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed" style={BODY}>
+              Compare visa options by purpose and length of stay, then see what each one requires.
             </p>
           </div>
-          <div className="lg:col-span-5">
-            <div className="rounded-3xl border border-[#E2E8F0] bg-white p-6 shadow-[0_16px_45px_rgba(15,23,42,0.08)]">
-              <h3 className="text-sm font-bold uppercase tracking-[0.14em] text-[#64748B]">At A Glance</h3>
-              <div className="mt-3 grid grid-cols-2 gap-3 text-sm">
-                <div className="rounded-xl bg-[#EEF4FB] px-3 py-3"><span className="font-bold text-[#0F172A]">Fast Compare</span><p className="text-[#64748B] mt-1">Type, purpose and duration</p></div>
-                <div className="rounded-xl bg-[#EEF4FB] px-3 py-3"><span className="font-bold text-[#0F172A]">Clear Priorities</span><p className="text-[#64748B] mt-1">Work, study, travel focus</p></div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-14">
-          {visas.map((visa) => (
-            <VisaType key={visa.id} visa={visa}></VisaType>
-          ))}
-        </div>
-
-        <div className="text-center">
-          <Link 
-            href="/guides/visa-types" 
-            className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-600 to-green-600 rounded-2xl hover:shadow-lg hover:shadow-blue-200/40 transition-all duration-300 hover:scale-105 border border-blue-500/20"
+          <Link
+            href="/guides/visa-types"
+            className="group inline-flex w-fit items-center gap-3 px-7 py-3.5 text-sm font-semibold transition-colors hover:bg-zinc-800"
+            style={{ background: '#18181b', color: '#ffffff' }}
           >
-            <span className='text-white'>View All Types →</span>
+            View all visa types
+            <svg
+              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke={BRAND}
+              aria-hidden
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
           </Link>
+        </div>
+
+        {/* Cards */}
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-8">
+          {visas.map((visa) => (
+            <VisaType key={visa.id} visa={visa} />
+          ))}
         </div>
       </div>
     </section>

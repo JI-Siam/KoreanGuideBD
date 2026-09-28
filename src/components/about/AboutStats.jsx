@@ -1,8 +1,13 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import CountUp from 'react-countup';
-import { motion } from 'framer-motion';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
+
+// Colors are set inline so global CSS can't override them.
+const BRAND = '#10B981';
+const WHITE = { color: '#ffffff' };
+const LABEL = { color: '#a1a1aa' };
 
 function parseStatValue(value) {
   const match = String(value).match(/^(\d+(?:\.\d+)?)(.*)$/);
@@ -12,79 +17,68 @@ function parseStatValue(value) {
   return { value: Number(match[1]), suffix: match[2] ?? '' };
 }
 
-function AnimatedStat({ number, label, shouldStart }) {
+function AnimatedStat({ number, label, shouldStart, delayIndex, reduceMotion }) {
   const parsed = parseStatValue(number);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 16 }}
+      initial={reduceMotion ? false : { opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.35 }}
-      transition={{ duration: 0.45, delay: 0 }}
-      whileHover={{ y: -5 }}
-      className="rounded-3xl border border-white/70 bg-white/70 px-6 py-8 text-center shadow-[0_20px_60px_rgba(30,111,217,0.08)] backdrop-blur-sm"
+      transition={{ duration: 0.5, delay: delayIndex * 0.1, ease: [0.16, 1, 0.3, 1] }}
+      className="border-l-2 border-white/15 p-8 transition-colors duration-300 hover:border-emerald-500 md:p-10"
+      style={{ background: '#09090b' }}
     >
       <div
-        className="mb-2 text-3xl font-extrabold tracking-tight md:text-4xl"
-        style={{ color: '#1E6FD9' }}
+        className="font-outfit text-4xl font-black tracking-tight tabular-nums md:text-6xl"
+        style={WHITE}
       >
         {parsed.value === null ? (
           number
+        ) : shouldStart ? (
+          <CountUp
+            end={parsed.value}
+            duration={reduceMotion ? 0 : 2}
+            decimals={Number.isInteger(parsed.value) ? 0 : 1}
+            suffix={parsed.suffix}
+          />
         ) : (
-          shouldStart ? (
-            <CountUp
-              end={parsed.value}
-              duration={1.5}
-              suffix={parsed.suffix}
-            />
-          ) : (
-            `0${parsed.suffix}`
-          )
+          `0${parsed.suffix}`
         )}
       </div>
-      <div className="text-sm font-medium md:text-base" style={{ color: '#475569' }}>
+      <div className="mt-4 text-sm font-medium md:text-base" style={LABEL}>
         {label}
       </div>
     </motion.div>
   );
 }
 
-export default function AboutStats({ stats }) {
+export default function AboutStats({ stats = [] }) {
   const sectionRef = useRef(null);
-  const [shouldStart, setShouldStart] = useState(false);
+  const reduceMotion = useReducedMotion();
+  const shouldStart = useInView(sectionRef, { once: true, amount: 0.3 });
 
-  useEffect(() => {
-    const section = sectionRef.current;
-
-    if (!section || shouldStart) {
-      return undefined;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShouldStart(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    observer.observe(section);
-
-    return () => observer.disconnect();
-  }, [shouldStart]);
+  if (!stats || stats.length === 0) return null;
 
   return (
-    <section ref={sectionRef} className="py-16 px-6" style={{ backgroundColor: '#EEF4FB' }}>
+    <section
+      ref={sectionRef}
+      className="px-6 py-24 md:px-8 md:py-32"
+      style={{ background: '#09090b' }}
+    >
       <div className="mx-auto max-w-7xl">
-        <div className="grid grid-cols-2 gap-5 md:grid-cols-4 md:gap-8">
-          {stats.map((stat) => (
+        <div
+          className="grid grid-cols-2 gap-px border border-white/15 md:grid-cols-4"
+          style={{ background: 'rgba(255,255,255,0.15)' }}
+        >
+          {stats.map((stat, idx) => (
             <AnimatedStat
               key={stat.label}
               number={stat.number}
               label={stat.label}
               shouldStart={shouldStart}
+              delayIndex={idx}
+              reduceMotion={reduceMotion}
             />
           ))}
         </div>
