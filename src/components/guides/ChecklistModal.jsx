@@ -4,10 +4,10 @@ import React from 'react';
 import { FaCheckCircle, FaRegTimesCircle, FaTimes } from 'react-icons/fa';
 
 const PRIORITY_TONES = {
-  critical: { label: 'Critical priority', tone: '#DC2626', soft: 'rgba(220, 38, 38, 0.12)' },
-  high: { label: 'High priority', tone: '#C2410C', soft: 'rgba(194, 65, 12, 0.12)' },
-  medium: { label: 'Medium priority', tone: '#1E6FD9', soft: 'rgba(30, 111, 217, 0.12)' },
-  low: { label: 'Low priority', tone: '#1FAF7A', soft: 'rgba(31, 175, 122, 0.12)' },
+  critical: { label: 'Critical priority', color: 'var(--color-destructive)' },
+  high: { label: 'High priority', color: 'var(--color-warning)' },
+  medium: { label: 'Medium priority', color: 'var(--color-primary-blue)' },
+  low: { label: 'Low priority', color: 'var(--color-success)' },
 };
 
 export default function ChecklistModal({ document, completed, onClose, onToggleComplete }) {
@@ -18,24 +18,30 @@ export default function ChecklistModal({ document, completed, onClose, onToggleC
   const priorityTone = PRIORITY_TONES[document.priority] || PRIORITY_TONES.medium;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/55 p-4 backdrop-blur-sm">
-      <div className="max-h-[92vh] w-full max-w-2xl overflow-hidden rounded-[28px] border border-[#E2E8F0] bg-white shadow-[0_28px_80px_rgba(15,23,42,0.22)]">
-        <div
-          className="flex items-start justify-between gap-6 px-7 py-7 text-white"
-          style={{ background: 'linear-gradient(135deg, #0E4C97 0%, #1E6FD9 55%, #1FAF7A 100%)' }}
-        >
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-xs"
+    >
+      <div className="max-h-[92vh] w-full max-w-2xl overflow-hidden border border-[var(--color-border-strong)] bg-[var(--color-card-bg)] text-[var(--color-primary-text)] shadow-xl flex flex-col">
+        {/* Modal Header */}
+        <div className="flex items-start justify-between gap-6 px-7 py-6 border-b border-[var(--color-border)] bg-[var(--color-secondary-bg)]">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/75">
-              Document details
+            <p className="text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-[var(--color-muted-text)]">
+              Document Specifications
             </p>
-            <h3 className="mt-2 text-3xl font-extrabold tracking-tight md:text-4xl">
+            <h2 id="modal-title" className="mt-1 font-inter text-2xl md:text-3xl font-black tracking-tight text-[var(--color-primary-text)]">
               {document.name}
-            </h3>
-            <div className="mt-3 flex flex-wrap items-center gap-2">
-              <span className="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white/90">
+            </h2>
+            <div className="mt-2.5 flex flex-wrap items-center gap-2">
+              <span className="border border-[var(--color-border)] bg-[var(--color-card-bg)] px-2.5 py-0.5 text-xs font-mono font-bold uppercase text-[var(--color-secondary-text)]">
                 {document.category}
               </span>
-              <span className="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white/90">
+              <span
+                className="border px-2.5 py-0.5 text-xs font-mono font-bold uppercase"
+                style={{ borderColor: priorityTone.color, color: priorityTone.color }}
+              >
                 {priorityTone.label}
               </span>
             </div>
@@ -45,77 +51,79 @@ export default function ChecklistModal({ document, completed, onClose, onToggleC
             type="button"
             onClick={onClose}
             aria-label="Close document details"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/25"
+            className="inline-flex h-9 w-9 shrink-0 items-center justify-center border border-[var(--color-border)] bg-[var(--color-card-bg)] text-[var(--color-primary-text)] transition-colors hover:border-[var(--color-border-strong)] focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
           >
-            <FaTimes size={18} />
+            <FaTimes size={16} />
           </button>
         </div>
 
-        <div className="max-h-[calc(92vh-196px)] overflow-y-auto px-7 py-7">
-          <section className="rounded-2xl border border-[#E2E8F0] bg-[#F7FAFF] p-5">
+        {/* Modal Body */}
+        <div className="overflow-y-auto px-7 py-6 space-y-6">
+          <section className="border border-[var(--color-border)] bg-[var(--color-secondary-bg)] p-5">
             <div className="flex items-center justify-between gap-3">
               <div>
-                <p className="text-sm font-semibold text-[#64748B]">Progress status</p>
-                <p className="mt-1 text-lg font-bold text-[#0F172A]">
-                  {completed ? 'Marked as complete' : 'Not yet completed'}
+                <p className="text-xs font-mono uppercase tracking-wider text-[var(--color-muted-text)]">Completion Status</p>
+                <p className="mt-1 text-base font-bold text-[var(--color-primary-text)] font-inter">
+                  {completed ? 'Marked as Complete' : 'Pending Action'}
                 </p>
               </div>
               <div
-                className="rounded-full px-4 py-2 text-sm font-bold"
-                style={{ backgroundColor: priorityTone.soft, color: priorityTone.tone }}
+                className="border px-3 py-1 text-xs font-mono font-bold uppercase"
+                style={{ borderColor: priorityTone.color, color: priorityTone.color }}
               >
                 {priorityTone.label}
               </div>
             </div>
           </section>
 
-          <section className="mt-8">
-            <h4 className="text-xl font-bold text-[#0F172A] md:text-2xl">
-              What to prepare
-            </h4>
-            <p className="mt-3 leading-8 text-[#475569]">
+          <section>
+            <h3 className="text-sm font-mono font-bold uppercase tracking-wider text-[var(--color-muted-text)]">
+              Instructions &amp; Requirements
+            </h3>
+            <p className="mt-2 text-sm md:text-base leading-relaxed text-[var(--color-secondary-text)]">
               {document.description}
             </p>
           </section>
 
-          <section className="mt-8 grid gap-5 md:grid-cols-2">
-            <div className="rounded-2xl border border-[#E2E8F0] bg-[#F7FAFF] p-5">
-              <div className="text-sm font-semibold text-[#64748B]">Category</div>
-              <p className="mt-2 text-lg font-bold text-[#0F172A]">{document.category}</p>
+          <section className="grid gap-4 md:grid-cols-2">
+            <div className="border border-[var(--color-border)] bg-[var(--color-secondary-bg)] p-4">
+              <div className="text-[10px] font-mono uppercase text-[var(--color-muted-text)]">Category Class</div>
+              <p className="mt-1 text-sm font-bold text-[var(--color-primary-text)] font-mono">{document.category}</p>
             </div>
-            <div className="rounded-2xl border border-[#E2E8F0] bg-[#F7FAFF] p-5">
-              <div className="text-sm font-semibold text-[#64748B]">Priority</div>
-              <p className="mt-2 text-lg font-bold" style={{ color: priorityTone.tone }}>
+            <div className="border border-[var(--color-border)] bg-[var(--color-secondary-bg)] p-4">
+              <div className="text-[10px] font-mono uppercase text-[var(--color-muted-text)]">Submission Urgency</div>
+              <p className="mt-1 text-sm font-bold font-mono" style={{ color: priorityTone.color }}>
                 {priorityTone.label}
               </p>
             </div>
           </section>
 
-          <section className="mt-8 rounded-2xl border border-[#D6E2F0] bg-[#EEF4FB] p-5">
-            <div className="flex items-center gap-2 text-sm font-semibold text-[#0F172A]">
-              {completed ? <FaCheckCircle className="text-[#1FAF7A]" /> : <FaRegTimesCircle className="text-[#DC2626]" />}
-              Quick reminder
+          <section className="border border-[var(--color-border)] bg-[var(--color-secondary-bg)] p-4 border-l-4 border-l-[var(--color-primary-blue)]">
+            <div className="flex items-center gap-2 text-xs font-mono font-bold text-[var(--color-primary-text)] uppercase tracking-wider">
+              {completed ? <FaCheckCircle className="text-[var(--color-accent-green)]" /> : <FaRegTimesCircle className="text-[var(--color-destructive)]" />}
+              Compliance Notice
             </div>
-            <p className="mt-2 leading-7 text-[#475569]">
-              Keep a scanned copy of this document ready before your appointment and verify any notarization or apostille requirements in advance.
+            <p className="mt-2 text-xs md:text-sm leading-relaxed text-[var(--color-secondary-text)]">
+              Keep original notarized papers separate from certified copies. Ensure bank balance certificates match strict embassy currency date intervals.
             </p>
           </section>
         </div>
 
-        <div className="flex flex-col gap-3 border-t border-[#E2E8F0] bg-[#F8FBFF] px-7 py-5 sm:flex-row sm:justify-end">
+        {/* Modal Actions */}
+        <div className="flex flex-col gap-3 border-t border-[var(--color-border)] bg-[var(--color-secondary-bg)] px-7 py-4 sm:flex-row sm:justify-end">
           <button
             type="button"
             onClick={onClose}
-            className="inline-flex items-center justify-center rounded-full border border-[#CBD5E1] bg-white px-5 py-3 text-sm font-semibold text-[#0F172A] transition hover:border-[#1E6FD9] hover:text-[#1E6FD9]"
+            className="btn btn-outline px-5 py-2.5 text-xs font-bold uppercase tracking-wider focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
           >
-            Close details
+            Close
           </button>
           <button
             type="button"
             onClick={() => onToggleComplete(document.id)}
-            className="inline-flex items-center justify-center rounded-full bg-[#1E6FD9] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0E4C97]"
+            className="btn btn-primary px-5 py-2.5 text-xs font-bold uppercase tracking-wider focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
           >
-            {completed ? 'Mark as incomplete' : 'Mark as complete'}
+            {completed ? 'Reset checklist item' : 'Mark as complete'}
           </button>
         </div>
       </div>

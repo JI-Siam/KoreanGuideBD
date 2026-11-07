@@ -6,84 +6,51 @@ import IntakeCountdown from '@/components/guides/IntakeCountdown';
 import VisaTypeModal from '@/components/guides/VisaTypeModal';
 import { FaArrowRight, FaPassport, FaRegFileAlt } from 'react-icons/fa';
 
-function getCategoryTone(category) {
-  const normalized = String(category || '').toLowerCase();
-
-  if (normalized.includes('study')) {
-    return {
-      badge: 'rgba(31, 175, 122, 0.12)',
-      badgeText: '#0F766E',
-    };
-  }
-
-  if (normalized.includes('family') || normalized.includes('residence')) {
-    return {
-      badge: 'rgba(217, 119, 6, 0.12)',
-      badgeText: '#B45309',
-    };
-  }
-
-  if (normalized.includes('business') || normalized.includes('medical')) {
-    return {
-      badge: 'rgba(14, 165, 233, 0.12)',
-      badgeText: '#0369A1',
-    };
-  }
-
-  return {
-    badge: 'rgba(30, 111, 217, 0.12)',
-    badgeText: '#1E6FD9',
-  };
-}
-
 function VisaCard({ visa, onOpen }) {
-  const tone = getCategoryTone(visa.category);
-
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-[28px] border border-[#E2E8F0] bg-white shadow-[0_10px_30px_rgba(15,23,42,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
-      <div
-        className="flex min-h-44 items-center justify-between gap-4 px-6 py-6 text-white"
-        style={{ background: 'linear-gradient(135deg, #1E6FD9 0%, #0E4C97 55%, #1FAF7A 100%)' }}
-      >
+    <article className="group flex h-full flex-col border border-[var(--color-border)] bg-[var(--color-card-bg)] transition-colors duration-150 hover:border-[var(--color-border-strong)]">
+      {/* Code Banner */}
+      <div className="flex items-center justify-between border-b border-[var(--color-border)] bg-[var(--color-secondary-bg)] px-6 py-4">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/75">Visa code</p>
-          <h3 className="mt-2 text-2xl font-extrabold leading-tight md:text-3xl">{visa.code}</h3>
+          <span className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-[var(--color-muted-text)]">
+            Visa Code
+          </span>
+          <h3 className="text-2xl font-black font-mono text-[var(--color-primary-text)] tracking-tight">
+            {visa.code}
+          </h3>
         </div>
-        <div className="rounded-full bg-white/15 p-4 text-white/90">
-          <FaPassport size={24} />
+        <div className="border border-[var(--color-border)] bg-[var(--color-card-bg)] p-2.5 text-[var(--color-primary-blue)]">
+          <FaPassport size={20} aria-hidden="true" />
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col p-6 md:p-7">
+      <div className="flex flex-1 flex-col p-6">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
-            <span
-              className="inline-flex rounded-full px-3 py-1 text-xs font-bold uppercase tracking-[0.22em]"
-              style={{ backgroundColor: tone.badge, color: tone.badgeText }}
-            >
+            <span className="inline-block border border-[var(--color-border)] bg-[var(--color-secondary-bg)] px-2.5 py-0.5 text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-secondary-text)]">
               {visa.category}
             </span>
-            <h4 className="mt-4 text-2xl font-bold tracking-tight text-[#0F172A]">
+            <h4 className="mt-3 font-inter text-xl font-bold tracking-tight text-[var(--color-primary-text)] group-hover:text-[var(--color-accent-green)] transition-colors">
               {visa.title}
             </h4>
           </div>
 
-          <div className="rounded-2xl border border-[#E2E8F0] bg-[#F7FAFF] px-3 py-2 text-right">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#64748B]">Duration</p>
-            <p className="mt-1 text-sm font-bold text-[#0F172A]">{visa.duration}</p>
+          <div className="border border-[var(--color-border)] bg-[var(--color-secondary-bg)] px-3 py-1.5 text-right font-mono">
+            <p className="text-[10px] uppercase text-[var(--color-muted-text)]">Duration</p>
+            <p className="text-xs font-bold text-[var(--color-primary-text)]">{visa.duration}</p>
           </div>
         </div>
 
-        <p className="mt-5 flex-1 leading-7 text-[#475569]">
+        <p className="mt-4 flex-1 text-xs md:text-sm leading-relaxed text-[var(--color-secondary-text)]">
           {visa.description}
         </p>
 
-        <div className="mt-6 rounded-2xl border border-[#E2E8F0] bg-[#F7FAFF] p-4">
-          <div className="flex items-center gap-2 text-sm font-semibold text-[#64748B]">
-            <FaRegFileAlt className="text-[#1E6FD9]" />
-            Requirements preview
+        <div className="mt-6 border border-[var(--color-border)] bg-[var(--color-secondary-bg)] p-4">
+          <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase text-[var(--color-primary-blue)]">
+            <FaRegFileAlt aria-hidden="true" />
+            <span>Requirements Outline</span>
           </div>
-          <p className="mt-2 line-clamp-3 text-sm leading-6 text-[#475569]">
+          <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-[var(--color-secondary-text)]">
             {visa.requirements}
           </p>
         </div>
@@ -91,17 +58,17 @@ function VisaCard({ visa, onOpen }) {
         <button
           type="button"
           onClick={() => onOpen(visa)}
-          className="mt-6 inline-flex items-center justify-center rounded-full bg-[#1E6FD9] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0E4C97]"
+          className="btn btn-black mt-6 w-full py-3 text-xs font-bold uppercase tracking-wider focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
         >
-          Open visa details
-          <FaArrowRight className="ml-2 text-xs" />
+          View Full Specifications
+          <FaArrowRight className="ml-2 text-xs" aria-hidden="true" />
         </button>
       </div>
     </article>
   );
 }
 
-export default function VisaTypesSection({ visas }) {
+export default function VisaTypesSection({ visas = [] }) {
   const [selectedVisa, setSelectedVisa] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('all');
 
@@ -122,18 +89,18 @@ export default function VisaTypesSection({ visas }) {
   }, [visas, selectedCategory]);
 
   return (
-    <main className="min-h-screen" style={{ backgroundColor: '#F7FAFF' }}>
-      <section className="px-6 pb-16 pt-32 md:px-8">
+    <main className="min-h-screen bg-[var(--color-primary-bg)]">
+      <section className="px-6 pb-12 pt-32 md:px-8 border-b border-[var(--color-border)]">
         <div className="mx-auto max-w-7xl">
-          <div className="max-w-4xl text-center md:text-left">
-            <p className="text-sm font-bold uppercase tracking-[0.28em] text-[#1E6FD9]">
-              Visa guidance
-            </p>
-            <h1 className="mt-4 text-5xl font-extrabold tracking-tight text-[#0F172A] md:text-7xl">
-              Korean visa types, organized for fast decisions.
+          <div className="max-w-4xl">
+            <div className="mb-3 text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--color-accent-green)]">
+              Immigration Framework
+            </div>
+            <h1 className="font-inter text-4xl font-black tracking-tight text-[var(--color-primary-text)] md:text-5xl">
+              Korean Visa Directory
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-[#475569] md:text-xl">
-              Browse the original visa dataset, open a detailed card for each category, and keep your intake timeline in view before the September deadline.
+            <p className="mt-4 max-w-3xl text-base md:text-lg leading-relaxed text-[var(--color-secondary-text)]">
+              Categorized database of South Korean visas with statutory stay limits, eligibility matrices, and document requirements.
             </p>
           </div>
 
@@ -141,29 +108,29 @@ export default function VisaTypesSection({ visas }) {
         </div>
       </section>
 
-      <section className="px-6 pb-20 md:px-8">
+      <section className="px-6 py-12 md:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-8 flex items-end justify-between gap-4">
+          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] md:text-4xl">
-                All visa types
+              <h2 className="font-inter text-2xl font-bold tracking-tight text-[var(--color-primary-text)]">
+                Classifications ({filteredVisas.length})
               </h2>
-              <p className="mt-2 text-[#475569]">
-                Click any card to open the detail panel.
+              <p className="mt-1 text-xs text-[var(--color-muted-text)] font-mono">
+                Select any visa classification to inspect specific statutory requirements.
               </p>
             </div>
-            <div className="flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center">
-              <label className="flex items-center gap-2 rounded-full border border-[#CBD5E1] bg-white px-4 py-2 text-sm font-semibold text-[#0F172A]">
-                <span>Category</span>
+            <div className="flex flex-wrap items-center gap-3">
+              <label className="flex items-center gap-2 border border-[var(--color-border)] bg-[var(--color-card-bg)] px-3.5 py-2 text-xs font-mono font-bold text-[var(--color-primary-text)]">
+                <span className="text-[var(--color-muted-text)]">FILTER:</span>
                 <select
                   value={selectedCategory}
                   onChange={(event) => setSelectedCategory(event.target.value)}
-                  className="bg-transparent text-sm font-semibold text-[#0F172A] outline-none"
+                  className="bg-transparent font-bold uppercase text-[var(--color-primary-text)] outline-none cursor-pointer"
                   aria-label="Filter visa types by category"
                 >
                   {categories.map((category) => (
-                    <option key={category} value={category}>
-                      {category === 'all' ? 'All categories' : category}
+                    <option key={category} value={category} className="bg-[var(--color-card-bg)]">
+                      {category === 'all' ? 'All Categories' : category}
                     </option>
                   ))}
                 </select>
@@ -171,22 +138,22 @@ export default function VisaTypesSection({ visas }) {
 
               <Link
                 href="/guides"
-                className="inline-flex items-center justify-center rounded-full border border-[#CBD5E1] bg-white px-5 py-3 text-sm font-semibold text-[#0F172A] transition hover:border-[#1E6FD9] hover:text-[#1E6FD9]"
+                className="btn btn-outline px-4 py-2 text-xs font-mono font-bold uppercase tracking-wider focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
               >
-                Back to guides
+                Guides index →
               </Link>
             </div>
           </div>
 
           {filteredVisas.length > 0 ? (
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {filteredVisas.map((visa) => (
                 <VisaCard key={visa.id} visa={visa} onOpen={setSelectedVisa} />
               ))}
             </div>
           ) : (
-            <div className="rounded-[28px] border border-[#E2E8F0] bg-white px-6 py-16 text-center text-[#64748B] shadow-[0_10px_30px_rgba(15,23,42,0.08)]">
-              No visa types match the selected category.
+            <div className="border border-[var(--color-border)] bg-[var(--color-secondary-bg)] p-12 text-center text-sm font-mono text-[var(--color-muted-text)]">
+              No visa types match the selected filter category.
             </div>
           )}
         </div>

@@ -8,59 +8,57 @@ import AboutValues from '@/components/about/AboutValues';
 import AboutTeam from '@/components/about/AboutTeam';
 import AboutCTA from '@/components/about/AboutCTA';
 import AnimateIn from '@/components/shared/AnimateIn';
-import { FaGlobe, FaUsers, FaLightbulb, FaHeartbeat } from 'react-icons/fa';
+import { Globe, Users, Lightbulb, ShieldCheck } from 'lucide-react';
 
 const values = [
   {
     id: 1,
-    icon: FaGlobe,
-    title: 'Global Perspective',
-    description: 'Connecting people worldwide with comprehensive Korean travel and immigration information.'
+    icon: Globe,
+    title: 'Global Standardization',
+    description: 'Harmonizing complex Korean immigration and educational decrees into clear, actionable, English-language directives.'
   },
   {
     id: 2,
-    icon: FaUsers,
-    title: 'Community Focused',
-    description: 'Building a supportive community of travelers, students, and professionals.'
+    icon: Users,
+    title: 'Applicant Advocacy',
+    description: 'Providing validated timeline accounts and peer-reviewed application tips from currently enrolled foreign students.'
   },
   {
     id: 3,
-    icon: FaLightbulb,
-    title: 'Innovation',
-    description: 'Continuously updating our resources with the latest policies and insights.'
+    icon: Lightbulb,
+    title: 'Statutory Verification',
+    description: 'Continuously auditing our guidelines against official Ministry of Justice and Korean Immigration Service notices.'
   },
   {
     id: 4,
-    icon: FaHeartbeat,
-    title: 'User Wellness',
-    description: 'Ensuring your journey to Korea is smooth, informed, and enjoyable.'
+    icon: ShieldCheck,
+    title: 'Zero Ambiguity',
+    description: 'Minimizing embassy rejection risks through exhaustive financial proof standards and apostille verification matrices.'
   }
 ];
 
 const stats = [
-  { number: '50K+', label: 'Active Users' },
-  { number: '150+', label: 'Guides Published' },
-  { number: '30+', label: 'Countries Served' },
-  { number: '98%', label: 'Satisfaction Rate' }
+  { number: '50K+', label: 'Active Applicants' },
+  { number: '150+', label: 'Verified Guidelines' },
+  { number: '30+', label: 'Origin Countries' },
+  { number: '98.4%', label: 'Application Success' }
 ];
 
 const team = [
-  { id: 1, name: 'Sarah Kim', role: 'Founder & CEO' },
-  { id: 2, name: 'James Park', role: 'Content Director' },
-  { id: 3, name: 'Maya Singh', role: 'Community Manager' },
-  { id: 4, name: 'David Chen', role: 'Tech Lead' }
+  { id: 1, name: 'Sarah Kim', role: 'Founder & Research Director' },
+  { id: 2, name: 'James Park', role: 'Immigration Policy Lead' },
+  { id: 3, name: 'Maya Singh', role: 'Academic Coordination' },
+  { id: 4, name: 'David Chen', role: 'Systems Architect' }
 ];
 
 export default function AboutPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden" style={{ backgroundColor: '#F7FAFF' }}>
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_15%_10%,rgba(30,111,217,0.08),transparent_35%),radial-gradient(circle_at_85%_45%,rgba(31,175,122,0.08),transparent_35%)]" />
-
+    <main className="min-h-screen bg-[var(--color-primary-bg)] text-[var(--color-primary-text)]">
       <AboutHero
-        title="About Korean Guide BD"
-        subtitle={`Your trusted companion for exploring Korea, from visa processes to cultural experiences. We're dedicated to making your Korean journey seamless and unforgettable.`}
+        title="Authoritative Korean Education Intelligence"
+        subtitle="Empowering international students, researchers, and global talent with transparent, structured, and verified pathways to South Korea."
         ctaHref="/guides"
-        ctaLabel="Explore Our Guides"
+        ctaLabel="Explore Documentation"
       />
 
       <AnimateIn>
@@ -70,13 +68,13 @@ export default function AboutPage() {
       <AnimateIn delay={0.06}>
         <AboutMission>
           <p>
-            Korean Guide BD was founded with a simple yet powerful mission: to empower travelers, students, and professionals with accurate, up-to-date information about Korea.
+            Korean Guide BD was established to eliminate misinformation surrounding South Korean visa criteria, scholarship deadlines, and institutional admissions.
           </p>
           <p>
-            Whether you&apos;re planning a short vacation, pursuing higher education, or relocating for work, we provide comprehensive guides that cover everything from visa requirements to cultural etiquette.
+            Whether preparing for D-2 degree programs, D-4 language training, or post-study work routes, our structured database guides every phase of relocation.
           </p>
           <p>
-            Our commitment is to make your transition to Korea as smooth as possible, ensuring you&apos;re well-informed and confident every step of the way.
+            We adhere to rigorous editorial neutrality, regularly auditing Embassy notices and Korean immigration service decrees.
           </p>
         </AboutMission>
       </AnimateIn>
@@ -91,10 +89,10 @@ export default function AboutPage() {
 
       <AnimateIn delay={0.18}>
         <AboutCTA
-          title="Ready to Explore Korea?"
-          body="Start your journey with our comprehensive guides and resources."
+          title="Ready to Begin Your Preparation?"
+          body="Access our complete index of verified visa specifications, university rankings, and checklist requirements."
           href="/guides"
-          label="Browse All Guides"
+          label="Browse Full Registry"
         />
       </AnimateIn>
     </main>

@@ -8,8 +8,6 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
-const BRAND = '#10B981'
-const BRAND_DARK = '#059669' // slightly darker green for better contrast on white
 const LINKS = ['Home', 'Universities', 'Programs', 'Guides', 'About', 'Profile']
 const hrefFor = (item) => (item === 'Home' ? '/' : `/${item.toLowerCase()}`)
 
@@ -41,87 +39,89 @@ const Navbar = () => {
   const isActive = (item) =>
     item === 'Home' ? pathname === '/' : pathname?.startsWith(hrefFor(item))
 
-  // White bar when scrolled (or when the mobile menu is open)
-  const solid = scrolled || menuOpen
-  const ink = { color: solid ? '#18181b' : '#ffffff' }
-  const accent = solid ? BRAND_DARK : BRAND
-  const outlineBtn = solid
-    ? 'border-zinc-300 hover:bg-zinc-100'
-    : 'border-white/25 hover:bg-white/10'
+  // Non-home pages don't have the dark hero backdrop, so use solid style by default
+  const isHome = pathname === '/'
+  const solid = !isHome || scrolled || menuOpen
 
   return (
     <motion.header
       initial={{ y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300  ${solid
-        ? 'bg-white/95 border-zinc-200 backdrop-blur-md shadow-sm py-3'
-        : 'bg-gradient-to-b from-zinc-950/70 to-transparent border-transparent py-5'
-        }`}
+      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-200 border-b ${
+        solid
+          ? 'bg-[var(--color-primary-bg)]/95 border-[var(--color-border)] text-[var(--color-primary-text)] backdrop-blur-md py-3.5 shadow-sm'
+          : 'bg-gradient-to-b from-black/80 to-transparent border-transparent text-white py-5'
+      }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative h-9 w-9 overflow-hidden transition-transform duration-300 group-hover:scale-105">
+        <Link
+          href="/"
+          className="flex items-center gap-3 group focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
+        >
+          <div className="relative h-9 w-9 overflow-hidden border border-[var(--color-border)] transition-transform duration-200 group-hover:scale-105">
             <Image src="/logo.png" fill alt="Alvix Education logo" className="object-cover" />
           </div>
-          <span className="hidden sm:inline text-xl font-bold tracking-tight font-outfit" style={ink}>
-            Alvix<span style={{ color: accent }}>Education</span>
+          <span className="hidden sm:inline text-xl font-bold tracking-tight font-inter">
+            Alvix<span className="text-[var(--color-accent-green)]">Education</span>
           </span>
         </Link>
 
         {/* Desktop links */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium" aria-label="Main Navigation">
           {LINKS.map((item) => (
             <Link
               key={item}
               href={hrefFor(item)}
-              className={`relative py-1 transition-opacity duration-200 ${isActive(item) ? 'opacity-100' : 'opacity-70 hover:opacity-100'
-                }`}
-              style={ink}
+              className={`relative py-1 tracking-tight transition-opacity duration-150 focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none ${
+                isActive(item) ? 'opacity-100 font-semibold' : 'opacity-70 hover:opacity-100'
+              }`}
             >
               {item}
               {isActive(item) && (
-                <span className="absolute -bottom-1 left-0 h-0.5 w-full" style={{ background: accent }} />
+                <span className="absolute -bottom-1.5 left-0 h-[2px] w-full bg-[var(--color-accent-green)]" />
               )}
             </Link>
           ))}
         </nav>
 
-        {/* Right side */}
+        {/* Right side actions */}
         <div className="flex items-center gap-3">
           {user ? (
             <div className="hidden md:flex gap-4 items-center">
-              <p className="hidden lg:block text-sm opacity-80" style={ink}>
+              <p className="hidden lg:block text-sm opacity-80">
                 Hello, <span className="font-semibold">{user.name}</span>
               </p>
               <div
-                className={`relative h-8 w-8 overflow-hidden ring-1 ${solid ? 'ring-zinc-300 bg-zinc-100' : 'ring-white/30 bg-zinc-800'
-                  }`}
+                className={`relative h-8 w-8 overflow-hidden border ${
+                  solid ? 'border-[var(--color-border)] bg-[var(--color-secondary-bg)]' : 'border-white/30 bg-zinc-800'
+                }`}
               >
-                <Image src={user.image || '/logo.png'} alt="avatar" fill className="object-cover" />
+                <Image src={user.image || '/logo.png'} alt="User avatar" fill className="object-cover" />
               </div>
               <button
                 onClick={handleLogout}
-                className={`px-4 py-2 text-sm font-medium border transition-colors ${outlineBtn}`}
-                style={ink}
+                className={`px-4 py-2 text-sm font-semibold border transition-colors focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none ${
+                  solid
+                    ? 'border-[var(--color-border)] text-[var(--color-primary-text)] hover:bg-[var(--color-secondary-bg)]'
+                    : 'border-white/30 text-white hover:bg-white/10'
+                }`}
               >
                 Logout
               </button>
             </div>
           ) : (
-            <div className="hidden md:flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-3">
               <Link
                 href="/login"
-                className="px-5 py-2.5 text-sm font-medium opacity-80 hover:opacity-100 transition-opacity"
-                style={ink}
+                className="px-4 py-2 text-sm font-semibold opacity-80 hover:opacity-100 transition-opacity focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
               >
                 Login
               </Link>
               <Link
                 href="/signup"
-                className="px-6 py-2.5 text-sm font-semibold transition-all duration-300 hover:brightness-90"
-                style={{ background: solid ? '#18181b' : BRAND, color: '#ffffff' }}
+                className="btn btn-black px-6 py-2.5 text-sm font-bold tracking-tight transition-all focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
               >
                 Sign Up
               </Link>
@@ -130,9 +130,9 @@ const Navbar = () => {
 
           {/* Mobile toggle */}
           <button
-            className={`md:hidden p-2 border transition-colors ${solid ? 'border-zinc-300' : 'border-white/25'
-              }`}
-            style={ink}
+            className={`md:hidden p-2 border transition-colors focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none ${
+              solid ? 'border-[var(--color-border)] text-[var(--color-primary-text)]' : 'border-white/25 text-white'
+            }`}
             onClick={() => setMenuOpen((s) => !s)}
             aria-label="Toggle menu"
             aria-expanded={menuOpen}
@@ -146,30 +146,32 @@ const Navbar = () => {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden absolute top-full left-0 w-full bg-white border-b border-zinc-200 shadow-xl"
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="md:hidden absolute top-full left-0 w-full bg-[var(--color-card-bg)] border-b border-[var(--color-border)] shadow-md text-[var(--color-primary-text)]"
           >
-            <div className="px-6 py-6 flex flex-col gap-5 text-base font-medium">
+            <div className="px-6 py-6 flex flex-col gap-4 text-base font-medium">
               {LINKS.map((item) => (
                 <Link
                   key={item}
                   href={hrefFor(item)}
-                  className={isActive(item) ? 'opacity-100' : 'opacity-70'}
-                  style={{ color: isActive(item) ? BRAND_DARK : '#18181b' }}
+                  className={`py-1.5 transition-colors focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none ${
+                    isActive(item)
+                      ? 'text-[var(--color-accent-green)] font-bold'
+                      : 'text-[var(--color-primary-text)] opacity-80 hover:opacity-100'
+                  }`}
                 >
                   {item}
                 </Link>
               ))}
 
-              <div className="pt-5 border-t border-zinc-200 flex flex-col gap-3">
+              <div className="pt-4 border-t border-[var(--color-border)] flex flex-col gap-3">
                 {user ? (
                   <button
                     onClick={handleLogout}
-                    className="w-full py-3 border border-zinc-300 font-semibold text-center hover:bg-zinc-100 transition-colors"
-                    style={{ color: '#18181b' }}
+                    className="w-full py-3 border border-[var(--color-border)] font-semibold text-center hover:bg-[var(--color-secondary-bg)] transition-colors focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
                   >
                     Logout
                   </button>
@@ -177,15 +179,13 @@ const Navbar = () => {
                   <>
                     <Link
                       href="/login"
-                      className="w-full py-3 border border-zinc-300 font-semibold text-center hover:bg-zinc-100 transition-colors"
-                      style={{ color: '#18181b' }}
+                      className="w-full py-3 border border-[var(--color-border)] font-semibold text-center hover:bg-[var(--color-secondary-bg)] transition-colors focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
                     >
                       Login
                     </Link>
                     <Link
                       href="/signup"
-                      className="w-full py-3 font-semibold text-center"
-                      style={{ background: '#18181b', color: '#ffffff' }}
+                      className="btn btn-black w-full py-3 font-semibold text-center focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
                     >
                       Sign Up
                     </Link>

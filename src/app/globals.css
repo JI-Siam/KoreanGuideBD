@@ -1,59 +1,186 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-/* Premium Editorial Color System */
-:root {
+/* ==========================================================================
+   MINIMALISM & SWISS STYLE DESIGN SYSTEM
+   High contrast, grid discipline, sans-serif typography, geometric clarity.
+   ========================================================================== */
+
+:root,
+[data-theme="light"] {
+  /* Surfaces & Backgrounds */
   --color-primary-bg: #FFFFFF;
-  /* Pure White */
-  --color-secondary-bg: #FAFAFA;
-  /* Off-white */
-  --color-tertiary-bg: #F4F4F5;
-  /* Light gray */
+  --color-secondary-bg: #F8FAFC;
+  --color-tertiary-bg: #F1F5F9;
   --color-card-bg: #FFFFFF;
   --color-elevated: #FFFFFF;
+  --color-surface-hover: #F8FAFC;
+
+  /* Typography / Neutrals (Checked contrast: #09090B on #FFFFFF is 19.8:1) */
+  --color-primary-text: #09090B;
+  --color-secondary-text: #475569;
+  --color-muted-text: #64748B;
+  --color-subtle-text: #94A3B8;
 
   --color-primary-black: #000000;
-  /* Pure Black */
   --color-secondary-black: #09090B;
-  /* Zinc 950 */
 
-  --color-accent-green: #1ec98f;
-  /* Emerald 500  #10B981*/
-  --color-accent-green-dark: #059669;
-  /* Emerald 600 */
+  /* Brand & Functional Accents */
+  --color-accent-green: #059669;
+  --color-accent-green-dark: #047857;
+  --color-accent-green-subtle: #ECFDF5;
 
-  --color-info-blue: #3B82F6;
-  /* Blue 500 - Use sparingly */
+  /* Swiss Precision Blue (Primary Accent) */
+  --color-primary-blue: #1E6FD9;
+  --color-darker-blue: #0E4C97;
+  --color-primary-blue-subtle: #EEF4FB;
+  --color-info-blue: #2563EB;
 
-  --color-primary-text: #09090B;
-  /* Zinc 950 */
-  --color-secondary-text: #52525B;
-  /* Zinc 500 */
-  --color-muted-text: #A1A1AA;
-  /* Zinc 400 */
+  /* Feedback / Semantic Status */
+  --color-destructive: #DC2626;
+  --color-destructive-subtle: #FEF2F2;
+  --color-warning: #D97706;
+  --color-warning-subtle: #FFFBEB;
+  --color-success: #059669;
+  --color-success-subtle: #ECFDF5;
 
-  --color-border: #E4E4E7;
-  /* Zinc 200 */
-  --color-border-subtle: #F4F4F5;
-  /* Zinc 100 */
+  /* Structural Borders & Dividers */
+  --color-border: #E2E8F0;
+  --color-border-subtle: #F1F5F9;
+  --color-border-strong: #09090B;
 
-  --color-shadow: rgba(0, 0, 0, 0.04);
-  --color-shadow-strong: rgba(0, 0, 0, 0.08);
+  /* Shadows (Swiss Style favors crisp 1px borders; shadows are near-flat) */
+  --color-shadow: rgba(15, 23, 42, 0.04);
+  --color-shadow-strong: rgba(15, 23, 42, 0.08);
+
+  /* Focus Indicator Ring */
+  --color-ring: #09090B;
+
+  /* Radii Tokens (Geometric, sharp Swiss aesthetic) */
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-full: 9999px;
 }
 
-/* Global Styles */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-primary-bg: #09090B;
+    --color-secondary-bg: #121215;
+    --color-tertiary-bg: #18181B;
+    --color-card-bg: #121215;
+    --color-elevated: #18181B;
+    --color-surface-hover: #1E1E24;
+
+    --color-primary-text: #F4F4F5;
+    --color-secondary-text: #CBD5E1;
+    --color-muted-text: #94A3B8;
+    --color-subtle-text: #64748B;
+
+    --color-primary-black: #FFFFFF;
+    --color-secondary-black: #F4F4F5;
+
+    --color-accent-green: #10B981;
+    --color-accent-green-dark: #059669;
+    --color-accent-green-subtle: rgba(16, 185, 129, 0.15);
+
+    --color-primary-blue: #3B82F6;
+    --color-darker-blue: #2563EB;
+    --color-primary-blue-subtle: rgba(59, 130, 246, 0.15);
+    --color-info-blue: #60A5FA;
+
+    --color-destructive: #EF4444;
+    --color-destructive-subtle: rgba(239, 68, 68, 0.15);
+    --color-warning: #F59E0B;
+    --color-warning-subtle: rgba(245, 158, 11, 0.15);
+    --color-success: #10B981;
+    --color-success-subtle: rgba(16, 185, 129, 0.15);
+
+    --color-border: #27272A;
+    --color-border-subtle: #1F1F23;
+    --color-border-strong: #F4F4F5;
+
+    --color-shadow: rgba(0, 0, 0, 0.4);
+    --color-shadow-strong: rgba(0, 0, 0, 0.7);
+
+    --color-ring: #F4F4F5;
+  }
+}
+
+[data-theme="dark"],
+.dark {
+  /* Surfaces & Backgrounds */
+  --color-primary-bg: #09090B;
+  --color-secondary-bg: #121215;
+  --color-tertiary-bg: #18181B;
+  --color-card-bg: #121215;
+  --color-elevated: #18181B;
+  --color-surface-hover: #1E1E24;
+
+  /* Typography / Neutrals (Checked contrast: #F4F4F5 on #09090B is 18.2:1) */
+  --color-primary-text: #F4F4F5;
+  --color-secondary-text: #CBD5E1;
+  --color-muted-text: #94A3B8;
+  --color-subtle-text: #64748B;
+
+  --color-primary-black: #FFFFFF;
+  --color-secondary-black: #F4F4F5;
+
+  /* Brand & Functional Accents */
+  --color-accent-green: #10B981;
+  --color-accent-green-dark: #059669;
+  --color-accent-green-subtle: rgba(16, 185, 129, 0.15);
+
+  /* Swiss Precision Blue (Primary Accent) */
+  --color-primary-blue: #3B82F6;
+  --color-darker-blue: #2563EB;
+  --color-primary-blue-subtle: rgba(59, 130, 246, 0.15);
+  --color-info-blue: #60A5FA;
+
+  /* Feedback / Semantic Status */
+  --color-destructive: #EF4444;
+  --color-destructive-subtle: rgba(239, 68, 68, 0.15);
+  --color-warning: #F59E0B;
+  --color-warning-subtle: rgba(245, 158, 11, 0.15);
+  --color-success: #10B981;
+  --color-success-subtle: rgba(16, 185, 129, 0.15);
+
+  /* Structural Borders & Dividers */
+  --color-border: #27272A;
+  --color-border-subtle: #1F1F23;
+  --color-border-strong: #F4F4F5;
+
+  /* Shadows */
+  --color-shadow: rgba(0, 0, 0, 0.4);
+  --color-shadow-strong: rgba(0, 0, 0, 0.7);
+
+  /* Focus Indicator Ring */
+  --color-ring: #F4F4F5;
+}
+
+/* ==========================================================================
+   GLOBAL BASE STYLES
+   ========================================================================== */
+
 html,
 body {
   background-color: var(--color-primary-bg);
   color: var(--color-primary-text);
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
 }
 
-/* Typography */
+/* Accessible Keyboard Focus Indicator (WCAG 2.2 AAA standard) */
+:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}
+
+/* Typography Hierarchy (Swiss Style: strict scale & geometry) */
 h1,
 h2,
 h3,
@@ -61,8 +188,8 @@ h4,
 h5,
 h6 {
   color: var(--color-primary-text);
-  font-family: var(--font-outfit), sans-serif;
-  letter-spacing: -0.03em;
+  font-family: var(--font-inter), var(--font-outfit), sans-serif;
+  letter-spacing: -0.025em;
   font-weight: 700;
 }
 
@@ -72,68 +199,95 @@ p {
 }
 
 a {
-  color: var(--color-primary-text);
-  transition: color 0.2s ease;
-  font-weight: 500;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease;
 }
 
-a:hover {
-  color: var(--color-accent-green);
-}
+/* ==========================================================================
+   SWISS UTILITIES & COMPONENT TOKENS
+   ========================================================================== */
 
-/* Premium Utilities */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+.swiss-border {
   border: 1px solid var(--color-border);
+}
+
+.swiss-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-none);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.swiss-card:hover {
+  border-color: var(--color-border-strong);
+}
+
+.swiss-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-secondary-bg);
+  color: var(--color-primary-text);
+  border-radius: var(--radius-none);
 }
 
 /* Card Styles */
 .card {
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-border);
-  border-radius: 0;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  border-radius: var(--radius-none);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-  box-shadow: 0 10px 30px var(--color-shadow-strong);
-  transform: translateY(-2px);
-  border-color: var(--color-primary-text);
+  border-color: var(--color-border-strong);
+  box-shadow: 0 4px 16px var(--color-shadow);
 }
 
-/* Button Styles */
+/* Button Styles (Swiss Style: crisp, bold, unrounded, high-contrast) */
 .btn {
-  border-radius: 0;
+  border-radius: var(--radius-none);
   font-weight: 600;
   letter-spacing: -0.01em;
-  transition: all 0.2s ease-out;
+  transition: all 0.15s ease-out;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
 }
 
 .btn-primary {
   background-color: var(--color-accent-green);
   color: #FFFFFF;
+  border-color: var(--color-accent-green);
 }
 
 .btn-primary:hover {
   background-color: var(--color-accent-green-dark);
-  transform: translateY(-1px);
+  border-color: var(--color-accent-green-dark);
 }
 
 .btn-black {
   background-color: var(--color-primary-black);
-  color: #FFFFFF;
+  color: var(--color-primary-bg);
+  border-color: var(--color-primary-black);
 }
 
 .btn-black:hover {
-  background-color: var(--color-secondary-black);
-  box-shadow: 0 4px 12px var(--color-shadow-strong);
-  transform: translateY(-1px);
+  opacity: 0.9;
 }
 
 .btn-outline {
@@ -143,8 +297,22 @@ a:hover {
 }
 
 .btn-outline:hover {
-  border-color: var(--color-primary-text);
+  border-color: var(--color-border-strong);
   background-color: var(--color-secondary-bg);
+}
+
+/* Input Fields (Swiss Style: crisp 1px borders, clear focus) */
+input, select, textarea {
+  background-color: var(--color-card-bg);
+  color: var(--color-primary-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-none);
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--color-border-strong);
+  outline: 2px solid var(--color-ring);
+  outline-offset: 1px;
 }
 
 /* Guide Content Styles */
@@ -155,7 +323,6 @@ a:hover {
   margin-top: 2.5rem;
   margin-bottom: 1rem;
   font-weight: 700;
-  font-family: var(--font-outfit), sans-serif;
   letter-spacing: -0.02em;
 }
 
@@ -191,47 +358,51 @@ a:hover {
 }
 
 .guide-content a {
-  color: var(--color-accent-green);
-  text-decoration: none;
-  border-bottom: 1px solid var(--color-accent-green);
-  transition: opacity 0.2s ease;
+  color: var(--color-primary-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.15s ease;
 }
 
 .guide-content a:hover {
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .guide-content blockquote {
-  border-left: 2px solid var(--color-primary-text);
+  border-left: 3px solid var(--color-primary-black);
   padding-left: 1.5rem;
   margin: 2rem 0;
   color: var(--color-primary-text);
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 500;
+  background-color: var(--color-secondary-bg);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .guide-content code {
   background-color: var(--color-secondary-bg);
   color: var(--color-primary-text);
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.125rem;
+  padding: 0.2rem 0.4rem;
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.875em;
   border: 1px solid var(--color-border);
 }
 
 .guide-content pre {
-  background-color: #000000;
+  background-color: #09090B;
+  color: #F4F4F5;
   padding: 1.5rem;
-  border-radius: 0;
+  border-radius: var(--radius-none);
   overflow-x: auto;
   margin: 2rem 0;
+  border: 1px solid var(--color-border);
 }
 
 .guide-content pre code {
   background-color: transparent;
-  color: #FFFFFF;
+  color: inherit;
   padding: 0;
   border: none;
 }
@@ -239,12 +410,12 @@ a:hover {
 .guide-content img {
   max-width: 100%;
   height: auto;
-  border-radius: 0;
+  border-radius: var(--radius-none);
   margin: 2rem 0;
   border: 1px solid var(--color-border);
 }
 
-/* Scrollbar Styling */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -266,9 +437,8 @@ a:hover {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(6px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -276,48 +446,13 @@ a:hover {
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-16px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.animate-slideInLeft {
-  animation: slideInLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(16px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.animate-slideInRight {
-  animation: slideInRight 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes pulse-subtle {
-
-  0%,
-  100% {
+  0%, 100% {
     opacity: 1;
   }
-
   50% {
     opacity: 0.8;
   }

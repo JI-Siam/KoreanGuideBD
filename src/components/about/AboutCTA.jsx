@@ -2,32 +2,38 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 export default function AboutCTA({ title, body, href, label }) {
   return (
-    <section className="relative overflow-hidden py-24 px-6" style={{ backgroundColor: '#1E6FD9' }}>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(255,255,255,0.25),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(31,175,122,0.35),transparent_50%)]" />
+    <section className="py-24 px-6 bg-black text-white border-t border-[var(--color-border)]">
+      <div className="max-w-4xl mx-auto text-center">
+        <div className="inline-flex items-center gap-2 border border-white/20 bg-white/10 px-3.5 py-1 text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--color-accent-green)] mb-6">
+          Initiate Preparation
+        </div>
+        <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tight text-white font-inter">
+          {title}
+        </h2>
+        <p className="text-base md:text-lg mb-10 text-zinc-300 max-w-2xl mx-auto leading-relaxed">
+          {body}
+        </p>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.25 }}
-        transition={{ duration: 0.55 }}
-        className="relative z-10 max-w-4xl mx-auto text-center"
-      >
-        <h2 className="text-4xl font-extrabold mb-6 tracking-tight text-white">{title}</h2>
-        <p className="text-xl mb-8 text-blue-100">{body}</p>
-
-        <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} className="inline-block">
-          <Link href={href} className="inline-flex items-center px-8 py-4 rounded-full font-bold text-blue-600 transition-all hover:shadow-lg" style={{ backgroundColor: '#FFFFFF' }}>
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          <Link
+            href={href}
+            className="btn btn-primary px-8 py-4 text-sm font-bold tracking-tight inline-flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+          >
             {label}
-            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-            </svg>
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
-        </motion.div>
-      </motion.div>
+          <Link
+            href="/guides/checklist"
+            className="btn btn-outline px-8 py-4 text-sm font-bold tracking-tight border-white/40 text-white hover:bg-white/15 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+          >
+            Access Document Checklist
+          </Link>
+        </div>
+      </div>
     </section>
   );
 }

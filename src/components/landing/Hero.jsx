@@ -60,25 +60,29 @@ function HeroCountdown() {
   const seconds = Math.floor((remainingMs / 1000) % 60);
 
   return (
-    <div className="absolute mt-8 right-4 top-4 z-20 w-65 rounded-2xl border border-blue-200/40 bg-white/90 p-4 shadow-lg shadow-blue-100/20 backdrop-blur">
-      <p className="text-xs font-semibold uppercase tracking-wider text-blue-600">Next Intake</p>
-      <p className="mt-2 text-lg font-bold text-[#0F172A]">September</p>
-      <div className="mt-3 grid grid-cols-4 gap-2">
-        <div className="rounded-lg bg-gradient-to-br from-blue-50 to-blue-100/50 px-1.5 py-2.5 text-center border border-blue-100/50">
-          <div className="text-base font-extrabold text-blue-700">{pad(days)}</div>
-          <div className="text-[9px] uppercase tracking-wide text-blue-600 mt-0.5">Days</div>
+    <div className="border border-[var(--color-border)] bg-[var(--color-card-bg)] p-4 shadow-xs">
+      <div className="flex items-center justify-between mb-2">
+        <p className="text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--color-primary-blue)]">
+          Next Intake Window
+        </p>
+        <span className="text-xs font-bold text-[var(--color-primary-text)]">September</span>
+      </div>
+      <div className="grid grid-cols-4 gap-2">
+        <div className="border border-[var(--color-border)] bg-[var(--color-secondary-bg)] px-2 py-2 text-center">
+          <div className="text-base font-black font-inter text-[var(--color-primary-text)]">{pad(days)}</div>
+          <div className="text-[9px] font-mono uppercase tracking-wide text-[var(--color-muted-text)]">Days</div>
         </div>
-        <div className="rounded-lg bg-gradient-to-br from-green-50 to-green-100/50 px-1.5 py-2.5 text-center border border-green-100/50">
-          <div className="text-base font-extrabold text-green-700">{pad(hours)}</div>
-          <div className="text-[9px] uppercase tracking-wide text-green-600 mt-0.5">Hours</div>
+        <div className="border border-[var(--color-border)] bg-[var(--color-secondary-bg)] px-2 py-2 text-center">
+          <div className="text-base font-black font-inter text-[var(--color-primary-text)]">{pad(hours)}</div>
+          <div className="text-[9px] font-mono uppercase tracking-wide text-[var(--color-muted-text)]">Hours</div>
         </div>
-        <div className="rounded-lg bg-gradient-to-br from-blue-50 to-blue-100/50 px-1.5 py-2.5 text-center border border-blue-100/50">
-          <div className="text-base font-extrabold text-blue-700">{pad(minutes)}</div>
-          <div className="text-[9px] uppercase tracking-wide text-blue-600 mt-0.5">Min</div>
+        <div className="border border-[var(--color-border)] bg-[var(--color-secondary-bg)] px-2 py-2 text-center">
+          <div className="text-base font-black font-inter text-[var(--color-primary-text)]">{pad(minutes)}</div>
+          <div className="text-[9px] font-mono uppercase tracking-wide text-[var(--color-muted-text)]">Min</div>
         </div>
-        <div className="rounded-lg bg-gradient-to-br from-green-50 to-green-100/50 px-1.5 py-2.5 text-center border border-green-100/50">
-          <div className="text-base font-extrabold text-green-700">{pad(seconds)}</div>
-          <div className="text-[9px] uppercase tracking-wide text-green-600 mt-0.5">Sec</div>
+        <div className="border border-[var(--color-border)] bg-[var(--color-secondary-bg)] px-2 py-2 text-center">
+          <div className="text-base font-black font-inter text-[var(--color-accent-green)]">{pad(seconds)}</div>
+          <div className="text-[9px] font-mono uppercase tracking-wide text-[var(--color-muted-text)]">Sec</div>
         </div>
       </div>
     </div>
@@ -87,96 +91,66 @@ function HeroCountdown() {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#F7F8FC] via-white to-[#F1F4F9]">
-     
-       <HeroCountdown />
-      {/* BACKGROUND GRADIENTS - Subtle, refined depth */}
-      <div className="absolute inset-0">
-        <div className="absolute -top-40 left-1/4 h-96 w-96 rounded-full bg-blue-200/30 blur-[140px]" />
-        <div className="absolute -bottom-40 -right-20 h-80 w-80 rounded-full bg-green-200/25 blur-[140px]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-gradient-to-br from-blue-100/10 to-green-100/10 blur-[160px]" />
-      </div>
-
-      {/* CONTENT */}
-      <div className="relative z-10 container mx-auto px-6 text-center max-w-4xl">
-        
-        {/* BADGE - Premium, subtle */}
-        <div className="inline-block mb-8 px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-100/80 to-green-100/80 border border-blue-200/50 text-sm font-medium text-blue-700">
-          🇰🇷 Study • Work • Travel
+    <section className="relative min-h-[85vh] flex items-center justify-center bg-[var(--color-primary-bg)] border-b border-[var(--color-border)] pt-28 pb-20">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 border border-[var(--color-border)] bg-[var(--color-secondary-bg)] text-xs font-mono font-bold uppercase tracking-widest text-[var(--color-primary-text)]">
+          <span className="h-1.5 w-1.5 bg-[var(--color-accent-green)]" aria-hidden="true" />
+          Korea Education &amp; Visa Intelligence
         </div>
 
-        {/* TITLE - Hierarchy first, breathing room */}
-        <h1 className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight mb-8">
-          <span className='text-[#0F172A]'> Your Gateway to{" "}</span>
-          <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
-            Korea
-          </span>
-          <span className="ml-3">🇰🇷</span>
+        {/* Title */}
+        <h1 className="font-inter text-5xl md:text-7xl font-black leading-[1.05] tracking-tight mb-8 text-[var(--color-primary-text)]">
+          Your Direct Pathway
+          <br />
+          To <span className="text-[var(--color-accent-green)]">South Korea.</span>
         </h1>
 
-        {/* SUBTEXT - Readable, spacious */}
-        <p className="text-xl md:text-2xl text-[#64748B] max-w-3xl mx-auto leading-relaxed font-light">
-          Complete visa guides, travel insights, and career pathways to help you
-          start your journey with confidence
+        {/* Subtext */}
+        <p className="text-lg md:text-xl text-[var(--color-secondary-text)] max-w-2xl mx-auto leading-relaxed mb-10">
+          Complete immigration route maps, accredited university rankings, and document checklists built with Swiss clarity.
         </p>
 
-        {/* CTA - Confident, refined */}
-        <div className="mt-12 flex flex-col sm:flex-row gap-5 justify-center items-center">
-          
+        {/* CTA */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
           <Link
             href="/guides"
-            className="
-              px-10 py-4 rounded-2xl font-semibold text-lg
-              bg-gradient-to-r from-blue-600 to-green-600
-              text-white
-              hover:shadow-lg hover:shadow-blue-200/40
-              hover:scale-105
-              transition-all duration-300
-              border border-blue-500/20
-            "
+            className="btn btn-primary px-8 py-4 text-base font-bold tracking-tight focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
           >
             Explore Guides →
           </Link>
 
           <Link
-            href="#visa-types"
-            className="
-              px-10 py-4 rounded-2xl font-semibold text-lg
-              border-2 border-blue-200
-              text-[#0F172A]
-              bg-white hover:bg-blue-50/50
-              hover:border-blue-300
-              transition-all duration-300
-              hover:shadow-md hover:shadow-blue-100/30
-            "
+            href="/guides/visa-types"
+            className="btn btn-outline px-8 py-4 text-base font-bold tracking-tight focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
           >
             Check Visa Types
           </Link>
-        
         </div>
 
-        {/* Trust Indicators - Subtle, spacious */}
-        <div className="mt-16 pt-12 border-t border-blue-100/40">
-          <p className="text-sm font-medium text-[#64748B] mb-6">Trusted by thousands of applicants</p>
-          <div className="flex justify-center items-center gap-8 flex-wrap">
-            <div className="text-center">
-              <p className="text-3xl font-bold text-[#0F172A]">10K+</p>
-              <p className="text-sm text-[#64748B]">Applications Processed</p>
+        {/* Countdown Box */}
+        <div className="max-w-md mx-auto mb-16">
+          <HeroCountdown />
+        </div>
+
+        {/* Trust Indicators */}
+        <div className="pt-10 border-t border-[var(--color-border)]">
+          <div className="grid grid-cols-3 gap-6 max-w-xl mx-auto text-center">
+            <div>
+              <p className="font-inter text-3xl font-black text-[var(--color-primary-text)] tabular-nums">10K+</p>
+              <p className="text-xs font-mono uppercase tracking-wider text-[var(--color-muted-text)] mt-1">Files Processed</p>
             </div>
-            <div className="h-12 w-px bg-blue-100/50"></div>
-            <div className="text-center">
-              <p className="text-3xl font-bold text-[#0F172A]">98%</p>
-              <p className="text-sm text-[#64748B]">Success Rate</p>
+            <div className="border-x border-[var(--color-border)]">
+              <p className="font-inter text-3xl font-black text-[var(--color-primary-text)] tabular-nums">98%</p>
+              <p className="text-xs font-mono uppercase tracking-wider text-[var(--color-muted-text)] mt-1">Accuracy Rate</p>
             </div>
-            <div className="h-12 w-px bg-blue-100/50"></div>
-            <div className="text-center">
-              <p className="text-3xl font-bold text-[#0F172A]">50+</p>
-              <p className="text-sm text-[#64748B]">Expert Guides</p>
+            <div>
+              <p className="font-inter text-3xl font-black text-[var(--color-primary-text)] tabular-nums">50+</p>
+              <p className="text-xs font-mono uppercase tracking-wider text-[var(--color-muted-text)] mt-1">Detailed Guides</p>
             </div>
           </div>
         </div>
       </div>
-        
     </section>
   );
 }

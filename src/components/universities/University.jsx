@@ -3,75 +3,61 @@ import { MapPin, Globe, GraduationCap, ArrowUpRight } from 'lucide-react';
 
 const University = ({ university }) => {
   return (
-    <div className="group relative overflow-hidden rounded-3xl border border-[var(--color-border)] bg-[var(--color-card-bg)] shadow-md transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
-
-      {/* Top Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-blue)]/5 via-transparent to-[var(--color-accent-green)]/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-
-      {/* Decorative Blur */}
-      <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[var(--color-accent-green)]/10 blur-3xl"></div>
-
-      <div className="relative p-6">
-
+    <article className="group relative border border-[var(--color-border)] bg-[var(--color-card-bg)] p-6 transition-colors duration-150 hover:border-[var(--color-border-strong)] flex flex-col justify-between">
+      <div>
         {/* Top Section */}
         <div className="flex items-start justify-between gap-4">
-
           {/* University Info */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-2">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--color-primary-blue)]/10">
-                <GraduationCap className="h-5 w-5 text-[var(--color-primary-blue)]" />
-              </div>
+          <div className="flex items-start gap-3">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-[var(--color-border)] bg-[var(--color-secondary-bg)] text-[var(--color-primary-blue)]">
+              <GraduationCap className="h-5 w-5" aria-hidden="true" />
+            </div>
 
-              <div>
-                <h2 className="text-xl font-bold text-[var(--color-primary-text)] leading-tight">
-                  {university?.universityName}
-                </h2>
+            <div>
+              <h3 className="text-lg font-bold text-[var(--color-primary-text)] leading-snug font-inter">
+                {university?.universityName}
+              </h3>
 
-                <div className="mt-1 flex items-center gap-1 text-sm text-[var(--color-secondary-text)]">
-                  <MapPin className="h-4 w-4" />
-                  <span>{university?.location}</span>
-                </div>
+              <div className="mt-1 flex items-center gap-1.5 text-xs text-[var(--color-muted-text)] font-mono">
+                <MapPin className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                <span>{university?.location}</span>
               </div>
             </div>
           </div>
 
-          {/* Ranking Badge */}
-          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-primary-blue)]/5 px-4 py-2 text-center">
-            <p className="text-xs font-medium uppercase tracking-wide text-[var(--color-secondary-text)]">
+          {/* Ranking Badge (Swiss Metric Box) */}
+          <div className="shrink-0 border border-[var(--color-border)] bg-[var(--color-secondary-bg)] px-3 py-1.5 text-center font-mono">
+            <p className="text-[9px] font-bold uppercase tracking-widest text-[var(--color-muted-text)]">
               QS Rank
             </p>
-
-            <h3 className="text-lg font-bold text-[var(--color-primary-blue)]">
+            <p className="text-base font-black text-[var(--color-primary-text)]">
               #{university?.qsRanking}
-            </h3>
+            </p>
           </div>
-        </div>
-
-        {/* Divider */}
-        <div className="my-5 h-px w-full bg-gradient-to-r from-transparent via-[var(--color-border)] to-transparent"></div>
-
-        {/* Bottom Section */}
-        <div className="flex items-center justify-between">
-
-          <div className="flex items-center gap-2 text-sm text-[var(--color-secondary-text)]">
-            <Globe className="h-4 w-4 text-[var(--color-accent-green)]" />
-            <span>Official Website</span>
-          </div>
-
-          <Link
-            href={university?.officialWebsiteLink || '#'}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group/btn inline-flex items-center gap-2 rounded-xl bg-[var(--color-primary-blue)] px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-[var(--color-darker-blue)]"
-          >
-            <span>Visit</span>
-            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
-          </Link>
-
         </div>
       </div>
-    </div>
+
+      {/* Divider */}
+      <div className="my-5 border-t border-[var(--color-border)]" />
+
+      {/* Bottom Section */}
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center gap-1.5 text-xs text-[var(--color-secondary-text)]">
+          <Globe className="h-3.5 w-3.5 text-[var(--color-accent-green)] shrink-0" aria-hidden="true" />
+          <span className="font-mono text-[11px] truncate">Official Portal</span>
+        </div>
+
+        <Link
+          href={university?.officialWebsiteLink || '#'}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 border border-[var(--color-border)] bg-[var(--color-card-bg)] px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-[var(--color-primary-text)] transition-colors hover:border-[var(--color-border-strong)] hover:bg-[var(--color-primary-text)] hover:text-[var(--color-primary-bg)] focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
+        >
+          <span>Visit</span>
+          <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+        </Link>
+      </div>
+    </article>
   );
 };
 

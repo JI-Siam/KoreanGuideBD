@@ -64,30 +64,30 @@ export default function IntakeCountdown() {
   ];
 
   return (
-    <div className="mt-10 rounded-3xl border border-[#D6E2F0] bg-white/90 p-6 shadow-[0_12px_35px_rgba(15,23,42,0.08)] backdrop-blur">
-      <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+    <div className="mt-10 border border-[var(--color-border)] bg-[var(--color-secondary-bg)] p-6 md:p-8">
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#1E6FD9]">
-            Next intake window
-          </p>
-          <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-[#0F172A] md:text-3xl">
-            September intake starts soon
+          <div className="mb-2 text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--color-primary-blue)]">
+            Admission Window Schedule
+          </div>
+          <h2 className="text-2xl font-black tracking-tight text-[var(--color-primary-text)] md:text-3xl font-inter">
+            Next Academic Intake: September
           </h2>
-          <p className="mt-2 max-w-2xl text-sm leading-7 text-[#475569] md:text-base">
-            Keep your visa documents ready now so you can move quickly when the next student and language-program intake opens in September.
+          <p className="mt-2 max-w-2xl text-xs md:text-sm leading-relaxed text-[var(--color-secondary-text)]">
+            Prepare required documents, verify notarizations, and schedule apostille processing ahead of the university application deadline.
           </p>
         </div>
 
-        <div className="grid grid-cols-3 gap-3 sm:gap-4">
+        <div className="grid grid-cols-3 gap-3 sm:gap-4 shrink-0">
           {blocks.map((block) => (
             <div
               key={block.label}
-              className="min-w-21 rounded-2xl border border-[#E2E8F0] bg-[#F7FAFF] px-4 py-4 text-center"
+              className="min-w-20 border border-[var(--color-border)] bg-[var(--color-card-bg)] px-4 py-3 text-center"
             >
-              <div className="text-2xl font-extrabold text-[#0F172A] md:text-3xl">
+              <div className="font-inter text-2xl font-black text-[var(--color-primary-text)] tabular-nums md:text-3xl">
                 {formatValue(block.value)}
               </div>
-              <div className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#64748B]">
+              <div className="mt-1 text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--color-muted-text)]">
                 {block.label}
               </div>
             </div>

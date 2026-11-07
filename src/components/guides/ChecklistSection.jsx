@@ -5,10 +5,10 @@ import ChecklistModal from '@/components/guides/ChecklistModal';
 import { FaCheckCircle, FaCircle, FaFilter } from 'react-icons/fa';
 
 const PRIORITY_TONES = {
-  critical: { label: 'Critical', background: 'rgba(220, 38, 38, 0.12)', color: '#B91C1C', border: '#FECACA' },
-  high: { label: 'High', background: 'rgba(194, 65, 12, 0.12)', color: '#C2410C', border: '#FDBA74' },
-  medium: { label: 'Medium', background: 'rgba(30, 111, 217, 0.12)', color: '#1E6FD9', border: '#BFDBFE' },
-  low: { label: 'Low', background: 'rgba(31, 175, 122, 0.12)', color: '#1FAF7A', border: '#A7F3D0' },
+  critical: { label: 'Critical', bg: 'var(--color-destructive-subtle)', color: 'var(--color-destructive)', border: 'var(--color-destructive)' },
+  high: { label: 'High', bg: 'var(--color-warning-subtle)', color: 'var(--color-warning)', border: 'var(--color-warning)' },
+  medium: { label: 'Medium', bg: 'var(--color-primary-blue-subtle)', color: 'var(--color-primary-blue)', border: 'var(--color-primary-blue)' },
+  low: { label: 'Low', bg: 'var(--color-success-subtle)', color: 'var(--color-success)', border: 'var(--color-success)' },
 };
 
 const FILTERS = ['all', 'critical', 'high', 'medium', 'low'];
@@ -17,40 +17,45 @@ function ChecklistRow({ document, completed, onToggleComplete, onOpenDetails }) 
   const tone = PRIORITY_TONES[document.priority] || PRIORITY_TONES.medium;
 
   return (
-    <div
-      className="group rounded-[24px] border bg-white p-5 shadow-[0_10px_30px_rgba(15,23,42,0.08)] transition hover:-translate-y-0.5 hover:shadow-[0_16px_38px_rgba(15,23,42,0.12)]"
-      style={{ borderColor: completed ? '#A7F3D0' : '#E2E8F0' }}
+    <article
+      className={`group border bg-[var(--color-card-bg)] p-5 transition-colors duration-150 ${
+        completed ? 'border-[var(--color-accent-green)] bg-[var(--color-surface-hover)]' : 'border-[var(--color-border)] hover:border-[var(--color-border-strong)]'
+      }`}
     >
       <div className="flex items-start gap-4">
         <button
           type="button"
           onClick={() => onToggleComplete(document.id)}
-          className="mt-1 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#CBD5E1] bg-[#F8FBFF] text-[#1E6FD9] transition hover:border-[#1E6FD9] hover:bg-[#EEF4FB]"
+          className="mt-1 inline-flex h-9 w-9 shrink-0 items-center justify-center border border-[var(--color-border)] bg-[var(--color-secondary-bg)] transition-colors hover:border-[var(--color-border-strong)] focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
           aria-label={`Toggle completion for ${document.name}`}
         >
-          {completed ? <FaCheckCircle className="text-[#1FAF7A]" size={18} /> : <FaCircle className="text-[#CBD5E1]" size={18} />}
+          {completed ? (
+            <FaCheckCircle className="text-[var(--color-accent-green)]" size={16} />
+          ) : (
+            <FaCircle className="text-[var(--color-border)]" size={16} />
+          )}
         </button>
 
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
-              <h3 className={`text-lg font-bold tracking-tight ${completed ? 'text-[#15803D] line-through' : 'text-[#0F172A]'}`}>
+              <h3 className={`font-inter text-base md:text-lg font-bold tracking-tight ${completed ? 'line-through text-[var(--color-muted-text)]' : 'text-[var(--color-primary-text)]'}`}>
                 {document.name}
               </h3>
-              <p className="mt-1 text-sm font-medium uppercase tracking-[0.18em] text-[#64748B]">
-                {document.category}
+              <p className="mt-1 text-xs font-mono uppercase tracking-wider text-[var(--color-muted-text)]">
+                [{document.category}]
               </p>
             </div>
 
             <span
-              className="rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.18em]"
-              style={{ backgroundColor: tone.background, color: tone.color, borderColor: tone.border }}
+              className="px-2.5 py-1 text-xs font-mono font-bold uppercase tracking-wider border"
+              style={{ backgroundColor: tone.bg, color: tone.color, borderColor: tone.border }}
             >
               {tone.label}
             </span>
           </div>
 
-          <p className={`mt-3 leading-7 ${completed ? 'text-[#6B7280] line-through' : 'text-[#475569]'}`}>
+          <p className={`mt-3 text-sm leading-relaxed ${completed ? 'text-[var(--color-muted-text)]' : 'text-[var(--color-secondary-text)]'}`}>
             {document.description}
           </p>
 
@@ -58,25 +63,25 @@ function ChecklistRow({ document, completed, onToggleComplete, onOpenDetails }) 
             <button
               type="button"
               onClick={() => onOpenDetails(document)}
-              className="inline-flex items-center justify-center rounded-full bg-[#1E6FD9] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#0E4C97]"
+              className="btn btn-black px-4 py-2 text-xs font-bold uppercase tracking-wider focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
             >
-              Open document details
+              Document details →
             </button>
             <button
               type="button"
               onClick={() => onToggleComplete(document.id)}
-              className="inline-flex items-center justify-center rounded-full border border-[#CBD5E1] bg-white px-4 py-2.5 text-sm font-semibold text-[#0F172A] transition hover:border-[#1E6FD9] hover:text-[#1E6FD9]"
+              className="btn btn-outline px-4 py-2 text-xs font-bold uppercase tracking-wider focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
             >
-              {completed ? 'Reset checklist item' : 'Mark as complete'}
+              {completed ? 'Reset status' : 'Mark complete'}
             </button>
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 
-export default function ChecklistSection({ documents }) {
+export default function ChecklistSection({ documents = [] }) {
   const [selectedDocument, setSelectedDocument] = useState(null);
   const [completedMap, setCompletedMap] = useState({});
   const [filterPriority, setFilterPriority] = useState('all');
@@ -85,7 +90,6 @@ export default function ChecklistSection({ documents }) {
     if (filterPriority === 'all') {
       return documents || [];
     }
-
     return (documents || []).filter((document) => document.priority === filterPriority);
   }, [documents, filterPriority]);
 
@@ -102,40 +106,41 @@ export default function ChecklistSection({ documents }) {
   };
 
   return (
-    <main className="min-h-screen" style={{ backgroundColor: '#F7FAFF' }}>
-      <section className="px-6 pb-16 pt-32 md:px-8">
+    <main className="min-h-screen bg-[var(--color-primary-bg)]">
+      <section className="px-6 pb-12 pt-32 md:px-8 border-b border-[var(--color-border)]">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-4xl">
-            <p className="text-sm font-bold uppercase tracking-[0.28em] text-[#1FAF7A]">
-              Application checklist
-            </p>
-            <h1 className="mt-4 text-5xl font-extrabold tracking-tight text-[#0F172A] md:text-6xl">
-              Required documents, tracked in one place.
+            <div className="mb-3 text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--color-accent-green)]">
+              Verification Pipeline
+            </div>
+            <h1 className="font-inter text-4xl font-black tracking-tight text-[var(--color-primary-text)] md:text-5xl">
+              Document Checklist &amp; Validation
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-[#475569] md:text-xl">
-              Review the original document list, mark items as complete, and open any item for a clean detail view before you submit your visa application.
+            <p className="mt-4 max-w-3xl text-base md:text-lg leading-relaxed text-[var(--color-secondary-text)]">
+              Track and verify every mandatory file, notarization requirement, and financial guarantee prior to embassy appointment.
             </p>
           </div>
 
-          <div className="mt-10 max-w-3xl rounded-[28px] border border-[#E2E8F0] bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.08)]">
+          {/* Progress Card (Swiss Metrics Display) */}
+          <div className="mt-10 max-w-3xl border border-[var(--color-border)] bg-[var(--color-secondary-bg)] p-6">
             <div className="flex items-center justify-between gap-4">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#64748B]">
-                  Progress
+                <p className="text-xs font-mono uppercase tracking-wider text-[var(--color-muted-text)]">
+                  Progress Tracker
                 </p>
-                <p className="mt-2 text-2xl font-extrabold text-[#0F172A] md:text-3xl">
-                  {completedCount} of {documents?.length || 0} items complete
+                <p className="mt-1 text-2xl font-black text-[var(--color-primary-text)] font-inter">
+                  {completedCount} <span className="text-sm font-normal text-[var(--color-muted-text)] font-mono">/ {documents?.length || 0} COMPLETED</span>
                 </p>
               </div>
-              <div className="rounded-2xl bg-[#F7FAFF] px-4 py-3 text-right">
-                <div className="text-sm font-semibold text-[#64748B]">Completion</div>
-                <div className="text-3xl font-extrabold text-[#1E6FD9]">{progress}%</div>
+              <div className="border border-[var(--color-border)] bg-[var(--color-card-bg)] px-4 py-2 text-right">
+                <div className="text-[10px] font-mono font-bold uppercase text-[var(--color-muted-text)]">Rate</div>
+                <div className="text-2xl font-black font-inter text-[var(--color-primary-blue)]">{progress}%</div>
               </div>
             </div>
 
-            <div className="mt-5 h-3 overflow-hidden rounded-full bg-[#E2E8F0]">
+            <div className="mt-4 h-2 overflow-hidden bg-[var(--color-border)]">
               <div
-                className="h-full rounded-full bg-[#1E6FD9] transition-all duration-500"
+                className="h-full bg-[var(--color-accent-green)] transition-all duration-300"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -143,28 +148,29 @@ export default function ChecklistSection({ documents }) {
         </div>
       </section>
 
-      <section className="px-6 py-6 md:px-8">
+      {/* Priority Filters */}
+      <section className="px-6 py-6 md:px-8 bg-[var(--color-secondary-bg)] border-b border-[var(--color-border)]">
         <div className="mx-auto max-w-7xl">
-          <div className="flex flex-wrap items-center gap-3">
-            <FaFilter className="text-[#64748B]" />
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs font-mono font-bold uppercase text-[var(--color-muted-text)] mr-2 flex items-center gap-1.5">
+              <FaFilter aria-hidden="true" /> Filters:
+            </span>
             {FILTERS.map((filter) => {
               const isActive = filterPriority === filter;
               const label = filter === 'all'
-                ? 'All documents'
-                : `${filter.charAt(0).toUpperCase()}${filter.slice(1)} priority`;
+                ? 'All Documents'
+                : `${filter.toUpperCase()} PRIORITY`;
 
               return (
                 <button
                   key={filter}
                   type="button"
                   onClick={() => setFilterPriority(filter)}
-                  className="rounded-full px-4 py-2 text-sm font-semibold transition"
-                  style={{
-                    backgroundColor: isActive ? '#1E6FD9' : '#FFFFFF',
-                    color: isActive ? '#FFFFFF' : '#0F172A',
-                    border: `1px solid ${isActive ? '#1E6FD9' : '#CBD5E1'}`,
-                    boxShadow: isActive ? '0 10px 22px rgba(30, 111, 217, 0.18)' : 'none',
-                  }}
+                  className={`px-3.5 py-1.5 text-xs font-mono font-bold tracking-wider transition-colors focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none border ${
+                    isActive
+                      ? 'border-[var(--color-primary-black)] bg-[var(--color-primary-black)] text-[var(--color-primary-bg)]'
+                      : 'border-[var(--color-border)] bg-[var(--color-card-bg)] text-[var(--color-primary-text)] hover:border-[var(--color-border-strong)]'
+                  }`}
                 >
                   {label}
                 </button>
@@ -174,7 +180,8 @@ export default function ChecklistSection({ documents }) {
         </div>
       </section>
 
-      <section className="px-6 pb-20 pt-4 md:px-8">
+      {/* Documents List */}
+      <section className="px-6 py-12 md:px-8">
         <div className="mx-auto max-w-5xl space-y-4">
           {visibleDocuments.length > 0 ? (
             visibleDocuments.map((document) => (
@@ -187,8 +194,8 @@ export default function ChecklistSection({ documents }) {
               />
             ))
           ) : (
-            <div className="rounded-[28px] border border-[#E2E8F0] bg-white px-6 py-16 text-center text-[#64748B] shadow-[0_10px_30px_rgba(15,23,42,0.08)]">
-              No documents were returned from the live data source.
+            <div className="border border-[var(--color-border)] bg-[var(--color-secondary-bg)] p-12 text-center text-sm font-mono text-[var(--color-muted-text)]">
+              No documents currently matching the active filter criteria.
             </div>
           )}
         </div>

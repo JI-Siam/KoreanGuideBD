@@ -3,54 +3,58 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-export default function AboutValues({ values }) {
+export default function AboutValues({ values = [] }) {
   return (
-    <section className="py-24 px-6" style={{ backgroundColor: '#EEF4FB' }}>
+    <section className="py-24 px-6 border-b border-[var(--color-border)] bg-[var(--color-secondary-bg)]">
       <div className="max-w-7xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl font-extrabold text-center mb-16 tracking-tight"
-          style={{ color: '#0F172A' }}
-        >
-          Our Core Values
-        </motion.h2>
+        <div className="flex flex-wrap items-end justify-between gap-6 mb-16 border-b border-[var(--color-border)] pb-6">
+          <div className="max-w-2xl">
+            <div className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--color-muted-text)] mb-2">
+              SECTION 03 // ETHICAL PILLARS
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight font-inter text-[var(--color-primary-text)]">
+              Our Core Principles
+            </h2>
+          </div>
+          <p className="text-xs md:text-sm text-[var(--color-secondary-text)] max-w-md leading-relaxed font-mono">
+            Guiding research rigor, editorial neutrality, and applicant data security across every published resource.
+          </p>
+        </div>
 
-        <motion.div
-          className="grid md:grid-cols-2 gap-8"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
-        >
-          {values.map((value) => {
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {values.map((value, idx) => {
             const Icon = value.icon;
             return (
-              <motion.div
-                key={value.id}
-                variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}
-                whileHover={{ y: -5, boxShadow: '0 24px 50px rgba(15,23,42,0.12)' }}
-                className="p-8 rounded-2xl transition-all hover:shadow-lg"
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  border: '1px solid #E2E8F0'
-                }}
+              <div
+                key={value.id || idx}
+                className="border border-[var(--color-border)] bg-[var(--color-card-bg)] p-6 transition-colors duration-150 hover:border-[var(--color-border-strong)] flex flex-col justify-between"
               >
-                <div className="flex items-start gap-4">
-                  <div className="mt-1 rounded-xl bg-[#EEF4FB] p-3">
-                    <Icon size={32} style={{ color: '#1E6FD9' }} />
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="border border-[var(--color-border)] bg-[var(--color-secondary-bg)] p-3 text-[var(--color-primary-blue)]">
+                      <Icon size={22} aria-hidden="true" />
+                    </div>
+                    <span className="font-mono text-xs font-bold text-[var(--color-muted-text)]">
+                      PRIN-0{idx + 1}
+                    </span>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold mb-3" style={{ color: '#0F172A' }}>{value.title}</h3>
-                    <p style={{ color: '#475569' }}>{value.description}</p>
-                  </div>
+
+                  <h3 className="text-lg font-bold font-inter text-[var(--color-primary-text)] mb-2.5">
+                    {value.title}
+                  </h3>
+
+                  <p className="text-xs md:text-sm text-[var(--color-secondary-text)] leading-relaxed">
+                    {value.description}
+                  </p>
                 </div>
-              </motion.div>
+
+                <div className="mt-6 pt-4 border-t border-[var(--color-border-subtle)] text-[11px] font-mono font-bold uppercase tracking-wider text-[var(--color-accent-green)]">
+                  Active Practice ✓
+                </div>
+              </div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

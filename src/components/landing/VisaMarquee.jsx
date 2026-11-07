@@ -3,39 +3,39 @@ import { FaPassport, FaPlane, FaFileAlt, FaRegClipboard, FaUniversity, FaGlobeAs
 
 export default function VisaMarquee() {
   return (
-    <section className="border-y border-[#E2E8F0] bg-white/90 backdrop-blur">
+    <section className="border-y border-[var(--color-border)] bg-[var(--color-secondary-bg)] py-3">
       <div className="container mx-auto px-6">
-        <Marquee className="py-5 font-medium text-[#0F172A]" speed={38} pauseOnHover>
-          <div className="flex items-center space-x-14">
+        <Marquee className="py-2 text-[var(--color-primary-text)]" speed={38} pauseOnHover>
+          <div className="flex items-center space-x-8">
 
-            <div className="flex items-center space-x-3 rounded-full bg-[#EEF4FB] px-5 py-2">
-              <FaPassport className="text-lg text-blue-600" />
-              <h1 className="text-sm font-semibold whitespace-nowrap">Work Visa Guidance</h1>
+            <div className="flex items-center space-x-3 border border-[var(--color-border)] bg-[var(--color-card-bg)] px-4 py-2">
+              <FaPassport className="text-base text-[var(--color-primary-blue)]" aria-hidden="true" />
+              <span className="text-xs font-bold uppercase tracking-wider whitespace-nowrap">Work Visa Guidance</span>
             </div>
 
-            <div className="flex items-center space-x-3 rounded-full bg-[#EEF4FB] px-5 py-2">
-              <FaUniversity className="text-lg text-emerald-600" />
-              <h1 className="text-sm font-semibold whitespace-nowrap">Study in Korea</h1>
+            <div className="flex items-center space-x-3 border border-[var(--color-border)] bg-[var(--color-card-bg)] px-4 py-2">
+              <FaUniversity className="text-base text-[var(--color-accent-green)]" aria-hidden="true" />
+              <span className="text-xs font-bold uppercase tracking-wider whitespace-nowrap">Study in Korea</span>
             </div>
 
-            <div className="flex items-center space-x-3 rounded-full bg-[#EEF4FB] px-5 py-2">
-              <FaPlane className="text-lg text-blue-600" />
-              <h1 className="text-sm font-semibold whitespace-nowrap">Tourist Visa Process</h1>
+            <div className="flex items-center space-x-3 border border-[var(--color-border)] bg-[var(--color-card-bg)] px-4 py-2">
+              <FaPlane className="text-base text-[var(--color-primary-blue)]" aria-hidden="true" />
+              <span className="text-xs font-bold uppercase tracking-wider whitespace-nowrap">Tourist Visa Process</span>
             </div>
 
-            <div className="flex items-center space-x-3 rounded-full bg-[#EEF4FB] px-5 py-2">
-              <FaFileAlt className="text-lg text-emerald-600" />
-              <h1 className="text-sm font-semibold whitespace-nowrap">Required Documents</h1>
+            <div className="flex items-center space-x-3 border border-[var(--color-border)] bg-[var(--color-card-bg)] px-4 py-2">
+              <FaFileAlt className="text-base text-[var(--color-accent-green)]" aria-hidden="true" />
+              <span className="text-xs font-bold uppercase tracking-wider whitespace-nowrap">Required Documents</span>
             </div>
 
-            <div className="flex items-center space-x-3 rounded-full bg-[#EEF4FB] px-5 py-2">
-              <FaRegClipboard className="text-lg text-blue-600" />
-              <h1 className="text-sm font-semibold whitespace-nowrap">Step-by-Step Guide</h1>
+            <div className="flex items-center space-x-3 border border-[var(--color-border)] bg-[var(--color-card-bg)] px-4 py-2">
+              <FaRegClipboard className="text-base text-[var(--color-primary-blue)]" aria-hidden="true" />
+              <span className="text-xs font-bold uppercase tracking-wider whitespace-nowrap">Step-by-Step Guide</span>
             </div>
 
-            <div className="flex items-center space-x-3 rounded-full bg-[#EEF4FB] px-5 py-2">
-              <FaGlobeAsia className="text-lg text-emerald-600" />
-              <h1 className="text-sm font-semibold whitespace-nowrap">Latest Korea Updates</h1>
+            <div className="flex items-center space-x-3 border border-[var(--color-border)] bg-[var(--color-card-bg)] px-4 py-2">
+              <FaGlobeAsia className="text-base text-[var(--color-accent-green)]" aria-hidden="true" />
+              <span className="text-xs font-bold uppercase tracking-wider whitespace-nowrap">Latest Korea Updates</span>
             </div>
 
           </div>

@@ -1,56 +1,53 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
 
-export default function AboutTeam({ team }) {
+export default function AboutTeam({ team = [] }) {
   return (
-    <section className="py-24 px-6">
+    <section className="py-24 px-6 border-b border-[var(--color-border)] bg-[var(--color-primary-bg)]">
       <div className="max-w-7xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl font-extrabold text-center mb-16 tracking-tight"
-          style={{ color: '#0F172A' }}
-        >
-          Meet Our Team
-        </motion.h2>
+        <div className="flex flex-wrap items-end justify-between gap-6 mb-16 border-b border-[var(--color-border)] pb-6">
+          <div>
+            <div className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--color-muted-text)] mb-2">
+              SECTION 04 // EDITORIAL LEADERSHIP
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight font-inter text-[var(--color-primary-text)]">
+              Editorial Governance
+            </h2>
+          </div>
+          <p className="text-xs md:text-sm text-[var(--color-secondary-text)] max-w-md leading-relaxed font-mono">
+            Directly overseeing legal accuracy, academic liaisons, and technical platform integrity.
+          </p>
+        </div>
 
-        <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
-        >
-          {team.map((member) => (
-            <motion.div
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {team.map((member, idx) => (
+            <div
               key={member.id}
-              variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
-              whileHover={{ y: -6 }}
-              className="text-center rounded-2xl overflow-hidden transition-all hover:shadow-lg"
-              style={{
-                backgroundColor: '#FFFFFF',
-                border: '1px solid #E2E8F0'
-              }}
+              className="border border-[var(--color-border)] bg-[var(--color-card-bg)] transition-colors duration-150 hover:border-[var(--color-border-strong)] flex flex-col"
             >
-              <div className="aspect-square flex items-center justify-center" style={{ backgroundImage: 'linear-gradient(135deg, #1E6FD9, #1FAF7A)' }}>
-                <span className="text-6xl font-black text-white/90 tracking-tight">
+              <div className="aspect-square flex items-center justify-center border-b border-[var(--color-border)] bg-[var(--color-secondary-bg)] relative">
+                <span className="font-mono text-4xl font-black text-[var(--color-primary-text)] tracking-widest">
                   {member.name
                     .split(' ')
                     .map((part) => part[0])
                     .join('')}
                 </span>
+                <span className="absolute top-3 left-3 text-[10px] font-mono text-[var(--color-muted-text)]">
+                  TEAM-0{idx + 1}
+                </span>
               </div>
-              <div className="p-6">
-                <h3 className="text-lg font-bold mb-2" style={{ color: '#0F172A' }}>{member.name}</h3>
-                <p className="text-sm" style={{ color: '#1FAF7A' }}>{member.role}</p>
+              <div className="p-5">
+                <h3 className="text-base font-bold font-inter text-[var(--color-primary-text)]">
+                  {member.name}
+                </h3>
+                <p className="mt-1 text-xs font-mono uppercase tracking-wider text-[var(--color-accent-green)] font-semibold">
+                  {member.role}
+                </p>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

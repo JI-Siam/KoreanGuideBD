@@ -1,16 +1,16 @@
 import React from 'react';
 
 const Loading = () => {
-    return (
-        <div className="flex items-center justify-center min-h-[60vh] w-full">
-            <div className="flex flex-col items-center gap-3">
-                <span className="loading loading-dots loading-xl text-green-300"></span>
-                <p className="text-sm text-base-content/60 font-medium tracking-wide animate-pulse">
-                    Loading, please wait...
-                </p>
-            </div>
-        </div>
-    );
+  return (
+    <div className="flex items-center justify-center min-h-[60vh] w-full bg-[var(--color-primary-bg)]">
+      <div className="flex flex-col items-center gap-4 border border-[var(--color-border)] bg-[var(--color-secondary-bg)] p-8">
+        <div className="h-6 w-6 border-2 border-[var(--color-border)] border-t-[var(--color-primary-text)] animate-spin" />
+        <p className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--color-secondary-text)]">
+          Synchronizing Registry Data...
+        </p>
+      </div>
+    </div>
+  );
 };
 
 export default Loading;

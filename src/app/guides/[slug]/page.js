@@ -30,22 +30,21 @@ export default async function GuidePage({ params }) {
   
   if (!guide) {
     return (
-      <main style={{ backgroundColor: '#F7FAFF', minHeight: '100vh' }} className="pt-32">
+      <main className="min-h-screen bg-[var(--color-primary-bg)] text-[var(--color-primary-text)] pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-6">
           <Link
             href="/guides"
-            className="inline-flex items-center mb-8 font-semibold transition-colors"
-            style={{ color: '#1E6FD9' }}
+            className="inline-flex items-center mb-8 text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-primary-blue)] hover:underline"
           >
-            <FaArrowLeft className="mr-2" />
+            <FaArrowLeft className="mr-2" aria-hidden="true" />
             Back to Guides
           </Link>
-          <div className="text-center py-24">
-            <h1 className="text-3xl font-bold mb-4" style={{ color: '#0F172A' }}>
-              Guide not found
+          <div className="text-center py-20 border border-[var(--color-border)] bg-[var(--color-secondary-bg)] p-12">
+            <h1 className="text-3xl font-black mb-3 font-inter text-[var(--color-primary-text)]">
+              Publication Not Found
             </h1>
-            <p style={{ color: '#475569' }}>
-              Sorry, the guide you are looking for does not exist.
+            <p className="text-sm text-[var(--color-secondary-text)]">
+              The requested guide slug does not correspond to an active article in the registry.
             </p>
           </div>
         </div>
@@ -54,44 +53,38 @@ export default async function GuidePage({ params }) {
   }
 
   return (
-    <main style={{ backgroundColor: '#F7FAFF', minHeight: '100vh' }}>
-      {/* Hero/Header Section */}
-      <section className="pt-32 pb-12 px-6" style={{ backgroundColor: '#EEF4FB' }}>
+    <main className="min-h-screen bg-[var(--color-primary-bg)] text-[var(--color-primary-text)]">
+      {/* Header Section */}
+      <section className="pt-32 pb-12 px-6 bg-[var(--color-secondary-bg)] border-b border-[var(--color-border)]">
         <div className="max-w-4xl mx-auto">
           <Link
             href="/guides"
-            className="inline-flex items-center mb-8 font-semibold transition-colors hover:translate-x-1"
-            style={{ color: '#1E6FD9' }}
+            className="inline-flex items-center mb-6 text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-primary-blue)] hover:underline focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
           >
-            <FaArrowLeft className="mr-2" />
-            Back to Guides
+            <FaArrowLeft className="mr-2" aria-hidden="true" />
+            All Documentation
           </Link>
 
-          <div className="mb-8">
-            <div
-              className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-6"
-              style={{ backgroundColor: 'rgba(30, 111, 217, 0.1)', color: '#1E6FD9' }}
-            >
+          <div>
+            <span className="inline-block border border-[var(--color-border)] bg-[var(--color-card-bg)] px-3 py-1 text-xs font-mono font-bold uppercase tracking-widest text-[var(--color-primary-text)] mb-4">
               {guide.category || 'Guide'}
-            </div>
+            </span>
 
-            <h1 className="text-5xl md:text-6xl font-extrabold mb-4 tracking-tight" style={{ color: '#0F172A' }}>
+            <h1 className="text-3xl md:text-5xl font-black tracking-tight font-inter text-[var(--color-primary-text)]">
               {guide.title}
             </h1>
 
-            <div className="flex flex-wrap items-center gap-6 mt-6">
-              <div className="flex items-center gap-2" style={{ color: '#64748B' }}>
-                <FaClock />
-                <span className="text-sm font-medium">
-                  {guide.readTime || 5} min read
-                </span>
+            <div className="flex flex-wrap items-center gap-6 mt-6 pt-4 border-t border-[var(--color-border)] text-xs font-mono text-[var(--color-muted-text)]">
+              <div className="flex items-center gap-2">
+                <FaClock aria-hidden="true" />
+                <span>{guide.readTime || 5} MIN ESTIMATED READ</span>
               </div>
-              <div className="text-sm font-medium" style={{ color: '#64748B' }}>
-                {guide.publishedAt || guide.date ? `Published on ${new Date(guide.publishedAt || guide.date).toLocaleDateString('en-US', {
-                  month: 'long',
+              <div>
+                PUBLISHED: {guide.publishedAt || guide.date ? new Date(guide.publishedAt || guide.date).toLocaleDateString('en-US', {
+                  month: 'short',
                   day: 'numeric',
                   year: 'numeric'
-                })}` : 'Recently published'}
+                }).toUpperCase() : 'CURRENT STANDARD'}
               </div>
             </div>
           </div>
@@ -101,81 +94,39 @@ export default async function GuidePage({ params }) {
       {/* Content Section */}
       <section className="py-16 px-6">
         <div className="max-w-4xl mx-auto">
-          <article
-            className="prose prose-lg max-w-none"
-            style={{
-              color: '#0F172A'
-            }}
-          >
-            {/* Hero Image */}
+          <article className="guide-content">
             <div
-              className="rounded-2xl overflow-hidden mb-12 h-96 bg-gradient-to-br"
-              style={{ backgroundImage: 'linear-gradient(135deg, #1E6FD9, #1FAF7A)' }}
-            ></div>
-
-            {/* HTML Content */}
-            <div
-              className="guide-content"
               dangerouslySetInnerHTML={{ __html: guide.content }}
-              style={{
-                fontSize: '1.1rem',
-                lineHeight: '1.8'
-              }}
             />
           </article>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 px-6" style={{ backgroundColor: '#EEF4FB' }}>
+      {/* Footer Share & Actions */}
+      <section className="py-12 px-6 bg-[var(--color-secondary-bg)] border-t border-[var(--color-border)]">
         <div className="max-w-4xl mx-auto">
-          <div
-            className="p-8 rounded-2xl text-center"
-            style={{
-              backgroundColor: '#FFFFFF',
-              border: '1px solid #E2E8F0'
-            }}
-          >
-            <h2 className="text-2xl font-bold mb-4" style={{ color: '#0F172A' }}>
-              Found this guide helpful?
+          <div className="border border-[var(--color-border)] bg-[var(--color-card-bg)] p-8 text-center">
+            <h2 className="text-xl font-bold font-inter text-[var(--color-primary-text)] mb-2">
+              Found this documentation helpful?
             </h2>
-            <p className="mb-6" style={{ color: '#475569' }}>
-              Share it with others who might be interested in visiting Korea.
+            <p className="text-sm text-[var(--color-secondary-text)] mb-6 max-w-md mx-auto">
+              Share verified guidelines with prospective students, researchers, and professionals preparing their relocation.
             </p>
-            <button
-              className="inline-flex items-center px-8 py-3 rounded-full font-bold text-white transition-all hover:shadow-lg"
-              style={{ backgroundColor: '#1E6FD9' }}
-            >
-              <FaShare className="mr-2" />
-              Share Guide
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Related Guides Navigation */}
-      <section className="py-16 px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex justify-between items-center">
-            <Link
-              href="/guides"
-              className="inline-flex items-center px-6 py-3 rounded-full font-semibold transition-all"
-              style={{
-                backgroundColor: '#FFFFFF',
-                color: '#1E6FD9',
-                border: '2px solid #1E6FD9'
-              }}
-            >
-              <FaArrowLeft className="mr-2" />
-              All Guides
-            </Link>
-            <Link
-              href="/about"
-              className="inline-flex items-center px-6 py-3 rounded-full font-semibold text-white transition-all hover:shadow-lg"
-              style={{ backgroundColor: '#1E6FD9' }}
-            >
-              Learn More About Us
-            </Link>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Link
+                href="/guides"
+                className="btn btn-outline px-6 py-3 text-xs font-mono font-bold uppercase tracking-wider focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
+              >
+                <FaArrowLeft className="mr-2" aria-hidden="true" />
+                Return to Library
+              </Link>
+              <Link
+                href="/about"
+                className="btn btn-black px-6 py-3 text-xs font-mono font-bold uppercase tracking-wider focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
+              >
+                Learn More About Us →
+              </Link>
+            </div>
           </div>
         </div>
       </section>

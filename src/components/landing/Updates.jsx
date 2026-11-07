@@ -1,16 +1,11 @@
 import { updatesData as fallbackUpdates } from '@/lib/fakeData';
 
-// Colors are set inline so global CSS (h2, h3, p rules) can't override them.
-const INK = { color: '#18181b' };
-const BODY = { color: '#52525b' };
-const SOFT = { color: '#71717a' };
-
 const PRIORITY = {
-  high: { label: 'High priority', color: '#dc2626' },
-  medium: { label: 'Medium priority', color: '#d97706' },
-  low: { label: 'Low priority', color: '#2563eb' },
+  high: { label: 'High priority', color: 'var(--color-destructive)' },
+  medium: { label: 'Medium priority', color: 'var(--color-warning)' },
+  low: { label: 'Low priority', color: 'var(--color-primary-blue)' },
 };
-const FALLBACK_PRIORITY = { label: 'Update', color: '#a1a1aa' };
+const FALLBACK_PRIORITY = { label: 'Update', color: 'var(--color-muted-text)' };
 
 const formatDate = (value) => {
   const d = new Date(value);
@@ -28,7 +23,7 @@ async function getUpdates() {
     const updates = Array.isArray(data) ? data : data?.updates;
     if (Array.isArray(updates)) return updates;
   } catch {
-    // API down or unreachable: fall through to the local data
+    // API down or unreachable: fall through to local data
   }
   return fallbackUpdates;
 }
@@ -38,8 +33,8 @@ export default async function Updates() {
 
   if (!updates || updates.length === 0) {
     return (
-      <section className="bg-zinc-50 py-20">
-        <div className="mx-auto max-w-7xl px-6 text-center" style={SOFT}>
+      <section className="bg-[var(--color-secondary-bg)] py-20">
+        <div className="mx-auto max-w-7xl px-6 text-center text-[var(--color-muted-text)] font-medium">
           No updates found.
         </div>
       </section>
@@ -47,60 +42,57 @@ export default async function Updates() {
   }
 
   return (
-    <section className="bg-zinc-50 py-24 md:py-32">
+    <section className="bg-[var(--color-secondary-bg)] py-24 md:py-32 border-b border-[var(--color-border)]">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 md:px-8 lg:grid-cols-12 lg:gap-16">
-        {/* Heading stays in view while the list scrolls */}
+        {/* Heading column (Sticky Swiss sidebar) */}
         <div className="lg:col-span-4">
           <div className="lg:sticky lg:top-32">
-            <h2
-              className="font-outfit text-4xl font-black leading-[1.05] tracking-tight md:text-6xl"
-              style={INK}
-            >
+            <div className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-muted-text)] font-mono">
+              Policy &amp; Schedule
+            </div>
+            <h2 className="font-inter text-4xl font-black leading-[1.05] tracking-tight md:text-5xl text-[var(--color-primary-text)]">
               Latest updates
             </h2>
-            <p className="mt-5 max-w-sm text-lg leading-relaxed" style={BODY}>
-              Recent changes to visa rules, intake dates and requirements that could affect your plans.
+            <p className="mt-4 max-w-sm text-base leading-relaxed text-[var(--color-secondary-text)]">
+              Official regulatory changes, Korean embassy guidelines, and university intake deadlines that impact applicant status.
             </p>
           </div>
         </div>
 
-        <ul className="lg:col-span-8" style={{ borderBottom: '1px solid #d4d4d8' }}>
+        {/* Updates Feed */}
+        <ul className="lg:col-span-8 border-b border-[var(--color-border)]">
           {updates.map((update) => {
             const p = PRIORITY[update.priority] || FALLBACK_PRIORITY;
             return (
               <li
                 key={update.id}
-                className="relative grid gap-3 py-8 pl-6 md:grid-cols-12 md:gap-8 md:py-10 md:pl-8"
-                style={{ borderTop: '1px solid #d4d4d8' }}
+                className="relative grid gap-3 py-8 pl-6 md:grid-cols-12 md:gap-8 md:py-10 md:pl-8 border-t border-[var(--color-border)] hover:bg-[var(--color-surface-hover)] transition-colors"
               >
-                {/* Priority marker */}
+                {/* Priority line indicator */}
                 <span
-                  aria-hidden
+                  aria-hidden="true"
                   className="absolute left-0 top-0 h-full w-[3px]"
                   style={{ background: p.color }}
                 />
 
                 <div className="md:col-span-3">
-                  <p className="text-sm font-semibold" style={INK}>
+                  <p className="text-xs font-mono font-bold text-[var(--color-primary-text)]">
                     {formatDate(update.date)}
                   </p>
                   <p
-                    className="mt-1.5 inline-flex items-center gap-2 text-sm font-medium"
+                    className="mt-1.5 inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider"
                     style={{ color: p.color }}
                   >
-                    <span className="h-2 w-2 rounded-full" style={{ background: p.color }} />
+                    <span className="h-1.5 w-1.5" style={{ background: p.color }} aria-hidden="true" />
                     {p.label}
                   </p>
                 </div>
 
                 <div className="md:col-span-9">
-                  <h3
-                    className="font-outfit text-xl font-extrabold leading-snug md:text-2xl"
-                    style={INK}
-                  >
+                  <h3 className="font-inter text-xl font-bold leading-snug text-[var(--color-primary-text)]">
                     {update.title}
                   </h3>
-                  <p className="mt-3 max-w-2xl text-base leading-relaxed" style={BODY}>
+                  <p className="mt-2.5 max-w-2xl text-sm leading-relaxed text-[var(--color-secondary-text)]">
                     {update.content}
                   </p>
                 </div>

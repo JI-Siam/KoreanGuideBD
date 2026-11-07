@@ -22,24 +22,27 @@ export default function VisaTypeModal({ visa, onClose }) {
   const requirementItems = buildRequirementItems(visa.requirements);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/55 p-4 backdrop-blur-sm">
-      <div className="max-h-[92vh] w-full max-w-3xl overflow-hidden rounded-[28px] border border-[#E2E8F0] bg-white shadow-[0_28px_80px_rgba(15,23,42,0.22)]">
-        <div
-          className="flex items-start justify-between gap-6 px-7 py-7 text-white"
-          style={{ background: 'linear-gradient(135deg, #1E6FD9 0%, #0E4C97 52%, #1FAF7A 100%)' }}
-        >
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="visa-modal-title"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-xs"
+    >
+      <div className="max-h-[92vh] w-full max-w-3xl overflow-hidden border border-[var(--color-border-strong)] bg-[var(--color-card-bg)] text-[var(--color-primary-text)] shadow-xl flex flex-col">
+        {/* Header */}
+        <div className="flex items-start justify-between gap-6 px-7 py-6 border-b border-[var(--color-border)] bg-[var(--color-secondary-bg)]">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/80">
-              Visa details
+            <p className="text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-[var(--color-muted-text)]">
+              Official Visa Classification
             </p>
-            <h3 className="mt-2 text-3xl font-extrabold tracking-tight md:text-4xl">
+            <h2 id="visa-modal-title" className="mt-1 font-inter text-2xl md:text-3xl font-black tracking-tight text-[var(--color-primary-text)]">
               {visa.title}
-            </h3>
-            <div className="mt-3 flex flex-wrap items-center gap-2">
-              <span className="rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-white">
+            </h2>
+            <div className="mt-2.5 flex flex-wrap items-center gap-2">
+              <span className="border border-[var(--color-border)] bg-[var(--color-primary-black)] text-[var(--color-primary-bg)] px-2.5 py-0.5 text-xs font-mono font-bold">
                 {visa.code}
               </span>
-              <span className="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white/90">
+              <span className="border border-[var(--color-border)] bg-[var(--color-card-bg)] px-2.5 py-0.5 text-xs font-mono font-bold uppercase text-[var(--color-secondary-text)]">
                 {visa.category}
               </span>
             </div>
@@ -49,92 +52,88 @@ export default function VisaTypeModal({ visa, onClose }) {
             type="button"
             onClick={onClose}
             aria-label="Close visa details"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/25"
+            className="inline-flex h-9 w-9 shrink-0 items-center justify-center border border-[var(--color-border)] bg-[var(--color-card-bg)] text-[var(--color-primary-text)] transition-colors hover:border-[var(--color-border-strong)] focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
           >
-            <FaTimes size={18} />
+            <FaTimes size={16} />
           </button>
         </div>
 
-        <div className="max-h-[calc(92vh-196px)] overflow-y-auto px-7 py-7">
-          <div className="grid gap-5 md:grid-cols-3">
-            <div className="rounded-2xl border border-[#E2E8F0] bg-[#F7FAFF] p-5">
-              <div className="flex items-center gap-2 text-sm font-semibold text-[#64748B]">
-                <FaClock className="text-[#1E6FD9]" />
-                Duration
+        {/* Body */}
+        <div className="overflow-y-auto px-7 py-6 space-y-6">
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="border border-[var(--color-border)] bg-[var(--color-secondary-bg)] p-4">
+              <div className="flex items-center gap-2 text-xs font-mono text-[var(--color-muted-text)]">
+                <FaClock className="text-[var(--color-primary-blue)]" aria-hidden="true" />
+                <span>Allowed Stay</span>
               </div>
-              <p className="mt-2 text-lg font-bold text-[#0F172A]">
+              <p className="mt-1 text-base font-bold text-[var(--color-primary-text)] font-mono">
                 {visa.duration}
               </p>
             </div>
 
-            <div className="rounded-2xl border border-[#E2E8F0] bg-[#F7FAFF] p-5">
-              <div className="flex items-center gap-2 text-sm font-semibold text-[#64748B]">
-                <FaFileAlt className="text-[#1FAF7A]" />
-                Category
+            <div className="border border-[var(--color-border)] bg-[var(--color-secondary-bg)] p-4">
+              <div className="flex items-center gap-2 text-xs font-mono text-[var(--color-muted-text)]">
+                <FaFileAlt className="text-[var(--color-accent-green)]" aria-hidden="true" />
+                <span>Category</span>
               </div>
-              <p className="mt-2 text-lg font-bold text-[#0F172A]">
+              <p className="mt-1 text-base font-bold text-[var(--color-primary-text)] font-mono">
                 {visa.category}
               </p>
             </div>
 
-            <div className="rounded-2xl border border-[#E2E8F0] bg-[#F7FAFF] p-5">
-              <div className="text-sm font-semibold text-[#64748B]">Status</div>
-              <p className="mt-2 text-lg font-bold text-[#0F172A]">
-                Ready for intake review
+            <div className="border border-[var(--color-border)] bg-[var(--color-secondary-bg)] p-4">
+              <div className="text-xs font-mono text-[var(--color-muted-text)]">Review Phase</div>
+              <p className="mt-1 text-base font-bold text-[var(--color-primary-text)] font-mono">
+                Pre-Intake
               </p>
             </div>
           </div>
 
-          <section className="mt-8">
-            <h4 className="text-xl font-bold text-[#0F172A] md:text-2xl">
-              Overview
-            </h4>
-            <p className="mt-3 leading-8 text-[#475569]">
+          <section>
+            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-muted-text)]">
+              Scope of Permitted Activity
+            </h3>
+            <p className="mt-2 text-sm md:text-base leading-relaxed text-[var(--color-secondary-text)]">
               {visa.description}
             </p>
           </section>
 
-          <section className="mt-8">
-            <h4 className="text-xl font-bold text-[#0F172A] md:text-2xl">
-              Requirements
-            </h4>
-            <div className="mt-4 rounded-2xl border border-[#E2E8F0] bg-[#F7FAFF] p-5">
+          <section>
+            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-muted-text)]">
+              Statutory Documentation Checklist
+            </h3>
+            <div className="mt-2 border border-[var(--color-border)] bg-[var(--color-secondary-bg)] p-5">
               {requirementItems.length > 0 ? (
-                <ul className="space-y-3">
+                <ul className="space-y-2.5">
                   {requirementItems.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-[#475569]">
-                      <span className="mt-1 text-[#1E6FD9]">•</span>
-                      <span className="leading-7">{item}</span>
+                    <li key={item} className="flex items-start gap-2.5 text-xs md:text-sm text-[var(--color-secondary-text)]">
+                      <span className="text-[var(--color-accent-green)] font-mono font-bold">✓</span>
+                      <span className="leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
               ) : (
-                <p className="text-[#475569]">No requirement details available.</p>
+                <p className="text-xs text-[var(--color-muted-text)] font-mono">No specific prerequisites specified.</p>
               )}
             </div>
           </section>
 
           {visa.notes ? (
-            <section className="mt-8 rounded-2xl border border-[#D6E2F0] bg-[#EEF4FB] p-5">
-              <h4 className="text-lg font-bold text-[#0F172A]">Notes</h4>
-              <p className="mt-2 leading-7 text-[#475569]">{visa.notes}</p>
+            <section className="border-l-4 border-l-[var(--color-warning)] border-y border-r border-[var(--color-border)] bg-[var(--color-secondary-bg)] p-4">
+              <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--color-primary-text)]">Special Notes</h4>
+              <p className="mt-1 text-xs md:text-sm leading-relaxed text-[var(--color-secondary-text)]">{visa.notes}</p>
             </section>
           ) : null}
         </div>
 
-        <div className="flex flex-col gap-3 border-t border-[#E2E8F0] bg-[#F8FBFF] px-7 py-5 sm:flex-row sm:justify-end">
+        {/* Footer Actions */}
+        <div className="flex flex-col gap-3 border-t border-[var(--color-border)] bg-[var(--color-secondary-bg)] px-7 py-4 sm:flex-row sm:justify-end">
           <button
             type="button"
             onClick={onClose}
-            className="inline-flex items-center justify-center rounded-full border border-[#CBD5E1] bg-white px-5 py-3 text-sm font-semibold text-[#0F172A] transition hover:border-[#1E6FD9] hover:text-[#1E6FD9]"
+            className="btn btn-outline px-5 py-2.5 text-xs font-mono font-bold uppercase tracking-wider focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
           >
-            Close details
-          </button>
-          <button
-            type="button"
-            className="inline-flex items-center justify-center rounded-full bg-[#1E6FD9] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0E4C97]"
-          >
-            Save visa reference
+            Dismiss
           </button>
         </div>
       </div>

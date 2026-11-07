@@ -6,106 +6,99 @@ import { motion } from 'framer-motion';
 
 const Footer = () => {
   return (
-    <motion.footer
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="relative bg-[var(--color-primary-bg)] text-[var(--color-secondary-text)] pt-16 pb-10 overflow-hidden"
-    >
-      
-      {/* TOP GLOW */}
-      <div className="absolute inset-0">
-        <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[var(--color-primary-blue)]/10 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[-100px] right-[-100px] w-[400px] h-[400px] bg-[var(--color-accent-green)]/10 blur-[120px] rounded-full" />
-      </div>
-
-      <div className="relative z-10 container mx-auto px-6">
-        
-        {/* GRID */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.12 } },
-          }}
-        >
-          
-          {/* BRAND */}
-          <motion.div variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0 } }}>
-            <h4 className="text-2xl font-bold text-[var(--color-primary-text)] mb-3">
-             <span className='text-[var(--color-primary-blue)]'>Alvix</span><span className="text-[var(--color-accent-green)]">Education</span>
+    <footer className="relative bg-[var(--color-secondary-bg)] border-t border-[var(--color-border)] text-[var(--color-secondary-text)] pt-16 pb-12 transition-colors">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* SWISS GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[var(--color-border)]">
+          {/* BRAND (col 1-5) */}
+          <div className="md:col-span-5">
+            <h4 className="text-2xl font-bold text-[var(--color-primary-text)] tracking-tight mb-3 font-inter">
+              <span>Alvix</span><span className="text-[var(--color-accent-green)]">Education</span>
             </h4>
-            <p className="text-sm text-slate-400 leading-relaxed">
-              Practical guides, updated visa rules, and real insights to help you 
-              study, work, and live in Korea with confidence.
+            <p className="text-sm text-[var(--color-secondary-text)] leading-relaxed max-w-sm">
+              Practical guides, updated visa rules, and verified insights to help you 
+              study, work, and live in South Korea with clarity and confidence.
             </p>
-          </motion.div>
+          </div>
 
-          {/* LINKS */}
-          <motion.div variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0 } }}>
-            <h5 className="font-semibold text-[var(--color-primary-text)] mb-3">Explore</h5>
-            <ul className="space-y-2 text-sm">
+          {/* QUICK LINKS (col 6-8) */}
+          <div className="md:col-span-3">
+            <h5 className="text-xs font-bold uppercase tracking-wider text-[var(--color-primary-text)] mb-4">
+              Explore
+            </h5>
+            <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/guides" className="hover:text-[var(--color-primary-blue)] transition">
+                <Link
+                  href="/guides"
+                  className="text-[var(--color-secondary-text)] hover:text-[var(--color-primary-text)] transition-colors focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
+                >
                   Guides
                 </Link>
               </li>
               <li>
-                <Link href="/visa" className="hover:text-[var(--color-primary-blue)] transition">
+                <Link
+                  href="/guides/visa-types"
+                  className="text-[var(--color-secondary-text)] hover:text-[var(--color-primary-text)] transition-colors focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
+                >
                   Visa Types
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="hover:text-[var(--color-primary-blue)] transition">
-                  FAQ
+                <Link
+                  href="/guides/checklist"
+                  className="text-[var(--color-secondary-text)] hover:text-[var(--color-primary-text)] transition-colors focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
+                >
+                  Document Checklist
                 </Link>
               </li>
               <li>
-                <Link href="/updates" className="hover:text-[var(--color-primary-blue)] transition">
-                  Updates
+                <Link
+                  href="/about"
+                  className="text-[var(--color-secondary-text)] hover:text-[var(--color-primary-text)] transition-colors focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
+                >
+                  About Us
                 </Link>
               </li>
             </ul>
-          </motion.div>
+          </div>
 
-          {/* SOCIAL */}
-          <motion.div variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0 } }}>
-            <h5 className="font-semibold text-[var(--color-primary-text)] mb-3">Connect</h5>
-            
-            <div className="flex gap-4 mb-4">
+          {/* SOCIAL & CONNECT (col 9-12) */}
+          <div className="md:col-span-4">
+            <h5 className="text-xs font-bold uppercase tracking-wider text-[var(--color-primary-text)] mb-4">
+              Connect
+            </h5>
+            <div className="flex flex-wrap gap-2.5 mb-6">
               {['Twitter', 'YouTube', 'Facebook'].map((item) => (
-                <motion.a
+                <a
                   key={item}
                   href="#"
-                  whileHover={{ y: -2, scale: 1.03 }}
-                  className="
-                    px-3 py-2 text-sm rounded-lg
-                    bg-white/5 border border-[var(--color-border)]
-                    hover:bg-[var(--color-secondary-bg)] hover:text-[var(--color-primary-text)]
-                    transition-all
-                  "
+                  className="px-3.5 py-1.5 text-xs font-semibold border border-[var(--color-border)] bg-[var(--color-card-bg)] text-[var(--color-primary-text)] hover:border-[var(--color-border-strong)] transition-colors focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none"
                 >
                   {item}
-                </motion.a>
+                </a>
               ))}
             </div>
 
-            <p className="text-xs text-slate-500">
-              © {new Date().getFullYear()} KoreanGuideBD
+            <p className="text-xs text-[var(--color-muted-text)] font-mono">
+              © {new Date().getFullYear()} KoreanGuideBD • All rights reserved.
             </p>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
-        {/* DIVIDER */}
-        <div className="border-t border-white/10 pt-6 text-center text-xs text-slate-500">
-          Built with care for students, travelers, and professionals exploring Korea 🇰🇷
+        {/* BOTTOM METADATA */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--color-muted-text)]">
+          <p>
+            Standardized immigration guidance and educational portal.
+          </p>
+          <div className="flex items-center gap-6">
+            <Link href="/privacy" className="hover:text-[var(--color-primary-text)] transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-[var(--color-primary-text)] transition-colors">Terms</Link>
+            <span className="text-[var(--color-border)]">|</span>
+            <span>Seoul • Dhaka</span>
+          </div>
         </div>
       </div>
-    </motion.footer>
+    </footer>
   );
 };
 

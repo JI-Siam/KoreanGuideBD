@@ -1,14 +1,17 @@
 import LoginForm from '@/components/auth/LoginForm';
 import React from 'react';
 
-const page = () => {
-    return (
-        <div>
+export const metadata = {
+  title: 'Sign In - Korean Guide BD',
+  description: 'Access your verified Korean immigration and study checklist.',
+};
 
-                <LoginForm></LoginForm>
-            
-        </div>
-    );
+const page = () => {
+  return (
+    <main>
+      <LoginForm />
+    </main>
+  );
 };
 
 export default page;

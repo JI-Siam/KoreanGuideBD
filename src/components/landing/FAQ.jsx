@@ -1,14 +1,6 @@
 import { faqsData as fallbackFaqs } from '@/lib/fakeData';
 import Link from 'next/link';
 
-// Colors are set inline so global CSS (h2, h3, p, a rules) can't override them.
-const BRAND = '#10B981';
-const INK = { color: '#18181b' };
-const BODY = { color: '#52525b' };
-const SOFT = { color: '#71717a' };
-const WHITE = { color: '#ffffff' };
-const MUTED_ON_DARK = { color: '#d4d4d8' };
-
 async function getFaqs() {
   try {
     const base = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3005';
@@ -18,7 +10,7 @@ async function getFaqs() {
     const faqs = Array.isArray(data) ? data : data?.faqs;
     if (Array.isArray(faqs)) return faqs;
   } catch {
-    // API down or unreachable: fall through to the local data
+    // API down or unreachable: fall through to local data
   }
   return fallbackFaqs;
 }
@@ -28,8 +20,8 @@ export default async function FAQ() {
 
   if (!faqs || faqs.length === 0) {
     return (
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-7xl px-6 text-center" style={SOFT}>
+      <section className="bg-[var(--color-primary-bg)] py-20">
+        <div className="mx-auto max-w-7xl px-6 text-center text-[var(--color-muted-text)] font-medium">
           No FAQs available.
         </div>
       </section>
@@ -37,48 +29,42 @@ export default async function FAQ() {
   }
 
   return (
-    <section className="bg-white py-24 md:py-32">
+    <section className="bg-[var(--color-primary-bg)] py-24 md:py-32 border-b border-[var(--color-border)]">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         {/* Header */}
         <div className="mb-12 max-w-3xl md:mb-16">
-          <h2
-            className="font-outfit text-4xl font-black leading-[1.05] tracking-tight md:text-6xl"
-            style={INK}
-          >
-            Questions we hear most
+          <div className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-muted-text)] font-mono">
+            Support &amp; Inquiries
+          </div>
+          <h2 className="font-inter text-4xl font-black leading-[1.05] tracking-tight md:text-5xl text-[var(--color-primary-text)]">
+            Frequently Asked Questions
           </h2>
-          <p className="mt-5 text-lg leading-relaxed" style={BODY}>
-            Quick answers about visas, travel and living in Korea.
+          <p className="mt-4 text-base md:text-lg leading-relaxed text-[var(--color-secondary-text)]">
+            Verified answers to common queries regarding immigration procedures, academic calendar timelines, and living standards.
           </p>
         </div>
 
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-          {/* Questions */}
-          <div className="lg:col-span-8" style={{ borderBottom: '1px solid #d4d4d8' }}>
+          {/* Questions (Swiss Accordion List) */}
+          <div className="lg:col-span-8 border-b border-[var(--color-border)]">
             {faqs.map((faq) => (
               <details
                 key={faq.id}
-                className="group"
-                style={{ borderTop: '1px solid #d4d4d8' }}
+                className="group border-t border-[var(--color-border)]"
               >
                 <summary
-                  className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 transition-colors hover:bg-zinc-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] [&::-webkit-details-marker]:hidden md:px-4"
-                  style={{ outlineColor: BRAND }}
+                  className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 transition-colors hover:bg-[var(--color-surface-hover)] focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:outline-none md:px-4"
                 >
-                  <h3
-                    className="font-outfit flex-1 text-lg font-bold leading-snug md:text-xl"
-                    style={INK}
-                  >
+                  <h3 className="font-inter flex-1 text-base md:text-lg font-bold leading-snug text-[var(--color-primary-text)]">
                     {faq.question}
                   </h3>
                   <span
-                    aria-hidden
-                    className="flex h-9 w-9 shrink-0 items-center justify-center border transition-transform duration-300 group-open:rotate-45"
-                    style={{ borderColor: '#d4d4d8', color: '#18181b' }}
+                    aria-hidden="true"
+                    className="flex h-8 w-8 shrink-0 items-center justify-center border border-[var(--color-border)] text-[var(--color-primary-text)] transition-transform duration-200 group-open:rotate-45"
                   >
                     <svg
-                      width="16"
-                      height="16"
+                      width="14"
+                      height="14"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -91,10 +77,7 @@ export default async function FAQ() {
                 </summary>
 
                 <div className="pb-8 md:px-4">
-                  <p
-                    className="max-w-2xl border-l-[3px] pl-5 text-base leading-relaxed"
-                    style={{ ...BODY, borderColor: BRAND }}
-                  >
+                  <p className="max-w-2xl border-l-2 border-l-[var(--color-accent-green)] pl-5 text-sm md:text-base leading-relaxed text-[var(--color-secondary-text)]">
                     {faq.answer}
                   </p>
                 </div>
@@ -102,29 +85,27 @@ export default async function FAQ() {
             ))}
           </div>
 
-          {/* Help card */}
+          {/* Help card (Swiss Poster Aside) */}
           <aside className="lg:col-span-4">
-            <div
-              className="relative p-8 lg:sticky lg:top-28"
-              style={{ background: '#09090b' }}
-            >
+            <div className="relative p-8 bg-black text-white border border-black lg:sticky lg:top-28">
               <span
-                aria-hidden
-                className="absolute left-0 top-0 h-full w-[3px]"
-                style={{ background: BRAND }}
+                aria-hidden="true"
+                className="absolute left-0 top-0 h-full w-[3px] bg-[var(--color-accent-green)]"
               />
-              <h3 className="font-outfit text-2xl font-black leading-tight" style={WHITE}>
-                Can't find your answer?
+              <div className="text-[10px] font-mono font-bold uppercase tracking-widest text-zinc-400 mb-2">
+                Assistance
+              </div>
+              <h3 className="font-inter text-2xl font-black leading-tight text-white">
+                Can&apos;t find your answer?
               </h3>
-              <p className="mt-3 text-sm leading-relaxed" style={MUTED_ON_DARK}>
-                Our guides go step by step through visas, documents and settling in.
+              <p className="mt-3 text-sm leading-relaxed text-zinc-300">
+                Our in-depth guides go step by step through visas, required forms, and local bank account setup.
               </p>
               <Link
                 href="/guides"
-                className="mt-6 inline-flex items-center px-6 py-3 text-sm font-semibold transition-all hover:brightness-90"
-                style={{ background: BRAND, color: '#ffffff' }}
+                className="btn btn-primary mt-6 inline-flex items-center px-6 py-3 text-xs font-bold uppercase tracking-wider focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
               >
-                Open the guides
+                Open the guides →
               </Link>
             </div>
           </aside>
